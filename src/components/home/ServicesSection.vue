@@ -69,32 +69,27 @@ const handleConsult = (solutionId: string) => {
           :key="solution.id"
           class="group relative flex flex-col justify-between rounded-2xl glass-panel p-6 sm:p-8 hover:bg-brand-surface-elevated/90 transition-all duration-300 border border-white/10 hover:border-brand-accent/50 hover:shadow-glow-accent/25"
         >
-          <!-- Top Row: Number & Icon -->
+          <!-- Top Row: Line Badge in Blue Box & Icon (No //01 numbers) -->
           <div>
             <div class="flex items-center justify-between mb-5">
-              <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-accent transition-colors">
-                // {{ solution.number }}
+              <!-- Suitech Line (en azul y en recuadro) -->
+              <span class="inline-flex items-center text-xs font-mono font-semibold uppercase tracking-wider text-brand-accent bg-brand-accent/10 px-3 py-1.5 rounded-lg border border-brand-accent/30 shadow-sm">
+                {{ solution.title }}
               </span>
 
+              <!-- Icon -->
               <div class="w-12 h-12 rounded-xl bg-brand-surface border border-white/10 group-hover:border-brand-accent/40 flex items-center justify-center text-brand-accent-glow group-hover:scale-105 transition-all duration-300 shadow-md">
                 <component :is="iconMap[solution.iconName] || Code2" class="w-6 h-6 text-brand-accent group-hover:text-blue-300" />
               </div>
             </div>
 
-            <!-- Title First -->
-            <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-200 transition-colors">
-              {{ solution.title }}
+            <!-- Título del servicio blanco y grande -->
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight group-hover:text-blue-100 transition-colors">
+              {{ solution.badge }}
             </h3>
 
-            <!-- Badge Inverted (Below Title) -->
-            <div class="mt-2.5 mb-3.5">
-              <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-brand-accent bg-brand-accent/10 px-2.5 py-1 rounded-md border border-brand-accent/20">
-                {{ solution.badge }}
-              </span>
-            </div>
-
             <!-- Summary -->
-            <p class="mt-3 text-sm text-slate-300 leading-relaxed font-normal">
+            <p class="mt-3.5 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
               {{ solution.summary }}
             </p>
 

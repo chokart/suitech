@@ -61,7 +61,7 @@ export const SOLUTIONS: SolutionItem[] = [
     id: 'suitech-iot',
     number: '03',
     title: 'Suitech IoT',
-    badge: 'Hardware + Firmware + Web',
+    badge: 'Dispositivos Inteligentes & IoT',
     summary: 'Dispositivos inteligentes, sensores, ESP32, monitoreo remoto, telemetría y conexión entre hardware, software y servicios en la nube.',
     description: 'Unimos el mundo físico con la web: capturamos lecturas desde sensores en campo, las transmitimos de forma segura y las visualizamos en tiempo real.',
     iconName: 'Cpu',
