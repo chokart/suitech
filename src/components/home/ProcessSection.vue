@@ -18,7 +18,7 @@ const iconMap: Record<string, any> = {
 </script>
 
 <template>
-  <section class="py-24 relative bg-brand-surface/30 border-y border-white/10 overflow-hidden">
+  <section id="metodologia" class="py-24 relative bg-brand-surface/30 border-y border-white/10 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Section Header -->

@@ -18,17 +18,17 @@ const handleSolutionSelection = (solutionId: string) => {
 
 <template>
   <div class="home-view">
-    <!-- Hero Principal -->
+    <!-- Hero Principal (Sección 1) -->
     <HeroSection />
 
-    <!-- Soluciones con tarjetas interactivas -->
+    <!-- Metodología de Desarrollo: Cómo trabajamos (Sección 2) -->
+    <ProcessSection />
+
+    <!-- Capacidades & Servicios (Sección 3) -->
     <ServicesSection @select-solution="handleSolutionSelection" />
 
     <!-- Principios de Ingeniería -->
     <WhySuitechSection />
-
-    <!-- Metodología de Desarrollo: Cómo trabajamos -->
-    <ProcessSection />
 
     <!-- Campos de Aplicación -->
     <IndustriesSection />
