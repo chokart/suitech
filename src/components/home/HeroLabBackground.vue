@@ -45,7 +45,7 @@ onMounted(() => {
   }
 
   const nodes: Node[] = [];
-  const nodeCount = prefersReducedMotion ? 0 : Math.min(Math.floor((w * h) / 14000), 55);
+  const nodeCount = prefersReducedMotion ? 0 : Math.min(Math.floor((w * h) / 16000), 40);
 
   const colors = [
     '0, 110, 254',   // Electric Blue Suitech
@@ -57,23 +57,23 @@ onMounted(() => {
     nodes.push({
       x: Math.random() * w,
       y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.2,
-      vy: (Math.random() - 0.5) * 0.15,
-      size: Math.random() * 1.6 + 0.6,
-      opacity: Math.random() * 0.5 + 0.15,
+      vx: (Math.random() - 0.5) * 0.18,
+      vy: (Math.random() - 0.5) * 0.12,
+      size: Math.random() * 1.5 + 0.5,
+      opacity: Math.random() * 0.45 + 0.15,
       color: colors[Math.floor(Math.random() * colors.length)]
     });
   }
 
   let tick = 0;
-  const connDist = 95;
+  const connDist = 90;
 
   const render = () => {
-    tick += 0.008;
+    tick += 0.007;
     ctx.clearRect(0, 0, w, h);
 
     // Subtle connection lines between telemetry nodes
-    ctx.lineWidth = 0.4;
+    ctx.lineWidth = 0.35;
     for (let i = 0; i < nodes.length; i++) {
       const a = nodes[i];
       for (let j = i + 1; j < nodes.length; j++) {
@@ -87,7 +87,7 @@ onMounted(() => {
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(0, 110, 254, ${0.12 * (1 - dist / connDist)})`;
+          ctx.strokeStyle = `rgba(0, 110, 254, ${0.15 * (1 - dist / connDist)})`;
           ctx.stroke();
         }
       }
@@ -108,13 +108,13 @@ onMounted(() => {
 
       // Glow halo
       ctx.beginPath();
-      ctx.arc(n.x, n.y, n.size * 3, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${n.color}, ${op * 0.15})`;
+      ctx.arc(n.x, n.y, n.size * 2.8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${n.color}, ${op * 0.18})`;
       ctx.fill();
 
       // Dot core
       ctx.beginPath();
-      ctx.arc(n.x, n.y, n.size * 0.8, 0, Math.PI * 2);
+      ctx.arc(n.x, n.y, n.size * 0.75, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${n.color}, ${op})`;
       ctx.fill();
     }
@@ -136,40 +136,40 @@ onMounted(() => {
 <template>
   <div class="absolute inset-0 overflow-hidden z-0 pointer-events-none select-none">
     
-    <!-- Base Layer: Laboratorio Suitech Image -->
+    <!-- Base Layer: Laboratorio Suitech Image (much clearer and brighter) -->
     <div class="absolute inset-0 bg-brand-dark">
       <img
         src="/laboratorio.png"
         alt="Laboratorio Tecnológico Suitech"
-        class="w-full h-full object-cover object-center lab-image-drift filter brightness-[0.78] contrast-[1.12]"
+        class="w-full h-full object-cover object-center lab-image-drift filter brightness-[0.92] contrast-[1.08] saturate-[1.05]"
         loading="eager"
         decoding="sync"
       />
     </div>
 
-    <!-- Primary Darkening Multiply (gives deep rich tech navy tone) -->
-    <div class="absolute inset-0 bg-[#070c17]/65 mix-blend-multiply"></div>
+    <!-- Soft Tech Navy tint (much lighter: 30% instead of 65%) -->
+    <div class="absolute inset-0 bg-[#070c17]/30 mix-blend-multiply"></div>
 
     <!-- Subtle Cyan/Blue Accent Hue Tint -->
-    <div class="absolute inset-0 bg-brand-accent/[0.08] mix-blend-color"></div>
+    <div class="absolute inset-0 bg-brand-accent/[0.05] mix-blend-color"></div>
 
-    <!-- Radial Vignette for Center Text Readability -->
+    <!-- Balanced Vignette: keeps center legible while leaving all sides of the lab vivid -->
     <div
       class="absolute inset-0"
-      style="background: radial-gradient(ellipse 85% 65% at 50% 45%, rgba(5,10,24,0.55) 0%, rgba(5,10,24,0.85) 60%, rgba(5,10,24,0.96) 100%);"
+      style="background: radial-gradient(ellipse 95% 75% at 50% 45%, rgba(5,10,24,0.32) 0%, rgba(5,10,24,0.58) 55%, rgba(5,10,24,0.85) 100%);"
     ></div>
 
     <!-- Transparent Telemetry Particle Canvas -->
     <canvas ref="canvasRef" class="absolute inset-0 w-full h-full block z-[2]"></canvas>
 
-    <!-- Top Navigation Fade -->
-    <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#070c17]/95 via-[#070c17]/50 to-transparent z-[3]"></div>
+    <!-- Top Navigation Fade (delicate) -->
+    <div class="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#070c17]/90 via-[#070c17]/40 to-transparent z-[3]"></div>
 
     <!-- Bottom Transition Fade into Capabilities Bar -->
-    <div class="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-[#070c17] via-[#070c17]/85 to-transparent z-[3]"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#070c17] via-[#070c17]/80 to-transparent z-[3]"></div>
 
-    <!-- Subtle Film Grain for high-end cinematic feel -->
-    <div class="absolute inset-0 lab-grain opacity-[0.035] mix-blend-overlay z-[4]"></div>
+    <!-- Ultra-subtle Film Grain -->
+    <div class="absolute inset-0 lab-grain opacity-[0.025] mix-blend-overlay z-[4]"></div>
   </div>
 </template>
 
@@ -184,10 +184,10 @@ onMounted(() => {
     transform: scale(1.02) translate(0%, 0%);
   }
   50% {
-    transform: scale(1.05) translate(-0.8%, -0.6%);
+    transform: scale(1.04) translate(-0.6%, -0.4%);
   }
   100% {
-    transform: scale(1.03) translate(0.6%, -0.3%);
+    transform: scale(1.025) translate(0.5%, -0.2%);
   }
 }
 

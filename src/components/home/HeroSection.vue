@@ -126,26 +126,6 @@ onUnmounted(() => {
     <!-- Suitech Engineering Lab & Prototyping Background -->
     <HeroLabBackground />
 
-    <!-- Focal glow behind title area -->
-    <div
-      class="absolute z-[1] pointer-events-none"
-      style="
-        top: 20%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 70vw;
-        height: 50vh;
-        background: radial-gradient(ellipse at center, rgba(0,110,254,0.08) 0%, transparent 70%);
-        filter: blur(40px);
-      "
-    ></div>
-
-    <!-- Soft vignette overlay -->
-    <div
-      class="absolute inset-0 z-[1] pointer-events-none"
-      style="background: radial-gradient(ellipse 85% 65% at 50% 45%, transparent 0%, rgba(4,8,16,0.65) 100%);"
-    ></div>
-
     <!-- ═══ Main Content ═══ -->
     <div class="relative z-10 w-full flex-1 flex flex-col justify-center">
       <div class="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-14 w-full flex flex-col items-center text-center py-20 lg:py-24">
@@ -170,7 +150,7 @@ onUnmounted(() => {
         <!-- ═══ Monumental Title ═══ -->
         <h1
           :class="[
-            'text-[2.2rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.8rem] font-extrabold tracking-[-0.025em] text-white max-w-6xl transition-all duration-1000 delay-200',
+            'text-[2.2rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.8rem] font-extrabold tracking-[-0.025em] text-white max-w-6xl transition-all duration-1000 delay-200 hero-title-shadow',
             isReady
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-8'
@@ -204,7 +184,7 @@ onUnmounted(() => {
         <!-- Subtitle -->
         <p
           :class="[
-            'mt-8 sm:mt-10 text-[0.95rem] sm:text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl transition-all duration-1000 delay-500',
+            'mt-8 sm:mt-10 text-[0.95rem] sm:text-lg lg:text-xl text-slate-300 leading-relaxed max-w-2xl transition-all duration-1000 delay-500 hero-subtitle-shadow',
             isReady
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-6'
@@ -295,11 +275,20 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.hero-title-shadow {
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle-shadow {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+}
+
 .hero-gradient-text {
   background: linear-gradient(135deg, #006EFE 0%, #38BDF8 55%, #7dd3fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 4px 20px rgba(0, 110, 254, 0.4));
 }
 
 .scroll-pulse {
