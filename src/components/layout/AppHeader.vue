@@ -10,8 +10,7 @@ const navLinks = [
   { name: 'Soluciones', href: '#soluciones' },
   { name: 'Proyectos', href: '#proyectos' },
   { name: 'Aprendizaje', href: '#aprendizaje' },
-  { name: 'Nosotros', href: '#nosotros' },
-  { name: 'Contacto', href: '#contacto' }
+  { name: 'Nosotros', href: '#nosotros' }
 ];
 
 const handleScroll = () => {
