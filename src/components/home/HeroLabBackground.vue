@@ -136,37 +136,37 @@ onMounted(() => {
 <template>
   <div class="absolute inset-0 overflow-hidden z-0 pointer-events-none select-none">
     
-    <!-- Base Layer: Laboratorio Suitech Image (much clearer and brighter) -->
+    <!-- Base Layer: Laboratorio Suitech Image (balanced tone) -->
     <div class="absolute inset-0 bg-brand-dark">
       <img
         src="/laboratorio.png"
         alt="Laboratorio Tecnológico Suitech"
-        class="w-full h-full object-cover object-center lab-image-drift filter brightness-[0.92] contrast-[1.08] saturate-[1.05]"
+        class="w-full h-full object-cover object-center lab-image-drift filter brightness-[0.85] contrast-[1.10] saturate-[1.03]"
         loading="eager"
         decoding="sync"
       />
     </div>
 
-    <!-- Soft Tech Navy tint (much lighter: 30% instead of 65%) -->
-    <div class="absolute inset-0 bg-[#070c17]/30 mix-blend-multiply"></div>
+    <!-- Soft Tech Navy tint (balanced at 45%) -->
+    <div class="absolute inset-0 bg-[#070c17]/45 mix-blend-multiply"></div>
 
     <!-- Subtle Cyan/Blue Accent Hue Tint -->
-    <div class="absolute inset-0 bg-brand-accent/[0.05] mix-blend-color"></div>
+    <div class="absolute inset-0 bg-brand-accent/[0.06] mix-blend-color"></div>
 
-    <!-- Balanced Vignette: keeps center legible while leaving all sides of the lab vivid -->
+    <!-- Balanced Vignette: keeps center legible while leaving lab details beautifully visible -->
     <div
       class="absolute inset-0"
-      style="background: radial-gradient(ellipse 95% 75% at 50% 45%, rgba(5,10,24,0.32) 0%, rgba(5,10,24,0.58) 55%, rgba(5,10,24,0.85) 100%);"
+      style="background: radial-gradient(ellipse 92% 70% at 50% 45%, rgba(5,10,24,0.40) 0%, rgba(5,10,24,0.68) 55%, rgba(5,10,24,0.90) 100%);"
     ></div>
 
     <!-- Transparent Telemetry Particle Canvas -->
     <canvas ref="canvasRef" class="absolute inset-0 w-full h-full block z-[2]"></canvas>
 
-    <!-- Top Navigation Fade (delicate) -->
-    <div class="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#070c17]/90 via-[#070c17]/40 to-transparent z-[3]"></div>
+    <!-- Top Navigation Fade -->
+    <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#070c17]/92 via-[#070c17]/45 to-transparent z-[3]"></div>
 
     <!-- Bottom Transition Fade into Capabilities Bar -->
-    <div class="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#070c17] via-[#070c17]/80 to-transparent z-[3]"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#070c17] via-[#070c17]/82 to-transparent z-[3]"></div>
 
     <!-- Ultra-subtle Film Grain -->
     <div class="absolute inset-0 lab-grain opacity-[0.025] mix-blend-overlay z-[4]"></div>
