@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 import HeroLabBackground from './HeroLabBackground.vue';
-import { ArrowRight, ChevronRight } from 'lucide-vue-next';
+import { 
+  ArrowRight, 
+  ChevronRight, 
+  Code2, 
+  BrainCircuit, 
+  Cpu, 
+  Workflow 
+} from 'lucide-vue-next';
 
 // ─── Typewriter rotating words ───
 const rotatingWords = [
@@ -47,60 +54,42 @@ function typeEffect() {
   }
 }
 
-// ─── Metrics data ───
-const metrics = [
-  { value: 'Full-Stack', label: 'Software + Hardware + IA', accent: false },
-  { value: '100%', label: 'Ingeniería aplicada', accent: true },
-  { value: 'Open', label: 'Tecnología abierta', accent: false },
-  { value: '24/7', label: 'Monitoreo continuo', accent: true },
+// ─── Bottom Capabilities Bar (Software, IA, IoT, Automatización) ───
+const capabilities = [
+  {
+    tag: '01',
+    title: 'SOFTWARE',
+    subtitle: 'A medida & aplicaciones web',
+    icon: Code2,
+    accent: false,
+  },
+  {
+    tag: '02',
+    title: 'INTELIGENCIA ARTIFICIAL',
+    subtitle: 'Modelos aplicados & datos',
+    icon: BrainCircuit,
+    accent: true,
+  },
+  {
+    tag: '03',
+    title: 'IOT',
+    subtitle: 'Sensores & telemetría ESP32',
+    icon: Cpu,
+    accent: false,
+  },
+  {
+    tag: '04',
+    title: 'AUTOMATIZACIÓN',
+    subtitle: 'Integración & flujos digitales',
+    icon: Workflow,
+    accent: true,
+  },
 ];
-
-const animatedValues = ref<Record<number, string>>({});
-
-function animateCountUp(index: number, target: string) {
-  if (target === '100%') {
-    let current = 0;
-    const step = () => {
-      current += 3;
-      if (current >= 100) {
-        animatedValues.value[index] = '100%';
-        return;
-      }
-      animatedValues.value[index] = current + '%';
-      requestAnimationFrame(step);
-    };
-    animatedValues.value[index] = '0%';
-    step();
-  } else if (target === '24/7') {
-    let current = 0;
-    const step = () => {
-      current += 1;
-      if (current >= 24) {
-        animatedValues.value[index] = '24/7';
-        return;
-      }
-      animatedValues.value[index] = current + '/7';
-      requestAnimationFrame(step);
-    };
-    animatedValues.value[index] = '0/7';
-    step();
-  } else {
-    animatedValues.value[index] = target;
-  }
-}
-
-function getMetricValue(index: number, fallback: string) {
-  return animatedValues.value[index] ?? fallback;
-}
 
 onMounted(() => {
   setTimeout(() => { isReady.value = true; }, 100);
   typeTimer = setTimeout(typeEffect, 900);
   cursorTimer = setInterval(() => { showCursor.value = !showCursor.value; }, 500);
-
-  setTimeout(() => {
-    metrics.forEach((m, i) => animateCountUp(i, m.value));
-  }, 1200);
 });
 
 onUnmounted(() => {
@@ -121,7 +110,7 @@ onUnmounted(() => {
     <!-- ═══ Main Central Content ═══ -->
     <div class="relative z-10 w-full flex-1 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-32 pb-16">
       
-      <!-- Frosted Glass Console Backdrop (isolates text from busy background noise) -->
+      <!-- Frosted Glass Console Backdrop (clean typography, no clash) -->
       <div
         :class="[
           'max-w-4xl w-full mx-auto p-6 sm:p-10 md:p-12 rounded-3xl glass-hero border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] flex flex-col items-center text-center transition-all duration-1000',
@@ -129,16 +118,7 @@ onUnmounted(() => {
         ]"
       >
 
-        <!-- Tagline Pill -->
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-[11px] sm:text-xs font-mono tracking-wider text-slate-300 uppercase mb-6 sm:mb-8 backdrop-blur-md">
-          <span class="flex h-2 w-2 relative">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
-          </span>
-          <span>Software · Inteligencia Artificial · IoT · Automatización</span>
-        </div>
-
-        <!-- Monumental Title (clean, no absolute overlap bugs) -->
+        <!-- Monumental Title -->
         <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12] max-w-3xl">
           <span class="block text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
             Convertimos ideas en
@@ -155,7 +135,7 @@ onUnmounted(() => {
           </span>
         </h1>
 
-        <!-- Subtitle (strictly separated, zero risk of text overlap) -->
+        <!-- Subtitle -->
         <p class="mt-6 sm:mt-8 text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
           Desarrollamos software, integramos inteligencia artificial y conectamos
           dispositivos para crear <span class="text-cyan-300 font-semibold">soluciones digitales prácticas</span>
@@ -185,33 +165,40 @@ onUnmounted(() => {
 
     </div>
 
-    <!-- ═══ Metrics Strip ═══ -->
+    <!-- ═══ Bottom Bar: SOFTWARE · INTELIGENCIA ARTIFICIAL · IOT · AUTOMATIZACIÓN ═══ -->
     <div
       :class="[
-        'relative z-10 w-full border-t border-white/[0.08] transition-all duration-1000 delay-500',
+        'relative z-10 w-full border-t border-white/[0.1] transition-all duration-1000 delay-500',
         isReady ? 'opacity-100' : 'opacity-0'
       ]"
-      style="background: linear-gradient(180deg, rgba(7,12,23,0.7) 0%, rgba(7,12,23,0.95) 100%); backdrop-filter: blur(16px);"
+      style="background: linear-gradient(180deg, rgba(7,12,23,0.75) 0%, rgba(7,12,23,0.95) 100%); backdrop-filter: blur(16px);"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 lg:grid-cols-4">
-          <div
-            v-for="(metric, index) in metrics"
+          <a
+            v-for="(item, index) in capabilities"
             :key="index"
+            href="#soluciones"
             :class="[
-              'py-4 sm:py-6 px-4 sm:px-6 text-center lg:text-left',
+              'group py-5 sm:py-6 px-4 sm:px-6 flex flex-col justify-center transition-all hover:bg-white/[0.04]',
               index > 0 ? 'border-l border-white/[0.08]' : '',
             ]"
           >
-            <div class="font-mono text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight">
-              <span :class="metric.accent ? 'text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-300' : 'text-white'">
-                {{ getMetricValue(index, metric.value) }}
+            <div class="flex items-center gap-2 mb-1.5">
+              <component :is="item.icon" class="w-4 h-4 text-brand-accent group-hover:text-cyan-300 transition-colors" />
+              <span class="font-mono text-[10px] text-slate-500 font-semibold">// {{ item.tag }}</span>
+            </div>
+            
+            <div class="font-mono text-sm sm:text-base lg:text-lg font-extrabold tracking-tight">
+              <span :class="item.accent ? 'text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-300' : 'text-white group-hover:text-cyan-300 transition-colors'">
+                {{ item.title }}
               </span>
             </div>
-            <div class="text-[10px] sm:text-xs text-slate-400 mt-1 uppercase tracking-wider font-medium">
-              {{ metric.label }}
+            
+            <div class="text-[10px] sm:text-[11px] text-slate-400 mt-1 uppercase tracking-wider font-medium truncate">
+              {{ item.subtitle }}
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
