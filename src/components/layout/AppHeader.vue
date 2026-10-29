@@ -36,45 +36,45 @@ onUnmounted(() => {
     :class="[
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
       isScrolled 
-        ? 'py-3 bg-brand-dark/85 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/40' 
-        : 'py-5 bg-transparent'
+        ? 'py-2.5 bg-brand-dark/90 backdrop-blur-md border-b border-brand-accent/20 shadow-lg shadow-black/50' 
+        : 'py-4 sm:py-5 bg-transparent'
     ]"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between">
         
-        <!-- Brand Logo -->
+        <!-- Brand Official Logo (Symbol + Typography) -->
         <a 
           href="#inicio" 
-          class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-lg"
+          class="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-xl"
           aria-label="Suitech - Inicio"
         >
-          <div class="relative w-9 h-9 rounded-lg bg-gradient-to-br from-brand-surface to-brand-surface-elevated border border-brand-accent/30 flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-105 group-hover:border-brand-accent shadow-glow-accent/20">
-            <svg viewBox="0 0 48 48" fill="none" class="w-full h-full">
-              <path d="M33 15H19C16.2386 15 14 17.2386 14 20C14 22.7614 16.2386 25 19 25H29C31.7614 25 34 27.2386 34 30C34 32.7614 31.7614 35 29 35H15" stroke="url(#logoGradNav)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
-              <circle cx="33" cy="15" r="3" fill="#00E5A3" />
-              <circle cx="15" cy="35" r="3" fill="#00C2FF" />
-              <defs>
-                <linearGradient id="logoGradNav" x1="14" y1="15" x2="34" y2="35" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#00E5A3" />
-                  <stop offset="100%" stop-color="#00C2FF" />
-                </linearGradient>
-              </defs>
-            </svg>
+          <!-- Official Yin-Yang 3D Sphere Isotype -->
+          <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-0.5 transition-transform duration-300 group-hover:scale-105 shrink-0">
+            <img 
+              src="/suitech-icon.svg" 
+              alt="Suitech Isotipo" 
+              class="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(0,110,254,0.45)]" 
+            />
           </div>
+
+          <!-- Official Typography: SUI in White, TECH in Official Electric Blue, with PERÚ caption -->
           <div class="flex flex-col">
-            <span class="text-xl font-bold tracking-tight text-white flex items-center">
-              SUI<span class="text-brand-accent">TECH</span>
+            <div class="text-xl sm:text-2xl font-black tracking-tight leading-none flex items-center">
+              <span class="text-white">SUI</span>
+              <span class="text-brand-accent">TECH</span>
               <span class="ml-1.5 inline-block w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
-            </span>
-            <span class="text-[10px] uppercase font-mono tracking-wider text-brand-muted -mt-1 hidden sm:block">
-              Ingeniería Aplicada
-            </span>
+            </div>
+            <div class="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.25em] text-slate-400 mt-1 uppercase">
+              <span class="w-3 h-[1px] bg-slate-500"></span>
+              <span>P E R Ú</span>
+              <span class="w-3 h-[1px] bg-slate-500"></span>
+            </div>
           </div>
         </a>
 
         <!-- Desktop Navigation Menu -->
-        <nav class="hidden md:flex items-center gap-1 bg-brand-surface/60 border border-white/5 rounded-full px-4 py-1.5 backdrop-blur-md">
+        <nav class="hidden md:flex items-center gap-1 bg-brand-surface/75 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md shadow-sm">
           <a
             v-for="link in navLinks"
             :key="link.name"
@@ -89,7 +89,7 @@ onUnmounted(() => {
         <div class="flex items-center gap-3">
           <a
             href="#contacto"
-            class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-brand-dark bg-gradient-to-r from-brand-accent to-brand-accent-cyan hover:shadow-glow-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow hover:shadow-glow-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white border border-brand-accent/40"
           >
             <span>Contacto</span>
             <ArrowUpRight class="w-3.5 h-3.5" />
@@ -99,7 +99,7 @@ onUnmounted(() => {
           <button
             type="button"
             @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="md:hidden p-2 rounded-lg bg-brand-surface border border-white/10 text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+            class="md:hidden p-2 rounded-xl bg-brand-surface border border-white/10 text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
             :aria-label="isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'"
             :aria-expanded="isMobileMenuOpen"
           >
@@ -122,7 +122,7 @@ onUnmounted(() => {
     >
       <div 
         v-if="isMobileMenuOpen" 
-        class="md:hidden mt-2 mx-4 p-5 rounded-2xl glass-panel-elevated shadow-2xl border border-white/10"
+        class="md:hidden mt-2 mx-4 p-5 rounded-2xl glass-panel-elevated shadow-2xl border border-brand-accent/30"
       >
         <div class="flex flex-col gap-2">
           <a
@@ -138,7 +138,7 @@ onUnmounted(() => {
             <a
               href="#contacto"
               @click="closeMobileMenu"
-              class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-brand-dark bg-gradient-to-r from-brand-accent to-brand-accent-cyan shadow-glow-accent"
+              class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow shadow-glow-accent"
             >
               <span>Hablemos de tu proyecto</span>
               <ArrowUpRight class="w-4 h-4" />
