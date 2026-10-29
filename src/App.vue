@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 import AppHeader from './components/layout/AppHeader.vue';
 import HeroSection from './components/home/HeroSection.vue';
-import CapabilitiesBar from './components/home/CapabilitiesBar.vue';
 import ServicesSection from './components/home/ServicesSection.vue';
 import WhySuitechSection from './components/home/WhySuitechSection.vue';
 import ProjectsSection from './components/home/ProjectsSection.vue';
@@ -28,13 +27,10 @@ const handleSolutionSelection = (solutionId: string) => {
 
     <!-- Main Content Flow -->
     <main class="flex-grow">
-      <!-- Section B: Hero Principal con Simulador Interactivo -->
+      <!-- Section B: Hero Principal con Laboratorio y Barra de Capacidades -->
       <HeroSection />
 
-      <!-- Section C: Franja de Capacidades Tecnológicas -->
-      <CapabilitiesBar />
-
-      <!-- Section D: Soluciones con tarjetas elegantes -->
+      <!-- Section C: Soluciones con tarjetas elegantes -->
       <ServicesSection @select-solution="handleSolutionSelection" />
 
       <!-- Section E: Por qué Suitech (4 Principios) -->
