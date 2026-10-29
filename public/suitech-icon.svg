@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="suitechGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00E5A3" />
+      <stop offset="100%" stop-color="#00C2FF" />
+    </linearGradient>
+    <linearGradient id="suitechGradSoft" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00E5A3" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#00C2FF" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+  <!-- Background rounded hexagon container -->
+  <rect x="3" y="3" width="42" height="42" rx="10" fill="#0D1322" stroke="url(#suitechGrad)" stroke-width="1.5" />
+  
+  <!-- S-Tech Circuit Waveform Geometry -->
+  <path d="M33 15H19C16.2386 15 14 17.2386 14 20C14 22.7614 16.2386 25 19 25H29C31.7614 25 34 27.2386 34 30C34 32.7614 31.7614 35 29 35H15" stroke="url(#suitechGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Hardware/IoT node connection points -->
+  <circle cx="33" cy="15" r="2.5" fill="#00E5A3" />
+  <circle cx="15" cy="35" r="2.5" fill="#00C2FF" />
+  <circle cx="24" cy="25" r="1.5" fill="#FFFFFF" />
+</svg>

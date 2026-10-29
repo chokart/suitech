@@ -1,0 +1,6 @@
+node_modules
+dist
+.git
+.vscode
+*.log
+Estrategia_Suitech_2026.pdf
