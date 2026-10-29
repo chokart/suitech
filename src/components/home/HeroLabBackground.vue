@@ -48,9 +48,10 @@ onMounted(() => {
   const nodeCount = prefersReducedMotion ? 0 : Math.min(Math.floor((w * h) / 18000), 35);
 
   const colors = [
-    '0, 110, 254',   // Electric Blue
-    '56, 189, 248',  // Cyan
-    '255, 255, 255', // White
+    '0, 110, 254',   // Electric Blue Suitech Oficial
+    '37, 132, 255',  // Azul Brillante
+    '100, 165, 255', // Azul Claro
+    '255, 255, 255', // Blanco
   ];
 
   for (let i = 0; i < nodeCount; i++) {
@@ -87,7 +88,7 @@ onMounted(() => {
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(56, 189, 248, ${0.12 * (1 - dist / connDist)})`;
+          ctx.strokeStyle = `rgba(0, 110, 254, ${0.15 * (1 - dist / connDist)})`;
           ctx.stroke();
         }
       }

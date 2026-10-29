@@ -107,20 +107,19 @@ onUnmounted(() => {
     <!-- Suitech Engineering Lab Background -->
     <HeroLabBackground />
 
-    <!-- ═══ Main Central Content ═══ -->
+    <!-- ═══ Main Central Content (100% Transparent, no box) ═══ -->
     <div class="relative z-10 w-full flex-1 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-32 pb-16">
       
-      <!-- Frosted Glass Console Backdrop (clean typography, no clash) -->
       <div
         :class="[
-          'max-w-4xl w-full mx-auto p-6 sm:p-10 md:p-12 rounded-3xl glass-hero border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] flex flex-col items-center text-center transition-all duration-1000',
+          'max-w-4xl w-full mx-auto flex flex-col items-center text-center transition-all duration-1000',
           isReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         ]"
       >
 
         <!-- Monumental Title -->
         <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12] max-w-3xl">
-          <span class="block text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+          <span class="block text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
             Convertimos ideas en
           </span>
           <span class="block mt-2 min-h-[1.25em]">
@@ -128,7 +127,7 @@ onUnmounted(() => {
               {{ displayedText }}
             </span>
             <span
-              class="inline-block w-[3px] sm:w-[4px] h-[0.8em] bg-cyan-400 rounded-sm ml-1 align-baseline shadow-[0_0_12px_#38bdf8]"
+              class="inline-block w-[3px] sm:w-[4px] h-[0.8em] bg-brand-accent-glow rounded-sm ml-1 align-baseline shadow-[0_0_12px_#006EFE]"
               :class="showCursor ? 'opacity-100' : 'opacity-0'"
               style="transition: opacity 0.08s;"
             ></span>
@@ -136,9 +135,9 @@ onUnmounted(() => {
         </h1>
 
         <!-- Subtitle -->
-        <p class="mt-6 sm:mt-8 text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+        <p class="mt-6 sm:mt-8 text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
           Desarrollamos software, integramos inteligencia artificial y conectamos
-          dispositivos para crear <span class="text-cyan-300 font-semibold">soluciones digitales prácticas</span>
+          dispositivos para crear <span class="text-blue-400 font-semibold">soluciones digitales prácticas</span>
           para empresas, emprendimientos y profesionales.
         </p>
 
@@ -171,7 +170,7 @@ onUnmounted(() => {
         'relative z-10 w-full border-t border-white/[0.1] transition-all duration-1000 delay-500',
         isReady ? 'opacity-100' : 'opacity-0'
       ]"
-      style="background: linear-gradient(180deg, rgba(7,12,23,0.75) 0%, rgba(7,12,23,0.95) 100%); backdrop-filter: blur(16px);"
+      style="background: linear-gradient(180deg, rgba(7,12,23,0.78) 0%, rgba(7,12,23,0.95) 100%); backdrop-filter: blur(16px);"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 lg:grid-cols-4">
@@ -185,12 +184,12 @@ onUnmounted(() => {
             ]"
           >
             <div class="flex items-center gap-2 mb-1.5">
-              <component :is="item.icon" class="w-4 h-4 text-brand-accent group-hover:text-cyan-300 transition-colors" />
+              <component :is="item.icon" class="w-4 h-4 text-brand-accent group-hover:text-blue-400 transition-colors" />
               <span class="font-mono text-[10px] text-slate-500 font-semibold">// {{ item.tag }}</span>
             </div>
             
             <div class="font-mono text-sm sm:text-base lg:text-lg font-extrabold tracking-tight">
-              <span :class="item.accent ? 'text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-300' : 'text-white group-hover:text-cyan-300 transition-colors'">
+              <span :class="item.accent ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-accent-glow to-blue-200' : 'text-white group-hover:text-blue-400 transition-colors'">
                 {{ item.title }}
               </span>
             </div>
@@ -207,17 +206,11 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.glass-hero {
-  background: rgba(7, 12, 23, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
 .typewriter-glow {
-  background: linear-gradient(135deg, #38BDF8 0%, #7DD3FC 50%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #006EFE 0%, #2584FF 35%, #60A5FA 70%, #FFFFFF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.6));
+  filter: drop-shadow(0 0 24px rgba(0, 110, 254, 0.75));
 }
 </style>
