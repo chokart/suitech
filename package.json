@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "Sitio web oficial de Suitech Perú - Tecnología que crea soluciones y abre posibilidades",
   "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/prerender.js",
@@ -27,5 +30,13 @@
     "@types/node": "^24.19.2",
     "@vue/tsconfig": "^0.9.1",
     "vue-tsc": "^3.3.13"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-linux-x64-gnu": "1.2.15",
+    "@rolldown/binding-linux-x64-musl": "1.2.15",
+    "@rolldown/binding-linux-arm64-gnu": "1.2.15",
+    "@rolldown/binding-linux-arm64-musl": "1.2.15",
+    "lightningcss-linux-x64-gnu": "1.33.0",
+    "lightningcss-linux-x64-musl": "1.33.0"
   }
 }

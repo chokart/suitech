@@ -1,13 +1,13 @@
 # Stage 1: Build the Vue application
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
 # Copy dependency manifests
 COPY package*.json ./
 
-# Install all dependencies
-RUN npm install
+# Install all dependencies including optional native binaries
+RUN npm install --include=optional
 
 # Copy application source
 COPY . .
