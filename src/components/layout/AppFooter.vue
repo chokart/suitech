@@ -3,6 +3,7 @@ import { BRAND_INFO } from '../../data/suitechData';
 import { 
   ArrowUp, 
   Mail, 
+  MessageSquare,
   Youtube, 
   Linkedin, 
   Github 
@@ -162,6 +163,13 @@ const scrollToTop = () => {
               <Mail class="w-3.5 h-3.5 text-brand-accent shrink-0 mt-0.5" />
               <a :href="'mailto:' + BRAND_INFO.contactEmail" class="hover:text-white transition-colors truncate">
                 {{ BRAND_INFO.contactEmail }}
+              </a>
+            </div>
+
+            <div v-if="BRAND_INFO.whatsappUrl" class="flex items-start gap-2 pt-1">
+              <MessageSquare class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+              <a :href="BRAND_INFO.whatsappUrl" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">
+                {{ BRAND_INFO.whatsappDisplay }}
               </a>
             </div>
 

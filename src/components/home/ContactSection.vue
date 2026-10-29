@@ -138,13 +138,13 @@ const sendViaWhatsapp = () => {
                 <MessageSquare class="w-5 h-5" />
               </div>
               <div>
-                <div class="text-[11px] font-mono uppercase text-slate-400">Atención Directa</div>
+                <div class="text-[11px] font-mono uppercase text-slate-400">Atención WhatsApp</div>
                 <button 
                   type="button" 
                   @click="sendViaWhatsapp"
                   class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 transition-colors"
                 >
-                  <span>Escribir por WhatsApp</span>
+                  <span>+51 961 795 940 · Escribir</span>
                   <ExternalLink class="w-3.5 h-3.5" />
                 </button>
               </div>

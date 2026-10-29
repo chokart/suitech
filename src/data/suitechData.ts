@@ -1,7 +1,7 @@
 import type { SolutionItem, ProjectItem, ValuePillar, WorkStep, IndustryItem, LearningItem } from '../types';
 
-const envWhatsapp = import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined;
-const isRealWhatsapp = envWhatsapp && envWhatsapp !== '51999999999' && !envWhatsapp.includes('999999999');
+const envWhatsapp = (import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined) || '51961795940';
+const isRealWhatsapp = Boolean(envWhatsapp && !envWhatsapp.includes('999999999'));
 
 export const BRAND_INFO = {
   name: 'Suitech',
@@ -13,7 +13,8 @@ export const BRAND_INFO = {
   shortDescription: 'Ingeniería aplicada a problemas reales: unimos desarrollo de software, inteligencia artificial, automatización y sistemas conectados IoT.',
   contactEmail: 'contacto@suitechpe.com',
   whatsappNumber: isRealWhatsapp ? envWhatsapp : null,
-  whatsappUrl: isRealWhatsapp ? `https://wa.me/${envWhatsapp}?text=Hola%20Suitech,%20deseo%20conversar%20sobre%20un%20proyecto` : null,
+  whatsappDisplay: '+51 961 795 940',
+  whatsappUrl: isRealWhatsapp ? `https://wa.me/${envWhatsapp}?text=Hola%20Suitech,%20deseo%20conversar%20sobre%20un%20proyecto%20tecnol%C3%B3gico` : null,
   linkedinUrl: (import.meta.env.VITE_LINKEDIN_URL as string) || null,
   youtubeUrl: (import.meta.env.VITE_YOUTUBE_URL as string) || null,
   githubUrl: 'https://github.com/chokart/suitech',
