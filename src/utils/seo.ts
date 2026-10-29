@@ -51,8 +51,8 @@ export function updateSeoMeta(meta?: RouteSeoMeta) {
   }
   setMetaByName('author', 'Suitech Perú');
   setMetaByName('robots', 'index, follow');
-  setMetaByName('geo.region', 'PE');
-  setMetaByName('geo.placename', 'Perú');
+  setMetaByName('geo.region', 'PE-ARE');
+  setMetaByName('geo.placename', 'Arequipa, Perú');
 
   // 3. Canonical Link
   let canonicalEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;

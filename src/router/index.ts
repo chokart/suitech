@@ -32,6 +32,7 @@ const routes: RouteRecordRaw[] = [
             '@type': 'Organization',
             '@id': 'https://suitechpe.com/#organization',
             name: 'Suitech Perú',
+            legalName: 'SUITECH PERU',
             url: 'https://suitechpe.com',
             logo: {
               '@type': 'ImageObject',
@@ -39,11 +40,17 @@ const routes: RouteRecordRaw[] = [
               caption: 'Suitech Perú'
             },
             email: 'chokart@gmail.com',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Arequipa',
+              addressRegion: 'Arequipa',
+              addressCountry: 'PE'
+            },
             areaServed: {
               '@type': 'Country',
               name: 'Perú'
             },
-            description: 'Marca tecnológica peruana especializada en desarrollo de software, inteligencia artificial aplicada, telemetría IoT y formación técnica.'
+            description: 'Marca tecnológica peruana con sede en Arequipa especializada en desarrollo de software, inteligencia artificial aplicada, telemetría IoT y formación técnica.'
           },
           {
             '@type': 'WebSite',

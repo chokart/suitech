@@ -339,7 +339,7 @@ const sendViaWhatsApp = () => {
                 </div>
                 <div>
                   <h3 class="text-sm font-semibold text-white">Ubicación y Cobertura</h3>
-                  <p class="text-xs text-slate-300 mt-1">Operamos de manera remota para todo el Perú, con despliegues sobre VPS y plataformas cloud.</p>
+                  <p class="text-xs text-slate-300 mt-1">Con sede en Arequipa, Perú. Atendemos y operamos de manera remota para todo el país y el extranjero.</p>
                 </div>
               </div>
             </div>

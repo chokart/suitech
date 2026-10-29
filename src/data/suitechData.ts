@@ -6,7 +6,7 @@ const isRealWhatsapp = Boolean(envWhatsapp && !envWhatsapp.includes('999999999')
 export const BRAND_INFO = {
   name: 'Suitech',
   shortName: 'Suitech Perú',
-  legalName: 'Suitech Perú',
+  legalName: 'SUITECH PERU',
   domain: 'https://suitechpe.com',
   domainDisplay: 'suitechpe.com',
   tagline: 'Tecnología que crea soluciones y abre posibilidades.',
@@ -18,7 +18,9 @@ export const BRAND_INFO = {
   linkedinUrl: (import.meta.env.VITE_LINKEDIN_URL as string) || null,
   youtubeUrl: (import.meta.env.VITE_YOUTUBE_URL as string) || null,
   githubUrl: 'https://github.com/chokart/suitech',
-  location: 'Perú',
+  location: 'Arequipa, Perú',
+  addressCity: 'Arequipa',
+  addressCountry: 'Perú',
 };
 
 export const CAPABILITIES: string[] = [

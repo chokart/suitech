@@ -17,6 +17,7 @@ const routesMeta = [
           '@type': 'Organization',
           '@id': 'https://suitechpe.com/#organization',
           name: 'Suitech Perú',
+          legalName: 'SUITECH PERU',
           url: 'https://suitechpe.com',
           logo: {
             '@type': 'ImageObject',
@@ -24,11 +25,17 @@ const routesMeta = [
             caption: 'Suitech Perú'
           },
           email: 'chokart@gmail.com',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Arequipa',
+            addressRegion: 'Arequipa',
+            addressCountry: 'PE'
+          },
           areaServed: {
             '@type': 'Country',
             name: 'Perú'
           },
-          description: 'Marca tecnológica peruana especializada en desarrollo de software, inteligencia artificial aplicada, telemetría IoT y formación técnica.'
+          description: 'Marca tecnológica peruana con sede en Arequipa especializada en desarrollo de software, inteligencia artificial aplicada, telemetría IoT y formación técnica.'
         },
         {
           '@type': 'WebSite',
@@ -83,7 +90,7 @@ const routesMeta = [
         </section>
       </main>
       <footer style="margin-top: 5rem; padding: 3rem 1rem; border-top: 1px solid rgba(255,255,255,0.1); background: #070C17; color: #64748b; text-align: center;">
-        <p>&copy; 2026 Suitech Perú. Todos los derechos reservados. Correo: chokart@gmail.com</p>
+        <p>&copy; 2026 SUITECH PERU · Arequipa, Perú. Todos los derechos reservados. Correo: chokart@gmail.com</p>
       </footer>
     `
   },

@@ -4,6 +4,7 @@ import {
   ArrowUp, 
   Mail, 
   MessageSquare,
+  MapPin,
   Youtube, 
   Linkedin, 
   Github 
@@ -173,6 +174,11 @@ const scrollToTop = () => {
               </a>
             </div>
 
+            <div class="flex items-start gap-2 pt-1 text-[11px] text-slate-400">
+              <MapPin class="w-3.5 h-3.5 text-brand-accent shrink-0 mt-0.5" />
+              <span>Arequipa, Perú</span>
+            </div>
+
             <div class="pt-2 text-[11px] text-slate-400 leading-relaxed font-sans">
               <span class="block text-slate-300 font-semibold mb-1">Infraestructura:</span>
               VPS alojado con Dokploy & GitHub Actions.
@@ -191,7 +197,7 @@ const scrollToTop = () => {
       <!-- Bottom Bar: Copyright & Back to Top -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
         <div class="flex flex-wrap items-center gap-4">
-          <span>&copy; {{ new Date().getFullYear() }} {{ BRAND_INFO.name }}. Todos los derechos reservados.</span>
+          <span>&copy; {{ new Date().getFullYear() }} {{ BRAND_INFO.legalName }}. Todos los derechos reservados.</span>
           <span class="text-white/20">|</span>
           <span class="text-brand-accent">{{ BRAND_INFO.domainDisplay }}</span>
         </div>
