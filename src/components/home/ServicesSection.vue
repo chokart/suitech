@@ -11,13 +11,6 @@ import {
   Sparkles
 } from 'lucide-vue-next';
 import { SOLUTIONS } from '../../data/suitechData';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-const emit = defineEmits<{
-  (e: 'select-solution', solutionId: string): void;
-}>();
 
 const iconMap: Record<string, any> = {
   Code2,
@@ -28,13 +21,18 @@ const iconMap: Record<string, any> = {
   GraduationCap
 };
 
-const handleConsult = (solutionId: string) => {
-  emit('select-solution', solutionId);
-  const contactElem = document.getElementById('contacto');
-  if (contactElem) {
-    contactElem.scrollIntoView({ behavior: 'smooth' });
-  } else {
-    router.push('/#contacto');
+const getSolutionRoute = (id: string) => {
+  switch (id) {
+    case 'suitech-solutions':
+      return '/soluciones';
+    case 'suitech-ai':
+      return '/inteligencia-artificial';
+    case 'suitech-iot':
+      return '/iot';
+    case 'suitech-academy':
+      return '/academy';
+    default:
+      return '/soluciones';
   }
 };
 </script>
@@ -106,27 +104,15 @@ const handleConsult = (solutionId: string) => {
             </div>
           </div>
 
-          <!-- Bottom Action -->
+          <!-- Bottom Action: Internal SEO Linking to Dedicated Area -->
           <div class="mt-8 pt-6 border-t border-white/5">
-            <template v-if="solution.id === 'suitech-academy'">
-              <router-link
-                to="/aprendizaje"
-                class="w-full inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-brand-accent hover:text-white text-xs font-semibold uppercase tracking-wider text-slate-200 transition-all duration-200 group/btn"
-              >
-                <span>Explorar tutoriales & recursos</span>
-                <ArrowUpRight class="w-4 h-4 text-brand-accent group-hover/btn:text-white group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-              </router-link>
-            </template>
-            <template v-else>
-              <button
-                type="button"
-                @click="handleConsult(solution.id)"
-                class="w-full inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-brand-accent hover:text-white text-xs font-semibold uppercase tracking-wider text-slate-200 transition-all duration-200 group/btn"
-              >
-                <span>Consultar solución</span>
-                <ArrowUpRight class="w-4 h-4 text-brand-accent group-hover/btn:text-white group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-              </button>
-            </template>
+            <router-link
+              :to="getSolutionRoute(solution.id)"
+              class="w-full inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-brand-accent hover:text-white text-xs font-semibold uppercase tracking-wider text-slate-200 transition-all duration-200 group/btn"
+            >
+              <span>{{ solution.id === 'suitech-academy' ? 'Explorar tutoriales & recursos' : 'Conocer detalles & servicios' }}</span>
+              <ArrowUpRight class="w-4 h-4 text-brand-accent group-hover/btn:text-white group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+            </router-link>
           </div>
 
         </div>

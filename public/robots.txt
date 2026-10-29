@@ -1,0 +1,12 @@
+# Robots.txt oficial para Suitech Perú (https://suitechpe.com)
+User-agent: *
+Allow: /
+
+# Evitar rastreo de recursos de desarrollo o rutas temporales
+Disallow: /api/
+Disallow: /admin/
+Disallow: /cdn-cgi/
+
+# Sitemap XML principal
+Sitemap: https://suitechpe.com/sitemap.xml
+Host: https://suitechpe.com

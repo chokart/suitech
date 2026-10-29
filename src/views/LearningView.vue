@@ -60,13 +60,13 @@ const filteredPosts = computed(() => {
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-surface border border-brand-accent/30 text-xs font-mono text-brand-accent mb-4">
             <GraduationCap class="w-3.5 h-3.5" />
-            <span>DIVULGACIÓN TÉCNICA ABIERTA</span>
+            <span>SUITECH ACADEMY · FORMACIÓN Y DIVULGACIÓN TÉCNICA EN ESPAÑOL</span>
           </div>
           <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            Construyendo <span class="text-gradient-accent">Suitech</span>.
+            Tutoriales de <span class="text-gradient-accent">programación, IoT con ESP32</span> y aplicaciones de IA.
           </h1>
           <p class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-            Aprender construyendo y compartir con honestidad. Publicamos tutoriales de desarrollo web moderno, guías prácticas de IoT con ESP32, automatización y buenas prácticas de ingeniería de software.
+            Aprender construyendo y compartir con honestidad. Publicamos guías prácticas de desarrollo web con Vue 3 y TypeScript, proyectos de telemetría con microcontroladores ESP32, automatización de procesos e ingeniería de software en español.
           </p>
         </div>
 

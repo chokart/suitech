@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BRAND_INFO, SOLUTIONS } from '../../data/suitechData';
+import { BRAND_INFO } from '../../data/suitechData';
 import { 
   ArrowUp, 
   Mail, 
@@ -95,32 +95,55 @@ const scrollToTop = () => {
               <router-link to="/" class="hover:text-brand-accent transition-colors">Inicio</router-link>
             </li>
             <li>
-              <router-link to="/#soluciones" class="hover:text-brand-accent transition-colors">Soluciones</router-link>
+              <router-link to="/soluciones" class="hover:text-brand-accent transition-colors">Software a Medida</router-link>
             </li>
             <li>
-              <router-link to="/proyectos" class="hover:text-brand-accent transition-colors">Proyectos reales</router-link>
+              <router-link to="/inteligencia-artificial" class="hover:text-brand-accent transition-colors">Inteligencia Artificial</router-link>
             </li>
             <li>
-              <router-link to="/aprendizaje" class="hover:text-brand-accent transition-colors">Construyendo Suitech</router-link>
+              <router-link to="/iot" class="hover:text-brand-accent transition-colors">Telemetría IoT & Sensores</router-link>
             </li>
             <li>
-              <router-link to="/#nosotros" class="hover:text-brand-accent transition-colors">Principios & Nosotros</router-link>
+              <router-link to="/academy" class="hover:text-brand-accent transition-colors">Suitech Academy (Tutoriales)</router-link>
             </li>
             <li>
-              <router-link to="/#contacto" class="hover:text-brand-accent transition-colors">Contacto técnico</router-link>
+              <router-link to="/proyectos" class="hover:text-brand-accent transition-colors">Portafolio de Proyectos</router-link>
+            </li>
+            <li>
+              <router-link to="/contacto" class="hover:text-brand-accent transition-colors">Contacto técnico</router-link>
             </li>
           </ul>
         </div>
 
-        <!-- Column 3: Soluciones Principales -->
+        <!-- Column 3: Soluciones Principales & Software Industrial -->
         <div>
           <h4 class="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
-            Áreas de Solución
+            Líneas & Proyectos
           </h4>
           <ul class="space-y-2.5 text-xs text-slate-400">
-            <li v-for="sol in SOLUTIONS" :key="sol.id">
-              <router-link to="/#soluciones" class="hover:text-blue-400 transition-colors">
-                {{ sol.title }}
+            <li>
+              <router-link to="/soluciones" class="hover:text-blue-400 transition-colors">
+                Suitech Solutions
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/inteligencia-artificial" class="hover:text-blue-400 transition-colors">
+                Suitech AI
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/iot" class="hover:text-blue-400 transition-colors">
+                Suitech IoT
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/academy" class="hover:text-blue-400 transition-colors">
+                Suitech Academy
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/proyectos/suiteminerals" class="hover:text-brand-accent transition-colors font-medium">
+                SuiteMinerals (Metalurgia)
               </router-link>
             </li>
           </ul>

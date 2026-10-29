@@ -61,24 +61,28 @@ const capabilities = [
     subtitle: 'A medida & aplicaciones web',
     icon: Code2,
     accent: false,
+    path: '/soluciones',
   },
   {
     title: 'INTELIGENCIA ARTIFICIAL',
     subtitle: 'Modelos aplicados & datos',
     icon: BrainCircuit,
     accent: false,
+    path: '/inteligencia-artificial',
   },
   {
     title: 'IOT',
     subtitle: 'Sensores & telemetría ESP32',
     icon: Cpu,
     accent: false,
+    path: '/iot',
   },
   {
     title: 'AUTOMATIZACIÓN',
     subtitle: 'Integración & flujos digitales',
     icon: Workflow,
     accent: false,
+    path: '/soluciones',
   },
 ];
 
@@ -170,10 +174,10 @@ onUnmounted(() => {
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 lg:grid-cols-4">
-          <a
+          <router-link
             v-for="(item, index) in capabilities"
             :key="index"
-            href="#soluciones"
+            :to="item.path"
             :class="[
               'group py-5 sm:py-6 px-4 sm:px-6 flex flex-col justify-center transition-all hover:bg-white/[0.04]',
               index > 0 ? 'border-l border-white/[0.08]' : '',
@@ -192,7 +196,7 @@ onUnmounted(() => {
             <div class="text-[10px] sm:text-[11px] text-slate-400 mt-1 uppercase tracking-wider font-medium truncate">
               {{ item.subtitle }}
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>

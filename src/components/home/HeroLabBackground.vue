@@ -137,13 +137,19 @@ onMounted(() => {
     
     <!-- Base Layer: Laboratorio Suitech Image -->
     <div class="absolute inset-0 bg-[#070c17]">
-      <img
-        src="/laboratorio.png"
-        alt="Laboratorio Tecnológico Suitech"
-        class="w-full h-full object-cover object-center lab-image-drift filter brightness-[0.82] contrast-[1.12] saturate-[1.05]"
-        loading="eager"
-        decoding="sync"
-      />
+      <picture>
+        <source srcset="/laboratorio.webp" type="image/webp" />
+        <img
+          src="/laboratorio.png"
+          alt="Laboratorio Tecnológico Suitech Perú"
+          width="1536"
+          height="1024"
+          class="w-full h-full object-cover object-center lab-image-drift filter brightness-[0.82] contrast-[1.12] saturate-[1.05]"
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
+        />
+      </picture>
     </div>
 
     <!-- Soft Tech Navy Multiply Layer (unifies color palette) -->

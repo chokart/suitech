@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -b && vite build && node scripts/optimize-images.js && node scripts/prerender.js",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@vue/tsconfig": "^0.9.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
+    "sharp": "^0.35.5",
     "tailwindcss": "^3.4.17",
     "typescript": "~6.0.3",
     "vite": "^8.3.5",

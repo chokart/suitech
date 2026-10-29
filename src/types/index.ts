@@ -27,7 +27,8 @@ export interface ProjectItem {
   architectureSummary: string;
   keyFeatures: string[];
   honestDisclaimer?: string;
-  visualType: 'iot' | 'business' | 'ai-automation' | 'analytics';
+  visualType: 'iot' | 'business' | 'ai-automation' | 'analytics' | 'industrial';
+  dedicatedUrl?: string;
 }
 
 export interface ValuePillar {

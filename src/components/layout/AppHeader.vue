@@ -9,10 +9,11 @@ const isMobileMenuOpen = ref(false);
 
 const navLinks = [
   { name: 'Inicio', path: '/' },
-  { name: 'Soluciones', path: '/#soluciones' },
+  { name: 'Soluciones', path: '/soluciones' },
+  { name: 'IA', path: '/inteligencia-artificial' },
+  { name: 'IoT', path: '/iot' },
   { name: 'Proyectos', path: '/proyectos' },
-  { name: 'Aprendizaje', path: '/aprendizaje' },
-  { name: 'Nosotros', path: '/#nosotros' }
+  { name: 'Academy', path: '/academy' }
 ];
 
 const handleScroll = () => {
@@ -100,7 +101,7 @@ onUnmounted(() => {
         <!-- Right Side: Contact CTA & Mobile Menu Toggle -->
         <div class="flex items-center gap-3">
           <router-link
-            to="/#contacto"
+            to="/contacto"
             class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow hover:shadow-glow-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white border border-brand-accent/40"
           >
             <span>Contacto</span>
@@ -153,7 +154,7 @@ onUnmounted(() => {
           </router-link>
           <div class="pt-3 border-t border-white/10 mt-2">
             <router-link
-              to="/#contacto"
+              to="/contacto"
               @click="closeMobileMenu"
               class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow shadow-glow-accent"
             >

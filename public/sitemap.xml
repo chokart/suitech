@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- 1. Página Principal -->
+  <url>
+    <loc>https://suitechpe.com/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 2. Suitech Solutions: Desarrollo de Software a Medida -->
+  <url>
+    <loc>https://suitechpe.com/soluciones/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Suitech AI: Inteligencia Artificial para Empresas -->
+  <url>
+    <loc>https://suitechpe.com/inteligencia-artificial/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 4. Suitech IoT: Sensores, ESP32 y Telemetría -->
+  <url>
+    <loc>https://suitechpe.com/iot/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 5. Suitech Academy: Formación y Tutoriales Técnicos -->
+  <url>
+    <loc>https://suitechpe.com/academy/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 6. Portafolio de Proyectos -->
+  <url>
+    <loc>https://suitechpe.com/proyectos/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 7. SuiteMinerals: Software de Balances Metalúrgicos -->
+  <url>
+    <loc>https://suitechpe.com/proyectos/suiteminerals/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 8. Contacto Técnico Directo -->
+  <url>
+    <loc>https://suitechpe.com/contacto/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

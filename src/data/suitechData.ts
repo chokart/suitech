@@ -212,6 +212,28 @@ export const PROJECTS: ProjectItem[] = [
     ],
     honestDisclaimer: 'Desarrollado como base de producto digital para clientes que requieren una capa visual moderna sobre sus datos existentes.',
     visualType: 'analytics'
+  },
+  {
+    id: 'suiteminerals',
+    name: 'SuiteMinerals · Software de Balances Metalúrgicos',
+    shortName: 'SuiteMinerals (Metalurgia)',
+    category: 'Software Industrial · Metalurgia & Procesos',
+    status: 'desarrollo',
+    statusLabel: 'En desarrollo · Validación técnica',
+    problem: 'Hojas de cálculo complejas y desarticuladas en plantas concentradoras para calcular balances de materia, recuperación metalúrgica y dimensionamiento de circuitos.',
+    solution: 'Plataforma web de ingeniería de procesos para el cálculo riguroso de balances de materia por dos y tres productos, cinéticas de flotación y reportes normalizados de turno.',
+    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Algoritmos Numéricos', 'Exportación PDF/Excel'],
+    architectureSummary: 'Motor de cálculo metalúrgico reactivo en el navegador con verificación de consistencia de leyes, algoritmos de mínimos cuadrados y generación instantánea de balances.',
+    keyFeatures: [
+      'Balance de materia de dos y tres productos con leyes de cabeza, concentrado y relave',
+      'Cálculo automático de recuperación metalúrgica y ratio de concentración',
+      'Dimensionamiento paramétrico de celdas de flotación y espesadores',
+      'Exportación normalizada de reportes de guardia a Excel y PDF',
+      'Diseñado específicamente para metalurgistas de planta y laboratorios en Perú'
+    ],
+    honestDisclaimer: 'Desarrollado sobre fundamentos clásicos de metalurgia extractiva y validado contra balances de plantas concentradoras en el Perú.',
+    visualType: 'industrial',
+    dedicatedUrl: '/proyectos/suiteminerals'
   }
 ];
 

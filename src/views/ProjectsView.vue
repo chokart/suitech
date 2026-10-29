@@ -21,6 +21,7 @@ const filterOptions = [
   { id: 'software', label: 'Software & Gestión' },
   { id: 'iot', label: 'IoT & Telemetría' },
   { id: 'ia', label: 'Inteligencia Artificial' },
+  { id: 'industrial', label: 'Software Industrial & Metalurgia' },
 ];
 
 const filteredProjects = computed(() => {
@@ -33,6 +34,9 @@ const filteredProjects = computed(() => {
   }
   if (activeFilter.value === 'ia') {
     return PROJECTS.filter(p => p.category.includes('Inteligencia Artificial') || p.category.includes('Automatización'));
+  }
+  if (activeFilter.value === 'industrial') {
+    return PROJECTS.filter(p => p.category.includes('Industrial') || p.category.includes('Metalurgia'));
   }
   return PROJECTS;
 });
@@ -294,18 +298,28 @@ const getStatusBadge = (status: string) => {
           </div>
 
           <!-- Bottom CTA -->
-          <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+          <div class="mt-8 pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-3">
             <span class="text-xs font-mono text-slate-400">
               {{ project.statusLabel }}
             </span>
-            <button
-              type="button"
-              @click="openProject(project)"
-              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-brand-accent hover:text-white text-xs font-semibold uppercase tracking-wider text-white transition-all duration-200 shadow-sm"
-            >
-              <span>Ver ficha técnica</span>
-              <ArrowRight class="w-3.5 h-3.5" />
-            </button>
+            <div class="flex items-center gap-2">
+              <router-link
+                v-if="project.dedicatedUrl"
+                :to="project.dedicatedUrl"
+                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-brand-accent/20 hover:bg-brand-accent border border-brand-accent/40 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-200"
+              >
+                <span>Ver caso completo</span>
+                <ArrowRight class="w-3.5 h-3.5" />
+              </router-link>
+              <button
+                type="button"
+                @click="openProject(project)"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-brand-accent hover:text-white text-xs font-semibold uppercase tracking-wider text-white transition-all duration-200 shadow-sm"
+              >
+                <span>Ficha técnica</span>
+                <ArrowRight class="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
         </div>
