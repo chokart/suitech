@@ -1,275 +1,320 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import FirmtechCircuitBackground from './FirmtechCircuitBackground.vue';
-import { 
-  ArrowRight, 
-  Cpu, 
-  Activity, 
-  Layers, 
-  Terminal, 
-  Server, 
-  Zap, 
-  Radio
-} from 'lucide-vue-next';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
+import TektonBackground from './TektonBackground.vue';
+import { ArrowRight } from 'lucide-vue-next';
 
-// Interactive Layer Switcher
-const activeLayer = ref<'iot' | 'api' | 'ai' | 'dashboard'>('iot');
-
-const layers = [
-  {
-    id: 'iot',
-    name: '01. Hardware & IoT',
-    badge: 'ESP32 Telemetría',
-    title: 'Dispositivo & Captura Física',
-    code: 'ESP32::read_ultrasonic_tank() -> 78.4% [OK]',
-    metric: '78.4%',
-    metricLabel: 'Nivel Tanque',
-    status: 'Conectado · RSSI -58 dBm'
-  },
-  {
-    id: 'api',
-    name: '02. Red & API Gateway',
-    badge: 'REST / WebSocket',
-    title: 'Transmisión & Ingesta',
-    code: 'POST /api/v1/telemetry/nodes { node_id: "ESP-09" }',
-    metric: '18 ms',
-    metricLabel: 'Latencia Ingesta',
-    status: 'HTTP 200 · SSL/TLS Activo'
-  },
-  {
-    id: 'ai',
-    name: '03. Lógica & Algoritmos',
-    badge: 'IA & Balances',
-    title: 'Cálculo & Inferencia',
-    code: 'MetalBalance::solve_two_products(recup: 89.4%)',
-    metric: '89.4%',
-    metricLabel: 'Recup. Metalúrgica',
-    status: 'Balance Verificado'
-  },
-  {
-    id: 'dashboard',
-    name: '04. Aplicación Web',
-    badge: 'Frontend Reactivo',
-    title: 'Control Operativo en Vivo',
-    code: 'Vue3.render(TelemetryView, { autoRefresh: true })',
-    metric: '99.9%',
-    metricLabel: 'Disponibilidad Web',
-    status: 'SPA Reactiva · Dokploy VPS'
-  }
+// ─── Typewriter rotating words ───
+const rotatingWords = [
+  'soluciones tecnológicas',
+  'software inteligente',
+  'sistemas conectados',
+  'herramientas digitales',
+  'innovación aplicada',
 ];
+
+const currentWordIndex = ref(0);
+const displayedText = ref('');
+const isDeleting = ref(false);
+const showCursor = ref(true);
+const isReady = ref(false);
+let typeTimer: ReturnType<typeof setTimeout> | null = null;
+let cursorTimer: ReturnType<typeof setInterval> | null = null;
+
+const currentWord = computed(() => rotatingWords[currentWordIndex.value]);
+
+// Find the longest word to reserve space and prevent layout shift
+const longestWord = computed(() => {
+  return rotatingWords.reduce((a, b) => a.length > b.length ? a : b, '');
+});
+
+function typeEffect() {
+  const word = currentWord.value;
+
+  if (!isDeleting.value) {
+    displayedText.value = word.substring(0, displayedText.value.length + 1);
+    if (displayedText.value === word) {
+      typeTimer = setTimeout(() => {
+        isDeleting.value = true;
+        typeEffect();
+      }, 2400);
+      return;
+    }
+    typeTimer = setTimeout(typeEffect, 60 + Math.random() * 35);
+  } else {
+    displayedText.value = word.substring(0, displayedText.value.length - 1);
+    if (displayedText.value === '') {
+      isDeleting.value = false;
+      currentWordIndex.value = (currentWordIndex.value + 1) % rotatingWords.length;
+      typeTimer = setTimeout(typeEffect, 350);
+      return;
+    }
+    typeTimer = setTimeout(typeEffect, 30);
+  }
+}
+
+// ─── Metrics data ───
+const metrics = [
+  { value: 'Full-Stack', label: 'Software + Hardware + IA', accent: false },
+  { value: '100%', label: 'Ingeniería aplicada', accent: true },
+  { value: 'Open', label: 'Tecnología abierta', accent: false },
+  { value: '24/7', label: 'Monitoreo continuo', accent: true },
+];
+
+// ─── Count-up animation for numeric metrics ───
+const animatedValues = ref<Record<number, string>>({});
+
+function animateCountUp(index: number, target: string) {
+  if (target === '100%') {
+    let current = 0;
+    const step = () => {
+      current += 3;
+      if (current >= 100) {
+        animatedValues.value[index] = '100%';
+        return;
+      }
+      animatedValues.value[index] = current + '%';
+      requestAnimationFrame(step);
+    };
+    animatedValues.value[index] = '0%';
+    step();
+  } else if (target === '24/7') {
+    let current = 0;
+    const step = () => {
+      current += 1;
+      if (current >= 24) {
+        animatedValues.value[index] = '24/7';
+        return;
+      }
+      animatedValues.value[index] = current + '/7';
+      requestAnimationFrame(step);
+    };
+    animatedValues.value[index] = '0/7';
+    step();
+  } else {
+    animatedValues.value[index] = target;
+  }
+}
+
+function getMetricValue(index: number, fallback: string) {
+  return animatedValues.value[index] ?? fallback;
+}
+
+onMounted(() => {
+  // Stagger the entrance
+  setTimeout(() => { isReady.value = true; }, 100);
+  typeTimer = setTimeout(typeEffect, 1200);
+  cursorTimer = setInterval(() => { showCursor.value = !showCursor.value; }, 530);
+
+  // Trigger count-up animations after entrance
+  setTimeout(() => {
+    metrics.forEach((m, i) => animateCountUp(i, m.value));
+  }, 1400);
+});
+
+onUnmounted(() => {
+  if (typeTimer) clearTimeout(typeTimer);
+  if (cursorTimer) clearInterval(cursorTimer);
+});
 </script>
 
 <template>
-  <section id="inicio" class="relative min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-80px)] flex flex-col justify-center overflow-hidden pt-28 pb-16 lg:py-24">
-    <!-- FirmTech-Style Hardware & Circuit 3D Background -->
-    <FirmtechCircuitBackground />
+  <section
+    id="inicio"
+    class="relative flex flex-col justify-end overflow-hidden"
+    style="min-height: 100svh;"
+  >
+    <!-- Cinematic Particle Background -->
+    <TektonBackground />
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-        
-        <!-- Left Column: FirmTech Narrative & Headline (Text is crystal clear on solid dark gradient) -->
-        <div class="lg:col-span-7 space-y-6">
-          
-          <!-- Top Tagline Pill -->
-          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-brand-surface/90 border border-brand-accent/35 text-xs font-mono text-slate-300 shadow-glow-accent/20 backdrop-blur-md">
-            <span class="flex h-2 w-2 relative">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-accent"></span>
-            </span>
-            <span class="text-white font-bold tracking-wide uppercase text-[11px]">SUI<span class="text-brand-accent">TECH</span></span>
-            <span class="text-white/20">|</span>
-            <span class="text-slate-300 font-medium">Software · Inteligencia Artificial · IoT · Industria</span>
-          </div>
+    <!-- Focal glow behind title area -->
+    <div
+      class="absolute z-[1] pointer-events-none"
+      style="
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70vw;
+        height: 50vh;
+        background: radial-gradient(ellipse at center, rgba(0,110,254,0.08) 0%, transparent 70%);
+        filter: blur(40px);
+      "
+    ></div>
 
-          <!-- Hero Headline (FirmTech Composition) -->
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
-            <span class="block">Convertimos ideas y desafíos en</span>
-            <span class="block bg-gradient-to-r from-brand-accent via-brand-accent-cyan to-white bg-clip-text text-transparent mt-1">
-              soluciones tecnológicas reales.
-            </span>
-          </h1>
+    <!-- Soft vignette overlay -->
+    <div
+      class="absolute inset-0 z-[1] pointer-events-none"
+      style="background: radial-gradient(ellipse 85% 65% at 50% 45%, transparent 0%, rgba(4,8,16,0.65) 100%);"
+    ></div>
 
-          <!-- Subtitle -->
-          <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl">
-            Desarrollamos software, integramos inteligencia artificial y conectamos dispositivos para crear soluciones digitales prácticas para empresas, profesionales e industrias.
-          </p>
+    <!-- ═══ Main Content ═══ -->
+    <div class="relative z-10 w-full flex-1 flex flex-col justify-center">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-14 w-full flex flex-col items-center text-center py-20 lg:py-24">
 
-          <!-- Action Buttons -->
-          <div class="pt-2 flex flex-wrap items-center gap-4">
-            <a
-              href="#soluciones"
-              class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-sm text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow shadow-glow-accent hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-brand-accent/40"
-            >
-              <span>Explorar soluciones</span>
-              <ArrowRight class="w-4 h-4" />
-            </a>
-
-            <a
-              href="#proyectos"
-              class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm text-white bg-brand-surface/80 hover:bg-brand-surface-elevated border border-white/15 hover:border-brand-accent/50 hover:text-brand-accent transition-all duration-200 backdrop-blur-md"
-            >
-              <span>Conocer proyectos</span>
-            </a>
-          </div>
-
-          <!-- Trust & Engineering Metrics (FirmTech style) -->
-          <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-left max-w-xl">
-            <div>
-              <div class="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight">
-                100%
-              </div>
-              <div class="text-[11px] sm:text-xs text-brand-muted mt-0.5">Ingeniería aplicada y honesta</div>
-            </div>
-            <div>
-              <div class="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight">
-                Full-Stack
-              </div>
-              <div class="text-[11px] sm:text-xs text-brand-muted mt-0.5">Hardware + API + Web</div>
-            </div>
-            <div>
-              <div class="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight">
-                Producción
-              </div>
-              <div class="text-[11px] sm:text-xs text-brand-muted mt-0.5">Sistemas en uso real</div>
-            </div>
-          </div>
-
+        <!-- Tagline pill -->
+        <div
+          :class="[
+            'inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[11px] sm:text-xs font-medium tracking-[0.12em] uppercase mb-8 sm:mb-12 transition-all duration-700',
+            isReady
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-6'
+          ]"
+          style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(8px);"
+        >
+          <span class="flex h-[7px] w-[7px] relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-50"></span>
+            <span class="relative inline-flex rounded-full h-[7px] w-[7px] bg-brand-accent"></span>
+          </span>
+          <span class="text-slate-400">Software · Inteligencia Artificial · Automatización · IoT</span>
         </div>
 
-        <!-- Right Column: Interactive Suitech Matrix Console (floating over the circuit background) -->
-        <div class="lg:col-span-5">
-          <div class="relative rounded-2xl glass-panel-elevated p-5 sm:p-6 shadow-tech-card border border-brand-accent/30 backdrop-blur-xl">
-            
-            <!-- Terminal Header -->
-            <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="font-mono text-xs text-slate-400 ml-2">suitech-system-pipeline.v1</span>
-              </div>
-              <span class="text-[11px] font-mono text-brand-accent bg-brand-accent/10 px-2 py-0.5 rounded border border-brand-accent/30 font-bold flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-ping"></span>
-                LIVE DEMO
+        <!-- ═══ Monumental Title ═══ -->
+        <h1
+          :class="[
+            'text-[2.2rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.8rem] font-extrabold tracking-[-0.025em] text-white max-w-6xl transition-all duration-1000 delay-200',
+            isReady
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
+          ]"
+          style="line-height: 1.05;"
+        >
+          <span class="block">Convertimos ideas en</span>
+
+          <!-- Typewriter line with reserved space -->
+          <span class="block relative mt-1 sm:mt-2">
+            <!-- Invisible spacer (longest word) to reserve height/width -->
+            <span class="invisible whitespace-nowrap" aria-hidden="true">{{ longestWord }}.</span>
+
+            <!-- Visible typed text overlaid -->
+            <span class="absolute inset-0 flex items-start justify-center">
+              <span>
+                <span class="hero-gradient-text">{{ displayedText }}</span>
+                <span
+                  class="inline-block w-[3px] sm:w-[4px] h-[0.82em] rounded-sm ml-1 align-middle"
+                  :style="{
+                    background: 'linear-gradient(180deg, #006EFE, #38BDF8)',
+                    opacity: showCursor ? 1 : 0,
+                    transition: 'opacity 0.08s',
+                  }"
+                ></span>
               </span>
-            </div>
+            </span>
+          </span>
+        </h1>
 
-            <!-- Layer Switcher Tabs -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mt-4">
-              <button
-                v-for="layer in layers"
-                :key="layer.id"
-                @click="activeLayer = layer.id as any"
-                :class="[
-                  'px-2 py-2 text-[11px] font-mono rounded-lg transition-all text-center',
-                  activeLayer === layer.id
-                    ? 'bg-brand-accent/20 text-brand-accent border border-brand-accent/60 font-bold shadow-sm'
-                    : 'bg-brand-surface/50 text-slate-400 hover:text-white hover:bg-white/5 border border-white/5'
-                ]"
-              >
-                {{ layer.name.split('.')[0] }}
-              </button>
-            </div>
+        <!-- Subtitle -->
+        <p
+          :class="[
+            'mt-8 sm:mt-10 text-[0.95rem] sm:text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl transition-all duration-1000 delay-500',
+            isReady
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-6'
+          ]"
+        >
+          Desarrollamos software, integramos inteligencia artificial y conectamos
+          dispositivos para crear
+          <span class="text-slate-200 font-medium">soluciones digitales prácticas</span>
+          para empresas, emprendimientos y profesionales.
+        </p>
 
-            <!-- Active Layer Display Box -->
-            <div 
-              v-for="layer in layers" 
-              :key="layer.id"
-              v-show="activeLayer === layer.id"
-              class="mt-4 space-y-3.5"
-            >
-              <div class="flex items-start justify-between">
-                <div>
-                  <span class="text-[11px] font-mono uppercase tracking-wider text-brand-accent font-bold">
-                    {{ layer.badge }}
-                  </span>
-                  <h3 class="text-base sm:text-lg font-bold text-white mt-0.5">
-                    {{ layer.title }}
-                  </h3>
-                </div>
-                <div class="text-right">
-                  <div class="text-2xl font-mono font-extrabold text-white">
-                    {{ layer.metric }}
-                  </div>
-                  <div class="text-[10px] uppercase font-mono text-slate-400">
-                    {{ layer.metricLabel }}
-                  </div>
-                </div>
-              </div>
+        <!-- CTA Buttons -->
+        <div
+          :class="[
+            'mt-10 sm:mt-12 flex flex-col sm:flex-row items-center gap-4 transition-all duration-1000 delay-700',
+            isReady
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-6'
+          ]"
+        >
+          <a
+            href="#soluciones"
+            class="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-sm sm:text-[0.95rem] text-white overflow-hidden active:scale-[0.97] transition-transform duration-150"
+          >
+            <!-- Button background with animated shimmer -->
+            <span class="absolute inset-0 bg-brand-accent rounded-full"></span>
+            <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.12] to-transparent rounded-full translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
+            <span class="relative flex items-center gap-3">
+              Explorar soluciones
+              <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+            </span>
+          </a>
 
-              <!-- Live Code / Telemetry Log Line -->
-              <div class="p-3 rounded-xl bg-black/60 border border-white/10 font-mono text-xs text-slate-300 flex items-center gap-2 overflow-x-auto">
-                <Terminal class="w-4 h-4 text-brand-accent shrink-0" />
-                <span class="text-brand-accent font-semibold">$</span>
-                <span class="whitespace-nowrap">{{ layer.code }}</span>
-              </div>
-
-              <!-- Graphic Architecture Pipeline -->
-              <div class="p-3.5 rounded-xl bg-brand-surface/80 border border-white/10 relative overflow-hidden">
-                <div class="flex items-center justify-between text-xs font-mono text-slate-400">
-                  <span class="flex items-center gap-1.5">
-                    <Activity class="w-3.5 h-3.5 text-brand-accent animate-pulse" />
-                    Estado de Señal
-                  </span>
-                  <span class="text-emerald-400 font-semibold">{{ layer.status }}</span>
-                </div>
-
-                <!-- Pipeline Nodes Graphic -->
-                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between relative">
-                  <!-- Connector line -->
-                  <div class="absolute top-1/2 left-4 right-4 h-[2px] bg-gradient-to-r from-blue-600/40 via-brand-accent to-brand-accent-cyan -translate-y-1/2 z-0"></div>
-                  
-                  <!-- Node 1: Sensor -->
-                  <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-8 h-8 rounded-full bg-brand-dark border-2 border-brand-accent flex items-center justify-center text-brand-accent shadow-glow-accent">
-                      <Radio class="w-3.5 h-3.5" />
-                    </div>
-                    <span class="text-[9px] font-mono text-slate-400 mt-1">Sensor</span>
-                  </div>
-
-                  <!-- Node 2: ESP32 -->
-                  <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-8 h-8 rounded-full bg-brand-dark border-2 border-brand-accent flex items-center justify-center text-brand-accent shadow-glow-accent">
-                      <Cpu class="w-3.5 h-3.5" />
-                    </div>
-                    <span class="text-[9px] font-mono text-slate-400 mt-1">ESP32</span>
-                  </div>
-
-                  <!-- Node 3: Cloud / API -->
-                  <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-8 h-8 rounded-full bg-brand-dark border-2 border-brand-accent-cyan flex items-center justify-center text-brand-accent-cyan shadow-glow-cyan">
-                      <Server class="w-3.5 h-3.5" />
-                    </div>
-                    <span class="text-[9px] font-mono text-slate-400 mt-1">API Cloud</span>
-                  </div>
-
-                  <!-- Node 4: Web UI -->
-                  <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-8 h-8 rounded-full bg-brand-dark border-2 border-blue-400 flex items-center justify-center text-blue-400">
-                      <Layers class="w-3.5 h-3.5" />
-                    </div>
-                    <span class="text-[9px] font-mono text-slate-400 mt-1">Suitech UI</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Footer Tip -->
-            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
-              <span class="flex items-center gap-1.5">
-                <Zap class="w-3.5 h-3.5 text-brand-accent" />
-                Interconexión verificada
-              </span>
-              <span class="font-mono text-brand-accent">suitechpe.com</span>
-            </div>
-
-          </div>
+          <a
+            href="#proyectos"
+            class="group inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm sm:text-[0.95rem] text-white/80 hover:text-white border border-white/[0.1] hover:border-white/[0.22] bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-200 backdrop-blur-sm"
+          >
+            Conocer proyectos
+          </a>
         </div>
 
       </div>
-
     </div>
+
+    <!-- ═══ Metrics Strip ═══ -->
+    <div
+      :class="[
+        'relative z-10 w-full border-t border-white/[0.06] transition-all duration-1000 delay-1000',
+        isReady ? 'opacity-100' : 'opacity-0'
+      ]"
+      style="background: linear-gradient(180deg, rgba(4,8,16,0.5) 0%, rgba(4,8,16,0.85) 100%); backdrop-filter: blur(16px);"
+    >
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-14">
+        <div class="grid grid-cols-2 lg:grid-cols-4">
+          <div
+            v-for="(metric, index) in metrics"
+            :key="index"
+            :class="[
+              'py-5 sm:py-7 px-4 sm:px-6 text-center lg:text-left',
+              index > 0 ? 'border-l border-white/[0.06]' : '',
+            ]"
+          >
+            <div class="font-mono text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold tracking-tight">
+              <span :class="metric.accent ? 'hero-gradient-text' : 'text-white'">
+                {{ getMetricValue(index, metric.value) }}
+              </span>
+            </div>
+            <div class="text-[10px] sm:text-[11px] text-slate-500 mt-1.5 uppercase tracking-[0.14em] font-medium">
+              {{ metric.label }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div
+      :class="[
+        'absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-1.5 transition-all duration-1000 delay-[1.4s]',
+        isReady ? 'opacity-100' : 'opacity-0'
+      ]"
+    >
+      <span class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-medium">Scroll</span>
+      <div class="w-[1px] h-8 bg-gradient-to-b from-slate-500/50 to-transparent scroll-pulse"></div>
+    </div>
+
   </section>
 </template>
+
+<style scoped>
+.hero-gradient-text {
+  background: linear-gradient(135deg, #006EFE 0%, #38BDF8 55%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scroll-pulse {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.7); transform-origin: top; }
+  50% { opacity: 0.8; transform: scaleY(1); transform-origin: top; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-pulse {
+    animation: none;
+    opacity: 0.5;
+  }
+}
+</style>

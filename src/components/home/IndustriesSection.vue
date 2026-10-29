@@ -1,22 +1,21 @@
 <script setup lang="ts">
 import { INDUSTRIES } from '../../data/suitechData';
 import { 
-  Pickaxe, 
-  FlaskConical, 
   Building2, 
+  Sparkles, 
+  Layers, 
   Cpu, 
   Radio, 
-  Sparkles,
-  Layers
+  GraduationCap
 } from 'lucide-vue-next';
 
 const iconMap: Record<string, any> = {
-  Pickaxe,
-  FlaskConical,
   Building2,
+  Sparkles,
+  Layers,
   Cpu,
   Radio,
-  Sparkles
+  GraduationCap
 };
 </script>
 

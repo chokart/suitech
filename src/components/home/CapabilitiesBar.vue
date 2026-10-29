@@ -3,20 +3,20 @@ import { CAPABILITIES } from '../../data/suitechData';
 import { 
   Code2, 
   BrainCircuit, 
+  Workflow,
   Cpu, 
-  Cog, 
-  Factory, 
-  FlaskConical, 
+  Cloud, 
+  LayoutDashboard, 
   GraduationCap
 } from 'lucide-vue-next';
 
 const icons = [
   Code2,
   BrainCircuit,
-  Cog,
+  Workflow,
   Cpu,
-  Factory,
-  FlaskConical,
+  Cloud,
+  LayoutDashboard,
   GraduationCap
 ];
 </script>

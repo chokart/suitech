@@ -6,7 +6,7 @@ export const BRAND_INFO = {
   domain: 'https://suitechpe.com',
   domainDisplay: 'suitechpe.com',
   tagline: 'Tecnología que crea soluciones y abre posibilidades.',
-  shortDescription: 'Ingeniería aplicada a problemas reales: unimos desarrollo de software, inteligencia artificial, IoT y sistemas industriales.',
+  shortDescription: 'Ingeniería aplicada a problemas reales: unimos desarrollo de software, inteligencia artificial, automatización y sistemas conectados IoT.',
   contactEmail: 'contacto@suitechpe.com',
   whatsappUrl: 'https://wa.me/51999999999?text=Hola%20Suitech,%20deseo%20conversar%20sobre%20un%20proyecto%20tecnol%C3%B3gico', // Configurable por el usuario
   linkedinUrl: 'https://www.linkedin.com/company/suitechpe', // Configurable
@@ -20,8 +20,8 @@ export const CAPABILITIES: string[] = [
   'Inteligencia artificial aplicada',
   'Automatización de procesos',
   'IoT & Microcontroladores ESP32',
-  'Sistemas operativos industriales',
-  'Balances metalúrgicos & Ingeniería',
+  'Arquitectura Cloud & APIs REST',
+  'Dashboards y analítica en tiempo real',
   'Formación tecnológica práctica'
 ];
 
@@ -36,10 +36,10 @@ export const SOLUTIONS: SolutionItem[] = [
     badge: 'Arquitectura Web & Cloud',
     features: [
       'Aplicaciones web interactivas y paneles de control',
-      'Sistemas de gestión operativa y administrativa',
-      'Diseño y consumo de APIs seguras',
+      'Sistemas de gestión operativa y comercial',
+      'Diseño y consumo de APIs seguras y escalables',
       'Modelado de bases de datos relacionales y no relacionales',
-      'Digitalización y trazabilidad integral de procesos'
+      'Digitalización y trazabilidad integral de flujos de trabajo'
     ],
     deliverables: ['Código documentado', 'Despliegue automatizado', 'Guía de uso y soporte']
   },
@@ -55,27 +55,27 @@ export const SOLUTIONS: SolutionItem[] = [
       'Integración de modelos de lenguaje (LLMs) en sistemas existentes',
       'Automatización de tareas repetitivas y procesamiento de texto',
       'Asistentes técnicos para consulta rápida de manuales y procedimientos',
-      'Generación automatizada de reportes operativos e informes técnicos',
-      'Sistemas de recomendación y apoyo analítico a decisiones'
+      'Generación automatizada de reportes y resúmenes ejecutivos',
+      'Sistemas de apoyo analítico y extracción estructurada de datos'
     ],
-    deliverables: ['Pipelines de datos limpios', 'Modelos probados con tus datos', 'Integración vía API']
+    deliverables: ['Pipelines de datos limpios', 'Modelos adaptados a tus datos', 'Integración vía API']
   },
   {
-    id: 'soluciones-industriales',
+    id: 'automatizacion-procesos',
     number: '03',
-    title: 'Soluciones Industriales',
-    summary: 'Herramientas de ingeniería para monitoreo de operaciones, control de producción y gestión técnica en entornos exigentes.',
-    description: 'Diseñadas a partir de más de una década de experiencia en minería y procesos productivos, uniendo el rigor técnico de la metalurgia con la ingeniería de software.',
-    iconName: 'Factory',
-    badge: 'Minería & Procesos',
+    title: 'Automatización de Procesos',
+    summary: 'Conexión entre plataformas, sincronización de bases de datos y flujos de trabajo sin intervención manual.',
+    description: 'Diseñamos pipelines automáticos que conectan tus herramientas existentes, eliminando la duplicación de tareas y acelerando tiempos de respuesta.',
+    iconName: 'Workflow',
+    badge: 'Eficiencia Operativa',
     features: [
-      'Monitoreo y seguimiento de disponibilidad de equipos y flotas',
-      'Registro y balance de movimientos de mineral y producción',
-      'Gestión de personal operativo y programación de guardias (roster)',
-      'Indicadores clave de desempeño (KPIs) en tiempo real',
-      'Herramientas de cálculo para operaciones metalúrgicas y de planta'
+      'Conexión e integración entre plataformas y APIs de terceros',
+      'Sincronización automatizada de inventarios, pedidos y registros',
+      'Procesamiento por lotes y generación periódica de informes',
+      'Flujos de notificación inmediata por correo, webhook o mensajería',
+      'Eliminación de cuellos de botella en tareas administrativas'
     ],
-    deliverables: ['Paneles de control en planta', 'Historial auditable', 'Reportabilidad ejecutiva']
+    deliverables: ['Flujos probados y monitoreados', 'Alertas de error automáticas', 'Documentación técnica']
   },
   {
     id: 'iot-sistemas-conectados',
@@ -86,7 +86,7 @@ export const SOLUTIONS: SolutionItem[] = [
     iconName: 'Cpu',
     badge: 'Hardware + Firmware + Web',
     features: [
-      'Instrumentación y sensores (nivel, ultrasonido, presión, temperatura)',
+      'Instrumentación y sensores (nivel, distancia, temperatura, pulsos)',
       'Firmware eficiente sobre microcontroladores ESP32 / Arduino',
       'Envío de telemetría a servidores locales o en la nube',
       'Monitoreo remoto de estados, alertas y umbrales críticos',
@@ -97,26 +97,26 @@ export const SOLUTIONS: SolutionItem[] = [
   {
     id: 'productos-digitales',
     number: '05',
-    title: 'Productos Digitales Especializados',
-    summary: 'Creación de plataformas técnicas propias, como SuiteMinerals, orientadas a cálculos de ingeniería y metalurgia.',
-    description: 'Desarrollamos herramientas modulares y componentes reutilizables que resuelven cálculos matemáticos complejos de forma accesible y verificable.',
+    title: 'Productos y Plataformas Digitales',
+    summary: 'Creación de herramientas especializadas, componentes reutilizables y aplicaciones diseñadas para escalar.',
+    description: 'Desarrollamos soluciones técnicas modulares con arquitecturas limpias, alta velocidad de respuesta y enfocadas en la experiencia del usuario final.',
     iconName: 'Layers',
-    badge: 'Herramientas Propias',
+    badge: 'Desarrollo de Producto',
     features: [
-      'SuiteMinerals: plataforma web de balances metalúrgicos',
-      'Módulos de cálculo de rendimiento, recuperación y molienda',
-      'Herramientas técnicas parametrizables para ingenieros y operadores',
-      'Sistemas configurables para optimización de recursos',
-      'Componentes reutilizables listos para escalar según demanda'
+      'Herramientas web especializadas para cálculos y análisis',
+      'Componentes reutilizables listos para escalar según demanda',
+      'Sistemas configurables para optimización de recursos y tiempos',
+      'Exportación rápida de reportes a formatos estándar (PDF/Excel)',
+      'Interfaces intuitivas optimizadas para escritorio y móviles'
     ],
-    deliverables: ['Acceso web inmediato', 'Exportación de reportes', 'Fórmulas validadas']
+    deliverables: ['Acceso web inmediato', 'Exportación de reportes', 'Arquitectura modular']
   },
   {
     id: 'formacion-tecnologica',
     number: '06',
     title: 'Formación y Divulgación Técnica',
     summary: 'Transferencia de conocimiento honesta: tutoriales prácticos, código abierto y guías de construcción paso a paso.',
-    description: 'Compartimos aprendizajes reales de ingeniería: cómo conectar un microcontrolador con la nube, cómo estructurar un sistema industrial y cómo aplicar IA de forma viable.',
+    description: 'Compartimos aprendizajes reales de ingeniería: cómo conectar un microcontrolador con la nube, cómo estructurar software escalable y cómo aplicar IA de forma viable.',
     iconName: 'GraduationCap',
     badge: 'Construyendo Suitech',
     features: [
@@ -124,7 +124,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'Guías paso a paso de IoT con ESP32 y conexión con APIs web',
       'Visualización de datos de sensores en dashboards modernos',
       'Automatización práctica de procesos con herramientas de IA',
-      'Desarrollo de software aplicado a ingeniería y metalurgia'
+      'Arquitecturas limpias y buenas prácticas con Vue 3 y TypeScript'
     ],
     deliverables: ['Guías paso a paso', 'Repositorios con código de ejemplo', 'Videos explicativos']
   }
@@ -150,10 +150,10 @@ export const VALUE_PILLARS: ValuePillar[] = [
   {
     number: '03',
     title: 'Ingeniería aplicada',
-    subtitle: 'Experiencia técnica de campo + ingeniería de sistemas',
-    description: 'Combinamos cerca de una década en operaciones industriales y metalúrgicas con la formación en sistemas para entender el fondo del problema.',
+    subtitle: 'Experiencia técnica directa + ingeniería de software',
+    description: 'Combinamos experiencia técnica directa en resolución de problemas complejos con ingeniería de software moderna para entender el fondo de cada necesidad.',
     iconName: 'Wrench',
-    quote: 'Entendemos los procesos productivos desde adentro, no solo desde un editor de código.'
+    quote: 'Entendemos las necesidades operativas desde adentro, no solo desde un editor de código.'
   },
   {
     number: '04',
@@ -167,51 +167,30 @@ export const VALUE_PILLARS: ValuePillar[] = [
 
 export const PROJECTS: ProjectItem[] = [
   {
-    id: 'suiteminerals',
-    name: 'SuiteMinerals',
-    shortName: 'SuiteMinerals',
-    category: 'Producto Digital · Metalurgia',
-    status: 'desarrollo',
-    statusLabel: 'En desarrollo · Prototipo web',
-    problem: 'Los ingenieros metalúrgicos y operadores de planta suelen realizar balances metalúrgicos, cálculos de recuperación y dimensionamiento en hojas de cálculo complejas, difíciles de auditar, propensas a errores de fórmulas y sin respaldo en la nube.',
-    solution: 'Plataforma web técnica especializada que centraliza balances metalúrgicos de dos y tres productos, cálculos de concentración, masa y leyes, con validación de datos en tiempo real y generación de reportes técnicos claros.',
-    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Vite', 'Algoritmos Metalúrgicos'],
-    architectureSummary: 'Arquitectura SPA reactiva con motor de cálculo matemático desacoplado en TypeScript, validación estricta de leyes y balances estequiométricos.',
+    id: 'sistema-gestion-empresarial',
+    name: 'Sistema de Gestión Empresarial',
+    shortName: 'Gestión Comercial & Stock',
+    category: 'Software Empresarial · Productividad',
+    status: 'operativo',
+    statusLabel: 'Operativo en entorno real',
+    problem: 'Pérdida de control financiero y desorden de existencias en negocios que gestionan compras, ventas, insumos y gastos en libretas o notas sueltas.',
+    solution: 'Aplicación administrativa práctica para registrar flujos diarios de caja, cobros por servicios, control estricto de inventario, consumo de insumos y métricas de rentabilidad neta.',
+    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Vite', 'LocalStorage / Cloud DB'],
+    architectureSummary: 'Aplicación web ligera con gestión de estado centralizada, cálculo automático de márgenes operativos y reportes imprimibles/exportables.',
     keyFeatures: [
-      'Balances metalúrgicos de dos y tres productos (Concentrado, Relave, Cabeza)',
-      'Cálculo automático de distribución y recuperación porcentual',
-      'Validación matemática para evitar balances incoherentes',
-      'Exportación rápida de balances a formatos auditables',
-      'Interfaz optimizada para tablets y laptops de campo'
+      'Registro rápido de ingresos y egresos por categorías',
+      'Inventario de insumos con aviso automático de stock mínimo',
+      'Control de tiempos de servicio y uso de recursos',
+      'Cierre de caja diario con conciliación automática',
+      'Resumen visual de rentabilidad y gastos del período'
     ],
-    honestDisclaimer: 'Proyecto propio en fase de pruebas con profesionales del sector para validar un conjunto inicial de funciones de alto valor.',
-    visualType: 'metallurgy'
-  },
-  {
-    id: 'sistema-operaciones-mineras',
-    name: 'Sistema de Gestión Operativa',
-    shortName: 'Gestión Operativa',
-    category: 'Software Industrial · Operaciones',
-    status: 'desarrollo',
-    statusLabel: 'En validación técnica',
-    problem: 'Falta de consolidación entre el avance de equipos pesados, movimientos de mineral, asignación de operadores por guardia (roster) y reportes de producción diarios, generando desfasajes de información en la toma de decisiones.',
-    solution: 'Sistema modular de software para monitorear horas efectivas de equipos, registrar toneladas movidas por tajo/frente, administrar el rol de guardias del personal y consolidar indicadores operativos en una sola fuente veraz.',
-    technologies: ['Vue 3', 'Node.js', 'PostgreSQL / SQLite', 'REST API', 'Docker'],
-    architectureSummary: 'Plataforma cliente-servidor con base de datos relacional orientada a eventos de turnos operativos, reportabilidad diaria y control de disponibilidad mecánica.',
-    keyFeatures: [
-      'Control de flota: horómetros, tiempos muertos y disponibilidad mecánica',
-      'Registro de ciclos y movimientos de acarreo y carguío',
-      'Administración de turnos y roster de operadores',
-      'Generación de reportes de fin de guardia en formato estándar',
-      'Separación total de datos confidenciales y reglas parametrizables'
-    ],
-    honestDisclaimer: 'Desarrollado a partir de experiencia directa en operaciones mineras. Mostrado como prototipo/demostración genérica sin exponer información confidencial de terceros.',
-    visualType: 'operations'
+    honestDisclaimer: 'Solución probada y en uso en operaciones comerciales reales, adaptada para ser replicable en negocios con necesidades análogas.',
+    visualType: 'business'
   },
   {
     id: 'iot-nivel-agua',
-    name: 'Monitoreo Inteligente de Nivel de Agua',
-    shortName: 'Telemetría IoT Nivel',
+    name: 'Monitoreo Inteligente de Nivel de Reservorios',
+    shortName: 'Telemetría IoT de Nivel',
     category: 'IoT · Hardware & Telemetría',
     status: 'prototipo',
     statusLabel: 'Prototipo funcional demostrativo',
@@ -222,33 +201,54 @@ export const PROJECTS: ProjectItem[] = [
     keyFeatures: [
       'Lectura continua de nivel de líquido en porcentaje y volumen estimado',
       'Transmisión de telemetría con manejo de reconexión y bajo consumo',
-      'Panel web con visualización gráfica del tanque en tiempo real',
+      'Panel web con visualización gráfica del reservorio en tiempo real',
       'Alertas visuales de nivel bajo, nivel óptimo y sobrellenado',
-      'Módulo pensado como base para proyectos de telemetría industrial'
+      'Módulo pensado como base para proyectos de telemetría y supervisión remota'
     ],
-    honestDisclaimer: 'Prototipo activo de demostración e investigación técnica. Empleado en divulgación y como base experimental antes de certificarlo para control crítico de bombas.',
+    honestDisclaimer: 'Prototipo activo de demostración e investigación técnica. Empleado en divulgación y como base experimental de hardware conectado.',
     visualType: 'iot'
   },
   {
-    id: 'sistema-gestion-empresarial',
-    name: 'Sistema de Gestión Empresarial',
-    shortName: 'Gestión Comercial & Stock',
-    category: 'Software Empresarial · Productividad',
-    status: 'operativo',
-    statusLabel: 'Operativo en entorno real',
-    problem: 'Pérdida de control financiero y desorden de existencias en pequeños negocios y operaciones comerciales que gestionan compras, ventas, energía y gastos en libretas o notas sueltas.',
-    solution: 'Aplicación administrativa práctica para registrar flujos diarios de caja, cobros por servicios, control estricto de inventario, consumo de servicios y métricas de rentabilidad neta.',
-    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Vite', 'LocalStorage / Cloud DB'],
-    architectureSummary: 'Aplicación web ligera con gestión de estado centralizada, cálculo automático de márgenes operativos y reportes imprimibles/exportables.',
+    id: 'automatizacion-ia-documentos',
+    name: 'Plataforma de Extracción y Automatización con IA',
+    shortName: 'Automatización con IA',
+    category: 'Inteligencia Artificial · Automatización',
+    status: 'desarrollo',
+    statusLabel: 'En desarrollo · Validación técnica',
+    problem: 'Pérdida de horas de trabajo en digitación manual de comprobantes, facturas, recibos y reportes operativos sin formato unificado.',
+    solution: 'Pipeline asistido por IA que recibe documentos en PDF o imágenes, procesa y extrae campos estructurados automáticamente (RUC, montos, fechas, ítems) y los integra con la base de datos.',
+    technologies: ['Python', 'LLM Vision APIs', 'Vue 3', 'REST API', 'PostgreSQL / SQLite'],
+    architectureSummary: 'Carga de archivos -> Preprocesamiento de imagen -> Prompt estructurado con esquema JSON estricto -> Ingesta automática en API -> Dashboard de validación humana.',
     keyFeatures: [
-      'Registro rápido de ingresos y egresos por categorías',
-      'Inventario de insumos con aviso de stock mínimo',
-      'Control de tiempos de servicio y uso de equipamiento',
-      'Cierre de caja diario con conciliación automática',
-      'Resumen visual de rentabilidad y gastos del período'
+      'Extracción automática de datos estructurados desde PDFs e imágenes',
+      'Validación de esquemas y reglas de negocio en tiempo real',
+      'Panel de confirmación visual para discrepancias detectadas',
+      'Exportación directa a sistemas contables y hojas de cálculo',
+      'Reducción drástica del tiempo de ingreso de información'
     ],
-    honestDisclaimer: 'Solución probada y en uso en operaciones propias, adaptada para ser replicable en negocios con necesidades análogas.',
-    visualType: 'business'
+    honestDisclaimer: 'Proyecto en etapa de refinamiento de modelos y prompts para garantizar tasas de precisión elevadas antes de su lanzamiento general.',
+    visualType: 'ai-automation'
+  },
+  {
+    id: 'dashboard-metricas-operativas',
+    name: 'Panel Centralizado de Analítica y Métricas',
+    shortName: 'Dashboard de Analítica',
+    category: 'Software Web · Analítica',
+    status: 'desarrollo',
+    statusLabel: 'En validación técnica',
+    problem: 'Falta de visibilidad unificada de KPIs, estado de servicios, usuarios activos y métricas de desempeño, obligando a revisar múltiples herramientas dispersas.',
+    solution: 'Dashboard web reactivo de alta velocidad que consolida métricas clave, gráficos interactivos, alertas de umbrales y roles de acceso en un solo entorno limpio y moderno.',
+    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Chart.js / SVG', 'REST API'],
+    architectureSummary: 'Arquitectura SPA reactiva desacoplada del backend, con actualización periódica de métricas, diseño responsive e interfaz modo oscuro de alta legibilidad.',
+    keyFeatures: [
+      'Visualización de métricas en tiempo real con indicadores de tendencia',
+      'Filtrado interactivo por rangos de fecha y categorías operativas',
+      'Generación de reportes ejecutivos en PDF con un clic',
+      'Diseño 100% responsive optimizado para móviles y pantallas grandes',
+      'Componentes modulares adaptables a distintos tipos de negocio'
+    ],
+    honestDisclaimer: 'Desarrollado como base de producto digital para clientes que requieren una capa visual moderna sobre sus datos existentes.',
+    visualType: 'analytics'
   }
 ];
 
@@ -285,25 +285,25 @@ export const WORK_PROCESS: WorkStep[] = [
 
 export const INDUSTRIES: IndustryItem[] = [
   {
-    id: 'mineria-industria',
-    title: 'Industria y Minería',
-    description: 'Ambientes exigentes donde la disponibilidad mecánica, el control de turnos y la reportabilidad operativa definen la rentabilidad.',
-    applications: ['Monitoreo de equipos', 'Control de acarreo y frentes', 'Roster y turnos de personal', 'Indicadores de producción'],
-    iconName: 'Pickaxe'
-  },
-  {
-    id: 'ingenieria-metalurgia',
-    title: 'Ingeniería y Metalurgia',
-    description: 'Procesamiento de minerales y cálculos técnicos donde la precisión de balance de masas y leyes es vital.',
-    applications: ['Balances metalúrgicos 2 y 3 productos', 'Modelado de recuperación', 'SuiteMinerals', 'Estandarización de cálculos'],
-    iconName: 'FlaskConical'
-  },
-  {
-    id: 'gestion-empresarial',
-    title: 'Gestión y Negocios',
-    description: 'Pequeñas y medianas operaciones que requieren dar el salto desde hojas de cálculo dispersas hacia sistemas centralizados.',
-    applications: ['Control de inventarios y stock', 'Caja diaria y conciliación', 'Gestión de servicios y consumo', 'Métricas de rentabilidad'],
+    id: 'empresas-comercios',
+    title: 'Empresas y Comercios',
+    description: 'Negocios y empresas de servicios que requieren digitalizar su operativa diaria, optimizar inventarios y centralizar flujos comerciales.',
+    applications: ['Control de inventarios y stock', 'Caja diaria y conciliación', 'Gestión de servicios y compras', 'Métricas de rentabilidad'],
     iconName: 'Building2'
+  },
+  {
+    id: 'startups-emprendedores',
+    title: 'Startups y Emprendedores Tech',
+    description: 'Fundadores y proyectos emergentes que necesitan un socio técnico para construir MVPs, productos digitales y prototipos funcionales.',
+    applications: ['Desarrollo ágil de MVPs', 'Arquitectura frontend moderna', 'Integración de APIs y pagos', 'Pruebas de concepto rápidas'],
+    iconName: 'Sparkles'
+  },
+  {
+    id: 'gestion-productividad',
+    title: 'Gestión y Productividad',
+    description: 'Organizaciones que buscan reemplazar hojas de cálculo dispersas con plataformas web centralizadas, seguras y accesibles.',
+    applications: ['Paneles de control y reportes', 'Digitalización de formularios', 'Gestión de usuarios y accesos', 'Seguimiento de tareas'],
+    iconName: 'Layers'
   },
   {
     id: 'automatizacion-procesos',
@@ -315,16 +315,16 @@ export const INDUSTRIES: IndustryItem[] = [
   {
     id: 'telemetria-iot',
     title: 'Monitoreo & Dispositivos Conectados',
-    description: 'Captura de variables físicas remotas para saber qué ocurre en tanques, bombas y maquinaria sin presencia física constante.',
-    applications: ['Sensores de nivel ultrasónico/presión', 'Telemetría ESP32 a la nube', 'Alertas tempranas de fallas', 'Paneles web de telemetría'],
+    description: 'Captura de variables físicas remotas para supervisar niveles, ambientes y estados operativos sin presencia física constante.',
+    applications: ['Sensores de nivel ultrasónico/presión', 'Telemetría ESP32 a la nube', 'Alertas tempranas de umbrales', 'Paneles web de telemetría'],
     iconName: 'Radio'
   },
   {
     id: 'formacion-creadores',
-    title: 'Profesionales & Emprendedores Tech',
-    description: 'Personas técnicas que buscan aprender a integrar hardware con software y desarrollar sus propios proyectos.',
-    applications: ['Tutoriales de ESP32 con APIs', 'Aprender Vue y desarrollo web', 'Construcción paso a paso', 'Comunidad técnica'],
-    iconName: 'Sparkles'
+    title: 'Profesionales & Creadores Técnicos',
+    description: 'Desarrolladores y entusiastas que buscan aprender a integrar hardware con software y crear sus propios proyectos.',
+    applications: ['Tutoriales de ESP32 con APIs', 'Aprender Vue 3 y desarrollo web', 'Construcción paso a paso', 'Comunidad técnica abierta'],
+    iconName: 'GraduationCap'
   }
 ];
 
@@ -350,21 +350,21 @@ export const LEARNING_POSTS: LearningItem[] = [
     targetPlatform: 'Construyendo Suitech'
   },
   {
-    id: 'balances-metalurgicos-web',
-    title: 'Cómo desarrollar herramientas digitales para cálculos de ingeniería y metalurgia',
-    category: 'Software de Ingeniería',
-    readTime: '12 min de lectura',
-    summary: 'La lógica detrás de SuiteMinerals: cómo transformar fórmulas matemáticas de balances metalúrgicos de dos productos en funciones tipadas y verificadas.',
-    tags: ['Metalurgia', 'TypeScript', 'Ingeniería', 'SuiteMinerals'],
-    status: 'Caso de estudio',
+    id: 'arquitectura-vue3-typescript',
+    title: 'Cómo estructurar aplicaciones web escalables con Vue 3 y TypeScript',
+    category: 'Frontend & Arquitectura',
+    readTime: '11 min de lectura',
+    summary: 'Patrones prácticos para organizar componentes, tipado estricto en TypeScript, desacoplamiento de lógica y buenas prácticas para paneles de control.',
+    tags: ['Vue 3', 'TypeScript', 'Frontend', 'Arquitectura'],
+    status: 'Guía de ingeniería',
     targetPlatform: 'Construyendo Suitech'
   },
   {
     id: 'automatizacion-procesos-ia',
-    title: 'Cómo automatizar la extracción de datos de reportes operativos con Inteligencia Artificial',
+    title: 'Cómo automatizar la extracción de datos de documentos con Inteligencia Artificial',
     category: 'IA Aplicada',
     readTime: '7 min de lectura',
-    summary: 'Uso práctico de modelos LLM para procesar texto desestructurado de minutas de guardia y convertirlos en registros estructurados en una base de datos.',
+    summary: 'Uso práctico de modelos LLM para procesar texto desestructurado de comprobantes y reportes para convertirlos en registros estructurados en base de datos.',
     tags: ['IA', 'Automatización', 'Productividad', 'Python/JS'],
     status: 'Guía práctica',
     targetPlatform: 'Construyendo Suitech'

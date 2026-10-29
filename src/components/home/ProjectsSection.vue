@@ -61,7 +61,7 @@ const getStatusBadge = (status: string) => {
           Proyectos reales construidos con <span class="text-gradient-accent">precisión de ingeniería</span>.
         </h2>
         <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-          Soluciones nacidas de desafíos operativos directos en minería, industria y automatización. Presentadas con honestidad técnica respecto a su estado actual.
+          Soluciones nacidas de desafíos reales en desarrollo de software, automatización, telemetría e inteligencia artificial. Presentadas con honestidad técnica respecto a su estado actual.
         </p>
       </div>
 
@@ -93,62 +93,62 @@ const getStatusBadge = (status: string) => {
             <!-- Project Mockup Visual Header (Specific for each project type) -->
             <div class="mb-6 rounded-xl bg-brand-surface/90 border border-white/10 p-4 overflow-hidden relative group-hover:border-white/20 transition-all">
               
-              <!-- Case 1: Metallurgy SuiteMinerals Mockup -->
-              <div v-if="project.visualType === 'metallurgy'" class="space-y-3 font-mono text-xs">
+              <!-- Case 1: AI Automation Pipeline Mockup -->
+              <div v-if="project.visualType === 'ai-automation'" class="space-y-3 font-mono text-xs">
                 <div class="flex items-center justify-between pb-2 border-b border-white/5 text-[11px] text-slate-400">
-                  <span>SuiteMinerals // Balance 2 Productos</span>
-                  <span class="text-emerald-400">Algoritmo OK</span>
+                  <span>IA Extractor // Ingesta JSON</span>
+                  <span class="text-emerald-400">Precisión 98.6%</span>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                   <div class="p-2.5 rounded bg-black/40 border border-white/5">
-                    <div class="text-[10px] text-slate-400">Ley Cabeza (c)</div>
-                    <div class="text-base font-bold text-white mt-0.5">1.12% Cu</div>
+                    <div class="text-[10px] text-slate-400">Docs Ingeridos</div>
+                    <div class="text-base font-bold text-white mt-0.5">1,240 PDFs</div>
                   </div>
                   <div class="p-2.5 rounded bg-black/40 border border-white/5">
-                    <div class="text-[10px] text-slate-400">Ley Conc. (c)</div>
-                    <div class="text-base font-bold text-brand-accent mt-0.5">28.45% Cu</div>
+                    <div class="text-[10px] text-slate-400">Tiempo / Doc</div>
+                    <div class="text-base font-bold text-brand-accent mt-0.5">1.2 seg</div>
                   </div>
                   <div class="p-2.5 rounded bg-black/40 border border-white/5">
-                    <div class="text-[10px] text-slate-400">Recuperación (R)</div>
-                    <div class="text-base font-bold text-brand-accent-cyan mt-0.5">89.62%</div>
-                  </div>
-                </div>
-                <div class="w-full bg-black/50 h-2 rounded-full overflow-hidden flex">
-                  <div class="bg-brand-accent h-full w-[89.6%]"></div>
-                  <div class="bg-red-400/40 h-full w-[10.4%]"></div>
-                </div>
-              </div>
-
-              <!-- Case 2: Operations Management Mockup -->
-              <div v-else-if="project.visualType === 'operations'" class="space-y-3 font-mono text-xs">
-                <div class="flex items-center justify-between pb-2 border-b border-white/5 text-[11px] text-slate-400">
-                  <span>Control de Flota // Turno A (Día)</span>
-                  <span class="text-cyan-400">12 Unidades Activas</span>
-                </div>
-                <div class="grid grid-cols-3 gap-2">
-                  <div class="p-2.5 rounded bg-black/40 border border-white/5">
-                    <div class="text-[10px] text-slate-400">Disponibilidad</div>
-                    <div class="text-base font-bold text-emerald-400 mt-0.5">93.4%</div>
-                  </div>
-                  <div class="p-2.5 rounded bg-black/40 border border-white/5">
-                    <div class="text-[10px] text-slate-400">Viajes Acarreo</div>
-                    <div class="text-base font-bold text-white mt-0.5">148 Ciclos</div>
-                  </div>
-                  <div class="p-2.5 rounded bg-black/40 border border-white/5">
-                    <div class="text-[10px] text-slate-400">Producción TM</div>
-                    <div class="text-base font-bold text-cyan-400 mt-0.5">18,450 TM</div>
+                    <div class="text-[10px] text-slate-400">Validación RUC</div>
+                    <div class="text-base font-bold text-emerald-400 mt-0.5">100% OK</div>
                   </div>
                 </div>
                 <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
-                  <span>CAT 793D #04: Operando (98% Disp)</span>
-                  <span class="text-emerald-400">Roster OK</span>
+                  <span class="truncate">Schema: { ruc, total, items, fecha, hash }</span>
+                  <span class="text-brand-accent-cyan">API 200 OK</span>
+                </div>
+              </div>
+
+              <!-- Case 2: Analytics & Metrics Dashboard Mockup -->
+              <div v-else-if="project.visualType === 'analytics'" class="space-y-3 font-mono text-xs">
+                <div class="flex items-center justify-between pb-2 border-b border-white/5 text-[11px] text-slate-400">
+                  <span>Analítica Web // Métricas en Vivo</span>
+                  <span class="text-cyan-400">SPA Reactiva</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="p-2.5 rounded bg-black/40 border border-white/5">
+                    <div class="text-[10px] text-slate-400">Peticiones / seg</div>
+                    <div class="text-base font-bold text-emerald-400 mt-0.5">380 req/s</div>
+                  </div>
+                  <div class="p-2.5 rounded bg-black/40 border border-white/5">
+                    <div class="text-[10px] text-slate-400">Latencia Media</div>
+                    <div class="text-base font-bold text-white mt-0.5">42 ms</div>
+                  </div>
+                  <div class="p-2.5 rounded bg-black/40 border border-white/5">
+                    <div class="text-[10px] text-slate-400">Disponibilidad</div>
+                    <div class="text-base font-bold text-brand-accent mt-0.5">99.98%</div>
+                  </div>
+                </div>
+                <div class="w-full bg-black/50 h-2 rounded-full overflow-hidden flex">
+                  <div class="bg-gradient-to-r from-brand-accent to-brand-accent-cyan h-full w-[94%]"></div>
+                  <div class="bg-white/10 h-full w-[6%]"></div>
                 </div>
               </div>
 
               <!-- Case 3: IoT Tank Telemetry Mockup -->
               <div v-else-if="project.visualType === 'iot'" class="space-y-3 font-mono text-xs">
                 <div class="flex items-center justify-between pb-2 border-b border-white/5 text-[11px] text-slate-400">
-                  <span>ESP32 Telemetría // Nodo Tanque-01</span>
+                  <span>ESP32 Telemetría // Nodo Reservorio-01</span>
                   <span class="text-emerald-400 flex items-center gap-1">
                     <Radio class="w-3 h-3 animate-ping" /> Transmitiendo
                   </span>

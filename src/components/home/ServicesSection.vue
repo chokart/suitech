@@ -2,7 +2,7 @@
 import { 
   Code2, 
   BrainCircuit, 
-  Factory, 
+  Workflow, 
   Cpu, 
   Layers, 
   GraduationCap, 
@@ -19,7 +19,7 @@ const emit = defineEmits<{
 const iconMap: Record<string, any> = {
   Code2,
   BrainCircuit,
-  Factory,
+  Workflow,
   Cpu,
   Layers,
   GraduationCap
