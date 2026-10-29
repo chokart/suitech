@@ -104,7 +104,7 @@ export async function sendContactMessage(data: ContactFormData): Promise<Contact
         return {
           success: false,
           error: 'service_rejected',
-          message: resJson.message || 'El servicio no pudo procesar la consulta. Puedes escribirnos a contacto@suitechpe.com.'
+          message: resJson.message || 'El servicio no pudo procesar la consulta. Puedes escribirnos a chokart@gmail.com.'
         };
       }
 
@@ -117,7 +117,7 @@ export async function sendContactMessage(data: ContactFormData): Promise<Contact
       return {
         success: false,
         error: `http_error_${response.status}`,
-        message: `El servidor no pudo procesar tu mensaje (Código ${response.status}). Puedes escribirnos directamente a contacto@suitechpe.com.`
+        message: `El servidor no pudo procesar tu mensaje (Código ${response.status}). Puedes escribirnos directamente a chokart@gmail.com.`
       };
     }
   } catch (err: any) {
@@ -125,14 +125,14 @@ export async function sendContactMessage(data: ContactFormData): Promise<Contact
       return {
         success: false,
         error: 'timeout',
-        message: 'El servidor tardó en responder. Por favor reintenta o escríbenos directamente a contacto@suitechpe.com.'
+        message: 'El servidor tardó en responder. Por favor reintenta o escríbenos directamente a chokart@gmail.com.'
       };
     }
 
     return {
       success: false,
       error: 'network_error',
-      message: 'No hubo conexión con el servicio de mensajería. Por favor verifica tu red o escríbenos directamente a contacto@suitechpe.com.'
+      message: 'No hubo conexión con el servicio de mensajería. Por favor verifica tu red o escríbenos directamente a chokart@gmail.com.'
     };
   }
 }

@@ -64,7 +64,7 @@ const handleSubmit = async () => {
       isUnconfiguredService.value = Boolean(result.unconfigured);
     }
   } catch (err: any) {
-    submitError.value = 'Ocurrió un error inesperado al procesar la solicitud. Por favor escríbenos directamente a contacto@suitechpe.com.';
+    submitError.value = 'Ocurrió un error inesperado al procesar la solicitud. Por favor escríbenos directamente a chokart@gmail.com.';
   } finally {
     isSubmitting.value = false;
   }

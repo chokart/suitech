@@ -38,7 +38,7 @@ const routes: RouteRecordRaw[] = [
               url: 'https://suitechpe.com/suitech-logo.png',
               caption: 'Suitech Perú'
             },
-            email: 'contacto@suitechpe.com',
+            email: 'chokart@gmail.com',
             areaServed: {
               '@type': 'Country',
               name: 'Perú'

@@ -23,7 +23,7 @@ const routesMeta = [
             url: 'https://suitechpe.com/suitech-logo.png',
             caption: 'Suitech Perú'
           },
-          email: 'contacto@suitechpe.com',
+          email: 'chokart@gmail.com',
           areaServed: {
             '@type': 'Country',
             name: 'Perú'
@@ -83,7 +83,7 @@ const routesMeta = [
         </section>
       </main>
       <footer style="margin-top: 5rem; padding: 3rem 1rem; border-top: 1px solid rgba(255,255,255,0.1); background: #070C17; color: #64748b; text-align: center;">
-        <p>&copy; 2026 Suitech Perú. Todos los derechos reservados. Correo: contacto@suitechpe.com</p>
+        <p>&copy; 2026 Suitech Perú. Todos los derechos reservados. Correo: chokart@gmail.com</p>
       </footer>
     `
   },
@@ -437,7 +437,7 @@ const routesMeta = [
         <section style="margin-top: 2rem;">
           <h2 style="font-size: 1.5rem; color: #fff; margin-bottom: 1rem;">Canal Oficial de Correo</h2>
           <p style="color: #94a3b8; font-size: 1.1rem;">
-            Escríbenos directamente a: <a href="mailto:contacto@suitechpe.com" style="color: #006EFE; text-decoration: none; font-weight: bold;">contacto@suitechpe.com</a>
+            Escríbenos directamente a: <a href="mailto:chokart@gmail.com" style="color: #006EFE; text-decoration: none; font-weight: bold;">chokart@gmail.com</a>
           </p>
           <p style="color: #64748b; font-size: 0.95rem; margin-top: 0.5rem;">Respuesta y revisión técnica en menos de 24 horas hábiles.</p>
         </section>

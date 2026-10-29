@@ -11,7 +11,7 @@ export const BRAND_INFO = {
   domainDisplay: 'suitechpe.com',
   tagline: 'Tecnología que crea soluciones y abre posibilidades.',
   shortDescription: 'Ingeniería aplicada a problemas reales: unimos desarrollo de software, inteligencia artificial, automatización y sistemas conectados IoT.',
-  contactEmail: 'contacto@suitechpe.com',
+  contactEmail: (import.meta.env.VITE_CONTACT_EMAIL as string) || 'chokart@gmail.com',
   whatsappNumber: isRealWhatsapp ? envWhatsapp : null,
   whatsappDisplay: '+51 961 795 940',
   whatsappUrl: isRealWhatsapp ? `https://wa.me/${envWhatsapp}?text=Hola%20Suitech,%20deseo%20conversar%20sobre%20un%20proyecto%20tecnol%C3%B3gico` : null,

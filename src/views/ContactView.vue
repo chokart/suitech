@@ -62,7 +62,7 @@ const handleSubmit = async () => {
       submitError.value = result.message;
     }
   } catch (err: any) {
-    submitError.value = 'No fue posible conectar con el servicio receptor. Por favor, contáctanos directamente a contacto@suitechpe.com.';
+    submitError.value = 'No fue posible conectar con el servicio receptor. Por favor, contáctanos directamente a chokart@gmail.com.';
   } finally {
     isSubmitting.value = false;
   }
