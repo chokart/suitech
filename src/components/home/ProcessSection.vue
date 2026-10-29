@@ -6,7 +6,7 @@ import {
   Code, 
   CheckCircle2, 
   Workflow, 
-  ArrowRight
+  ArrowUpRight
 } from 'lucide-vue-next';
 
 const iconMap: Record<string, any> = {
@@ -92,10 +92,10 @@ const iconMap: Record<string, any> = {
         </div>
         <a
           href="#contacto"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-mono text-slate-200 hover:text-white transition-colors shrink-0"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow hover:shadow-glow-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-brand-accent/40 shadow-md shrink-0"
         >
-          <span>Iniciar primera fase</span>
-          <ArrowRight class="w-3.5 h-3.5 text-brand-accent" />
+          <span>Contacto</span>
+          <ArrowUpRight class="w-3.5 h-3.5" />
         </a>
       </div>
 
