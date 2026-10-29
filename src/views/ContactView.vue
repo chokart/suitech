@@ -11,6 +11,7 @@ import {
   MapPin
 } from 'lucide-vue-next';
 import { BRAND_INFO } from '../data/suitechData';
+import { trackInquiry } from '../utils/analytics';
 
 const selectedService = ref<string>('software');
 const name = ref('');
@@ -31,7 +32,16 @@ const servicesList = [
 
 const handleSubmit = () => {
   isSubmitting.value = true;
-  // Format message for WhatsApp direct connection as instant fallback
+  
+  // Registrar evento de conversión / consulta
+  trackInquiry({
+    name: name.value,
+    email: email.value,
+    service: selectedService.value,
+    company: company.value,
+    channel: 'formulario_web'
+  });
+
   setTimeout(() => {
     isSubmitting.value = false;
     isSuccess.value = true;
@@ -39,6 +49,15 @@ const handleSubmit = () => {
 };
 
 const sendViaWhatsApp = () => {
+  // Registrar evento de lead hacia WhatsApp
+  trackInquiry({
+    name: name.value || 'Contacto WhatsApp',
+    email: email.value || 'contacto@whatsapp.com',
+    service: selectedService.value,
+    company: company.value,
+    channel: 'whatsapp'
+  });
+
   const text = encodeURIComponent(
     `Hola Suitech Perú, mi nombre es ${name.value || 'un cliente'} de ${company.value || 'mi empresa'}. Estoy interesado en ${selectedService.value}. Mensaje: ${message.value || 'Deseo coordinar una reunión técnica.'}`
   );

@@ -11,6 +11,7 @@ import {
   ExternalLink
 } from 'lucide-vue-next';
 import { BRAND_INFO, SOLUTIONS } from '../../data/suitechData';
+import { trackInquiry } from '../../utils/analytics';
 
 const form = ref({
   name: '',
@@ -38,6 +39,14 @@ const handleSubmit = () => {
 
   isSubmitting.value = true;
 
+  // Registrar lead en GA4 y almacenamiento local
+  trackInquiry({
+    name: form.value.name,
+    email: form.value.email,
+    service: form.value.solutionType,
+    channel: 'formulario_web'
+  });
+
   // Simulate instant client-side validation and response
   setTimeout(() => {
     isSubmitting.value = false;
@@ -46,6 +55,13 @@ const handleSubmit = () => {
 };
 
 const sendViaMailto = () => {
+  trackInquiry({
+    name: form.value.name || 'Consulta Correo',
+    email: form.value.email || 'contacto@suitechpe.com',
+    service: form.value.solutionType,
+    channel: 'correo'
+  });
+
   const subject = encodeURIComponent(`Consulta Suitech: ${form.value.solutionType} - ${form.value.name}`);
   const body = encodeURIComponent(
     `Nombre: ${form.value.name}\n` +
@@ -57,6 +73,13 @@ const sendViaMailto = () => {
 };
 
 const sendViaWhatsapp = () => {
+  trackInquiry({
+    name: form.value.name || 'Consulta WhatsApp',
+    email: form.value.email || 'contacto@whatsapp.com',
+    service: form.value.solutionType,
+    channel: 'whatsapp'
+  });
+
   const text = encodeURIComponent(
     `Hola Suitech, soy ${form.value.name || 'un visitante web'}. ` +
     `Quiero consultar sobre una solución tecnológica (${form.value.solutionType}): ${form.value.message || 'Deseo conversar sobre viabilidad técnica.'}`

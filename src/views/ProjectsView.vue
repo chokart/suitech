@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 import { PROJECTS } from '../data/suitechData';
 import type { ProjectItem } from '../types';
 import ProjectModal from '../components/ui/ProjectModal.vue';
+import { trackProjectInteraction } from '../utils/analytics';
 import { 
   FolderGit2, 
   ArrowRight, 
@@ -44,6 +45,7 @@ const filteredProjects = computed(() => {
 const openProject = (project: ProjectItem) => {
   selectedProject.value = project;
   isModalOpen.value = true;
+  trackProjectInteraction(project.name, project.category, 'modal_open');
 };
 
 const closeModal = () => {

@@ -8,6 +8,7 @@ import ProjectsView from '../views/ProjectsView.vue';
 import SuiteMineralsView from '../views/SuiteMineralsView.vue';
 import ContactView from '../views/ContactView.vue';
 import { updateSeoMeta, type RouteSeoMeta } from '../utils/seo';
+import { trackPageView } from '../utils/analytics';
 
 declare module 'vue-router' {
   interface RouteMeta extends Partial<RouteSeoMeta> {}
@@ -417,6 +418,7 @@ router.afterEach((to) => {
   if (to.meta && to.meta.title) {
     updateSeoMeta(to.meta as unknown as RouteSeoMeta);
   }
+  trackPageView(to.fullPath, to.meta?.title as string | undefined);
 });
 
 export default router;
