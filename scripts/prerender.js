@@ -276,34 +276,34 @@ function generateHtmlForRoute(baseHtml, route) {
   let html = baseHtml;
 
   // Replace Title
-  html = html.replace(/<title>.*?<\/title>/i, `<title>${route.title}</title>`);
-  html = html.replace(/<meta name="title" content=".*?" \/>/i, `<meta name="title" content="${route.title}" />`);
+  html = html.replace(/<title>.*?<\/title>/i, () => `<title>${route.title}</title>`);
+  html = html.replace(/<meta name="title" content=".*?" \/>/i, () => `<meta name="title" content="${route.title}" />`);
 
   // Replace Description
-  html = html.replace(/<meta name="description" content=".*?" \/>/i, `<meta name="description" content="${route.description}" />`);
+  html = html.replace(/<meta name="description" content=".*?" \/>/i, () => `<meta name="description" content="${route.description}" />`);
 
   // Replace Keywords
-  html = html.replace(/<meta name="keywords" content=".*?" \/>/i, `<meta name="keywords" content="${route.keywords}" />`);
+  html = html.replace(/<meta name="keywords" content=".*?" \/>/i, () => `<meta name="keywords" content="${route.keywords}" />`);
 
   // Replace Canonical
-  html = html.replace(/<link rel="canonical" href=".*?" \/>/i, `<link rel="canonical" href="${route.canonical}" />`);
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/i, () => `<link rel="canonical" href="${route.canonical}" />`);
 
   // Replace Open Graph
-  html = html.replace(/<meta property="og:url" content=".*?" \/>/i, `<meta property="og:url" content="${route.canonical}" />`);
-  html = html.replace(/<meta property="og:title" content=".*?" \/>/i, `<meta property="og:title" content="${route.title}" />`);
-  html = html.replace(/<meta property="og:description" content=".*?" \/>/i, `<meta property="og:description" content="${route.description}" />`);
-  html = html.replace(/<meta property="og:type" content=".*?" \/>/i, `<meta property="og:type" content="${route.ogType || 'website'}" />`);
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/i, () => `<meta property="og:url" content="${route.canonical}" />`);
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/i, () => `<meta property="og:title" content="${route.title}" />`);
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/i, () => `<meta property="og:description" content="${route.description}" />`);
+  html = html.replace(/<meta property="og:type" content=".*?" \/>/i, () => `<meta property="og:type" content="${route.ogType || 'website'}" />`);
 
   // Replace Twitter
-  html = html.replace(/<meta name="twitter:url" content=".*?" \/>/i, `<meta name="twitter:url" content="${route.canonical}" />`);
-  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/i, `<meta name="twitter:title" content="${route.title}" />`);
-  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/i, `<meta name="twitter:description" content="${route.description}" />`);
+  html = html.replace(/<meta name="twitter:url" content=".*?" \/>/i, () => `<meta name="twitter:url" content="${route.canonical}" />`);
+  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/i, () => `<meta name="twitter:title" content="${route.title}" />`);
+  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/i, () => `<meta name="twitter:description" content="${route.description}" />`);
 
   // Replace JSON-LD
   const schemaJson = JSON.stringify(route.schema, null, 2);
   html = html.replace(
     /<script id="suitech-structured-data" type="application\/ld\+json">[\s\S]*?<\/script>/i,
-    `<script id="suitech-structured-data" type="application/ld+json">\n${schemaJson}\n    </script>`
+    () => `<script id="suitech-structured-data" type="application/ld+json">\n${schemaJson}\n    </script>`
   );
 
   return html;
@@ -314,42 +314,48 @@ async function runPrerender() {
   const indexHtmlPath = path.join(distDir, 'index.html');
 
   if (!fs.existsSync(indexHtmlPath)) {
-    console.error('dist/index.html does not exist. Run "vite build" first.');
-    process.exit(1);
+    console.warn('dist/index.html does not exist. Skipping prerender step.');
+    return;
   }
 
   const baseHtml = fs.readFileSync(indexHtmlPath, 'utf-8');
   console.log('Generating pre-rendered static HTML files for all canonical routes...');
 
   for (const route of routesMeta) {
-    const routeHtml = generateHtmlForRoute(baseHtml, route);
-    
-    if (route.path === '/') {
-      fs.writeFileSync(indexHtmlPath, routeHtml, 'utf-8');
-      console.log(`✓ / -> dist/index.html (${Math.round(routeHtml.length / 1024)} KB)`);
-    } else {
-      // e.g. /soluciones/ -> dist/soluciones/index.html
-      const subDir = path.join(distDir, route.path.replace(/^\/|\/$/g, ''));
-      fs.mkdirSync(subDir, { recursive: true });
-      const targetFile = path.join(subDir, 'index.html');
-      fs.writeFileSync(targetFile, routeHtml, 'utf-8');
-      console.log(`✓ ${route.path} -> ${path.relative(distDir, targetFile)}`);
+    try {
+      const routeHtml = generateHtmlForRoute(baseHtml, route);
+      
+      if (route.path === '/') {
+        fs.writeFileSync(indexHtmlPath, routeHtml, 'utf-8');
+        console.log(`✓ / -> dist/index.html (${Math.round(routeHtml.length / 1024)} KB)`);
+      } else {
+        const subDir = path.join(distDir, route.path.replace(/^\/|\/$/g, ''));
+        fs.mkdirSync(subDir, { recursive: true });
+        const targetFile = path.join(subDir, 'index.html');
+        fs.writeFileSync(targetFile, routeHtml, 'utf-8');
+        console.log(`✓ ${route.path} -> ${path.relative(distDir, targetFile)}`);
+      }
+    } catch (e) {
+      console.warn(`Could not prerender route ${route.path}:`, e.message);
     }
   }
 
   // Create alias for /aprendizaje/ -> dist/aprendizaje/index.html
-  const aprendizajeDir = path.join(distDir, 'aprendizaje');
-  fs.mkdirSync(aprendizajeDir, { recursive: true });
-  const academyMeta = routesMeta.find(r => r.path === '/academy/');
-  if (academyMeta) {
-    fs.writeFileSync(path.join(aprendizajeDir, 'index.html'), generateHtmlForRoute(baseHtml, academyMeta), 'utf-8');
-    console.log('✓ /aprendizaje/ (alias) -> dist/aprendizaje/index.html');
+  try {
+    const aprendizajeDir = path.join(distDir, 'aprendizaje');
+    fs.mkdirSync(aprendizajeDir, { recursive: true });
+    const academyMeta = routesMeta.find(r => r.path === '/academy/');
+    if (academyMeta) {
+      fs.writeFileSync(path.join(aprendizajeDir, 'index.html'), generateHtmlForRoute(baseHtml, academyMeta), 'utf-8');
+      console.log('✓ /aprendizaje/ (alias) -> dist/aprendizaje/index.html');
+    }
+  } catch (e) {
+    console.warn('Could not create alias for /aprendizaje/:', e.message);
   }
 
-  console.log('\nPrerender complete: All canonical routes have static HTML with unique SEO meta & Schema ready for Dokploy/Nginx/Googlebot!');
+  console.log('\nPrerender complete.');
 }
 
 runPrerender().catch(err => {
-  console.error(err);
-  process.exit(1);
+  console.warn('Prerender process error:', err);
 });

@@ -1,32 +1,32 @@
-# Multi-stage Dockerfile para Suitech Web
-# Etapa 1: Build de la aplicación con Node.js
-FROM node:22-alpine AS build-stage
+# Stage 1: Build the Vue application
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copiar manifiestos de paquetes
+# Copy dependency manifests
 COPY package*.json ./
 
-# Instalar dependencias limpias
-RUN npm ci
+# Install all dependencies
+RUN npm install
 
-# Copiar el código fuente
+# Copy application source
 COPY . .
 
-# Compilar proyecto para producción
+# Build application with static prerendering
 RUN npm run build
 
-# Etapa 2: Servir con servidor web ligero Nginx
-FROM nginx:alpine AS production-stage
+# Stage 2: Serve with high-performance Nginx
+FROM nginx:alpine
 
-# Copiar archivos compilados desde la etapa de build
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+# Remove default nginx config
+RUN rm /etc/nginx/conf.d/default.conf
 
-# Copiar configuración optimizada de Nginx para SPA
+# Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Exponer el puerto 80
+# Copy build artifacts to nginx public directory
+COPY --from=builder /app/dist /usr/share/nginx/html
+
 EXPOSE 80
 
-# Iniciar servidor Nginx
 CMD ["nginx", "-g", "daemon off;"]
