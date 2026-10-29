@@ -1,16 +1,72 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
+import HeroCanvasBackground from './HeroCanvasBackground.vue';
 import { 
   ArrowRight, 
   Cpu, 
   Activity, 
   Layers, 
-  Terminal,
-  Server,
-  Zap,
+  Terminal, 
+  Server, 
+  Zap, 
   Radio
 } from 'lucide-vue-next';
 
+// Dynamic typewriter words inspired by Tekton Labs intro
+const words = [
+  'software a medida.',
+  'inteligencia artificial aplicada.',
+  'sistemas IoT & telemetría.',
+  'soluciones industriales.',
+  'productos digitales.'
+];
+
+const currentWordIndex = ref(0);
+const currentText = ref('');
+const isDeleting = ref(false);
+let typewriterTimeout: any = null;
+
+const typeSpeed = 75;
+const deleteSpeed = 35;
+const pauseTime = 2200;
+
+const runTypewriter = () => {
+  const fullWord = words[currentWordIndex.value];
+
+  if (!isDeleting.value) {
+    currentText.value = fullWord.substring(0, currentText.value.length + 1);
+    if (currentText.value === fullWord) {
+      typewriterTimeout = setTimeout(() => {
+        isDeleting.value = true;
+        runTypewriter();
+      }, pauseTime);
+      return;
+    }
+  } else {
+    currentText.value = fullWord.substring(0, currentText.value.length - 1);
+    if (currentText.value === '') {
+      isDeleting.value = false;
+      currentWordIndex.value = (currentWordIndex.value + 1) % words.length;
+      typewriterTimeout = setTimeout(runTypewriter, 350);
+      return;
+    }
+  }
+
+  typewriterTimeout = setTimeout(
+    runTypewriter,
+    isDeleting.value ? deleteSpeed : typeSpeed
+  );
+};
+
+onMounted(() => {
+  runTypewriter();
+});
+
+onUnmounted(() => {
+  if (typewriterTimeout) clearTimeout(typewriterTimeout);
+});
+
+// Interactive Layer Switcher
 const activeLayer = ref<'iot' | 'api' | 'ai' | 'dashboard'>('iot');
 
 const layers = [
@@ -58,43 +114,48 @@ const layers = [
 </script>
 
 <template>
-  <section id="inicio" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-    <!-- Ambient Tech Glow using Suitech Electric Blue -->
-    <div class="absolute inset-0 bg-tech-grid opacity-60 pointer-events-none"></div>
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[380px] bg-brand-accent/15 blur-[140px] rounded-full pointer-events-none"></div>
-    <div class="absolute top-1/3 right-10 w-[450px] h-[320px] bg-brand-accent-cyan/10 blur-[130px] rounded-full pointer-events-none"></div>
+  <section id="inicio" class="relative min-h-[95vh] pt-32 pb-24 md:pt-40 md:pb-32 flex flex-col justify-center overflow-hidden">
+    <!-- Interactive 3D Waves Background Canvas -->
+    <HeroCanvasBackground />
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
       
-      <!-- Top Tagline Pill with Official Suitech Icon -->
-      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-brand-surface/90 border border-brand-accent/30 text-xs font-mono text-slate-300 mb-6 shadow-sm">
+      <!-- Top Tagline Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-surface/90 border border-brand-accent/40 text-xs font-mono text-slate-300 mb-6 shadow-glow-accent/20 backdrop-blur-md">
         <span class="flex h-2 w-2 relative">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-accent"></span>
         </span>
-        <span class="text-brand-accent font-bold tracking-wide uppercase text-[11px]">Suitech</span>
+        <span class="text-white font-bold tracking-wide uppercase text-[11px]">SUI<span class="text-brand-accent">TECH</span></span>
         <span class="text-white/20">|</span>
-        <span class="text-slate-300">Software · Inteligencia Artificial · IoT · Industria</span>
+        <span class="text-slate-300 font-medium">AI-Native Software · IoT Industrial · Ingeniería Aplicada</span>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        
-        <!-- Left Column: Narrative & Call to Actions -->
-        <div class="lg:col-span-7">
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
-            Convertimos ideas y desafíos en 
-            <span class="text-gradient-accent block mt-1">soluciones tecnológicas reales.</span>
-          </h1>
+      <!-- Monumental Editorial Typography (Tekton Inspired) -->
+      <div class="max-w-5xl">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-[1.06]">
+          Convertimos ideas y desafíos en
+          <span class="block mt-2 min-h-[1.18em]">
+            <span class="text-gradient-accent">{{ currentText }}</span>
+            <span class="inline-block w-1 h-[0.85em] bg-brand-accent ml-1 align-baseline animate-pulse"></span>
+          </span>
+        </h1>
+      </div>
 
-          <p class="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-            Desarrollamos software, integramos inteligencia artificial y conectamos dispositivos para crear soluciones digitales prácticas para empresas, profesionales e industrias.
+      <!-- Asymmetric Editorial Grid (Description & Action Pills + Interactive Live Telemetry) -->
+      <div class="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
+        
+        <!-- Left: Condensed Value Proposition & Dual Action Pills -->
+        <div class="lg:col-span-6 space-y-8">
+          <p class="text-base sm:text-xl text-slate-300 leading-relaxed font-normal max-w-xl">
+            Diseñamos y construimos plataformas web, integramos modelos de inteligencia artificial y conectamos sensores físicos para transformar operaciones en resultados medibles.
           </p>
 
-          <!-- Action Buttons -->
-          <div class="mt-8 flex flex-wrap items-center gap-4">
+          <!-- Dual Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4">
             <a
               href="#soluciones"
-              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow shadow-glow-accent hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-brand-accent/40"
+              class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full font-bold text-sm text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow shadow-glow-accent hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-brand-accent/40"
             >
               <span>Explorar soluciones</span>
               <ArrowRight class="w-4 h-4" />
@@ -102,49 +163,50 @@ const layers = [
 
             <a
               href="#proyectos"
-              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-white bg-brand-surface/80 hover:bg-brand-surface-elevated border border-white/10 hover:border-brand-accent/40 hover:text-brand-accent transition-all duration-200"
+              class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full font-semibold text-sm text-white bg-brand-surface/80 hover:bg-brand-surface-elevated border border-white/15 hover:border-brand-accent/50 hover:text-brand-accent transition-all duration-200 backdrop-blur-md"
             >
-              <span>Conocer proyectos</span>
+              <span>Conocer proyectos reales</span>
             </a>
           </div>
 
-          <!-- Quick Trust & Positioning Bullets -->
-          <div class="mt-10 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-left">
+          <!-- Quick Quantitative Metrics Row (Tekton-Style Highlights) -->
+          <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-left">
+            <div>
+              <div class="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center">
+                &lt; 24h
+              </div>
+              <div class="text-[11px] sm:text-xs text-brand-muted mt-0.5">Viabilidad técnica inicial</div>
+            </div>
             <div>
               <div class="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center">
                 100%
               </div>
-              <div class="text-[11px] sm:text-xs text-brand-muted mt-0.5">Ingeniería aplicada y honesta</div>
+              <div class="text-[11px] sm:text-xs text-brand-muted mt-0.5">Ingeniería real y verificable</div>
             </div>
             <div>
               <div class="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center">
                 Full-Stack
               </div>
-              <div class="text-[11px] sm:text-xs text-brand-muted mt-0.5">Hardware + API + Web</div>
-            </div>
-            <div>
-              <div class="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center">
-                Producción
-              </div>
-              <div class="text-[11px] sm:text-xs text-brand-muted mt-0.5">Sistemas en uso real</div>
+              <div class="text-[11px] sm:text-xs text-brand-muted mt-0.5">Hardware + API + Dashboard</div>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Interactive Tech Architecture Visualizer (Suitech Matrix) -->
-        <div class="lg:col-span-5">
-          <div class="relative rounded-2xl glass-panel-elevated p-5 sm:p-6 shadow-tech-card border border-brand-accent/25">
+        <!-- Right: Floating Telemetry & Pipeline Console -->
+        <div class="lg:col-span-6">
+          <div class="relative rounded-2xl glass-panel-elevated p-5 sm:p-6 shadow-tech-card border border-brand-accent/30">
             
             <!-- Terminal Header -->
-            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
               <div class="flex items-center gap-2">
                 <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
                 <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
                 <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
                 <span class="font-mono text-xs text-slate-400 ml-2">suitech-system-pipeline.v1</span>
               </div>
-              <span class="text-[11px] font-mono text-brand-accent bg-brand-accent/10 px-2 py-0.5 rounded border border-brand-accent/30 font-semibold">
-                LIVE DEMO
+              <span class="text-[11px] font-mono text-brand-accent bg-brand-accent/10 px-2 py-0.5 rounded border border-brand-accent/30 font-bold flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-ping"></span>
+                LIVE PIPELINE
               </span>
             </div>
 
@@ -157,8 +219,8 @@ const layers = [
                 :class="[
                   'px-2 py-2 text-[11px] font-mono rounded-lg transition-all text-center',
                   activeLayer === layer.id
-                    ? 'bg-brand-accent/20 text-brand-accent border border-brand-accent/50 font-bold'
-                    : 'bg-brand-surface/40 text-slate-400 hover:text-white hover:bg-white/5 border border-white/5'
+                    ? 'bg-brand-accent/20 text-brand-accent border border-brand-accent/60 font-bold shadow-sm'
+                    : 'bg-brand-surface/50 text-slate-400 hover:text-white hover:bg-white/5 border border-white/5'
                 ]"
               >
                 {{ layer.name.split('.')[0] }}
@@ -170,14 +232,14 @@ const layers = [
               v-for="layer in layers" 
               :key="layer.id"
               v-show="activeLayer === layer.id"
-              class="mt-5 space-y-4"
+              class="mt-4 space-y-3.5"
             >
               <div class="flex items-start justify-between">
                 <div>
                   <span class="text-[11px] font-mono uppercase tracking-wider text-brand-accent font-bold">
                     {{ layer.badge }}
                   </span>
-                  <h3 class="text-lg font-bold text-white mt-0.5">
+                  <h3 class="text-base sm:text-lg font-bold text-white mt-0.5">
                     {{ layer.title }}
                   </h3>
                 </div>
@@ -199,7 +261,7 @@ const layers = [
               </div>
 
               <!-- Graphic Architecture Pipeline -->
-              <div class="p-4 rounded-xl bg-brand-surface/80 border border-white/10 relative overflow-hidden">
+              <div class="p-3.5 rounded-xl bg-brand-surface/80 border border-white/10 relative overflow-hidden">
                 <div class="flex items-center justify-between text-xs font-mono text-slate-400">
                   <span class="flex items-center gap-1.5">
                     <Activity class="w-3.5 h-3.5 text-brand-accent animate-pulse" />
@@ -253,7 +315,7 @@ const layers = [
             <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
               <span class="flex items-center gap-1.5">
                 <Zap class="w-3.5 h-3.5 text-brand-accent" />
-                Interconexión verificada
+                Interconexión de ingeniería verificada
               </span>
               <span class="font-mono text-brand-accent">suitechpe.com</span>
             </div>
