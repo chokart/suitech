@@ -1,7 +1,6 @@
 /**
  * Servicio de envío y validación de consultas de contacto para Suitech Perú
- * Se comunica con un endpoint/backend real o servicio receptor vía variable de entorno VITE_CONTACT_ENDPOINT.
- * Si no está configurado o falla, provee estados claros y mecanismos de fallback honestos.
+ * Integrado con Web3Forms (https://api.web3forms.com/submit) y endpoints personalizados.
  */
 
 export interface ContactFormData {
@@ -21,6 +20,9 @@ export interface ContactSubmissionResult {
 }
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Clave de acceso pública de Web3Forms configurada para recepción de correos de Suitech
+const DEFAULT_ACCESS_KEY = 'db31b2d9-0d85-411d-bd24-bf025e06ce74';
 
 export async function sendContactMessage(data: ContactFormData): Promise<ContactSubmissionResult> {
   // 1. Detección anti-spam: Si el campo trampa (honeypot) tiene contenido, se descarta silenciosamente
@@ -61,32 +63,28 @@ export async function sendContactMessage(data: ContactFormData): Promise<Contact
     };
   }
 
-  // 3. Verificación de endpoint receptor configurado
-  const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT as string | undefined;
+  // 3. Endpoint y Clave de Servicio
+  const accessKey = (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string) || DEFAULT_ACCESS_KEY;
+  const endpoint = (import.meta.env.VITE_CONTACT_ENDPOINT as string) || 'https://api.web3forms.com/submit';
 
-  if (!endpoint || endpoint.trim() === '' || endpoint.includes('TU_ENDPOINT')) {
-    // Si no hay endpoint configurado, no simulamos éxito: informamos con honestidad
-    return {
-      success: false,
-      unconfigured: true,
-      error: 'endpoint_unconfigured',
-      message: 'El servicio automatizado de recepción se encuentra en proceso de configuración. Por favor, comunícate directamente al correo oficial: contacto@suitechpe.com.'
-    };
-  }
-
-  // 4. Envío de petición HTTP POST al endpoint real
+  // 4. Envío de petición HTTP POST al servicio receptor
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 12000); // 12s timeout
 
-    const payload = {
+    const payload: Record<string, string> = {
+      access_key: accessKey,
       name: trimmedName,
       email: trimmedEmail,
       service: data.service,
-      company: (data.company || '').trim() || undefined,
       message: trimmedMessage,
-      submittedAt: new Date().toISOString()
+      subject: `Nueva consulta Suitech: ${data.service} - ${trimmedName}`,
+      from_name: 'Suitech Perú Web'
     };
+
+    if (data.company && data.company.trim()) {
+      payload.company = data.company.trim();
+    }
 
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -101,6 +99,15 @@ export async function sendContactMessage(data: ContactFormData): Promise<Contact
     clearTimeout(timeoutId);
 
     if (response.ok) {
+      const resJson = await response.json().catch(() => null);
+      if (resJson && resJson.success === false) {
+        return {
+          success: false,
+          error: 'service_rejected',
+          message: resJson.message || 'El servicio no pudo procesar la consulta. Puedes escribirnos a contacto@suitechpe.com.'
+        };
+      }
+
       return {
         success: true,
         message: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo a la brevedad.'
@@ -118,7 +125,7 @@ export async function sendContactMessage(data: ContactFormData): Promise<Contact
       return {
         success: false,
         error: 'timeout',
-        message: 'El servidor tardó demasiado en responder. Por favor reintenta o escríbenos a contacto@suitechpe.com.'
+        message: 'El servidor tardó en responder. Por favor reintenta o escríbenos directamente a contacto@suitechpe.com.'
       };
     }
 
