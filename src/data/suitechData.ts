@@ -16,117 +16,82 @@ export const BRAND_INFO = {
 };
 
 export const CAPABILITIES: string[] = [
-  'Desarrollo de software a medida',
-  'Inteligencia artificial aplicada',
-  'Automatización de procesos',
-  'IoT & Microcontroladores ESP32',
-  'Arquitectura Cloud & APIs REST',
-  'Dashboards y analítica en tiempo real',
-  'Formación tecnológica práctica'
+  'Suitech Solutions · Desarrollo Web & APIs',
+  'Suitech AI · Inteligencia Artificial Aplicada',
+  'Suitech IoT · Sensores & Telemetría ESP32',
+  'Suitech Academy · Formación Tecnológica'
 ];
 
 export const SOLUTIONS: SolutionItem[] = [
   {
-    id: 'software-medida',
+    id: 'suitech-solutions',
     number: '01',
-    title: 'Software a Medida',
-    summary: 'Construcción de aplicaciones web sólidas, paneles de control y APIs diseñadas para procesos operacionales específicos.',
-    description: 'Desarrollamos soluciones que reemplazan hojas de cálculo desconectadas o tareas manuales propensas a errores, creando sistemas confiables y fáciles de mantener.',
+    title: 'Suitech Solutions',
+    badge: 'Desarrollo Web & Cloud',
+    isPriority: true,
+    priorityLabel: 'Prioridad comercial inicial',
+    summary: 'Desarrollo de sistemas web, aplicaciones, APIs, bases de datos, integraciones y automatización para personas y empresas.',
+    description: 'Construimos plataformas digitales sólidas y a medida que optimizan la operativa diaria de negocios y profesionales, eliminando procesos manuales propensos a errores.',
     iconName: 'Code2',
-    badge: 'Arquitectura Web & Cloud',
     features: [
-      'Aplicaciones web interactivas y paneles de control',
-      'Sistemas de gestión operativa y comercial',
-      'Diseño y consumo de APIs seguras y escalables',
-      'Modelado de bases de datos relacionales y no relacionales',
+      'Aplicaciones web interactivas y paneles de control modernos',
+      'Desarrollo y consumo de APIs seguras, rápidas y escalables',
+      'Diseño y modelado de bases de datos relacionales y cloud',
+      'Integración y sincronización de sistemas existentes',
       'Digitalización y trazabilidad integral de flujos de trabajo'
     ],
-    deliverables: ['Código documentado', 'Despliegue automatizado', 'Guía de uso y soporte']
+    deliverables: ['Código fuente documentado', 'Despliegues automatizados', 'Garantía técnica']
   },
   {
-    id: 'ia-aplicada',
+    id: 'suitech-ai',
     number: '02',
-    title: 'Inteligencia Artificial Aplicada',
-    summary: 'Integración práctica de modelos de lenguaje, visión y analítica para automatizar tareas cognitivas y optimizar decisiones.',
-    description: 'Enfocamos la IA no como una moda, sino como una herramienta práctica: extracción de datos de documentos, asistentes operativos y algoritmos de apoyo analítico.',
+    title: 'Suitech AI',
+    badge: 'Inteligencia Artificial Práctica',
+    summary: 'Aplicaciones prácticas de IA, asistentes, procesamiento de documentos, automatización inteligente e integración de modelos en sistemas existentes.',
+    description: 'Enfocamos la inteligencia artificial como una herramienta pragmática para resolver cuellos de botella: extracción de datos de comprobantes, asistentes técnicos y pipelines automatizados.',
     iconName: 'BrainCircuit',
-    badge: 'Automatización Inteligente',
     features: [
-      'Integración de modelos de lenguaje (LLMs) en sistemas existentes',
-      'Automatización de tareas repetitivas y procesamiento de texto',
-      'Asistentes técnicos para consulta rápida de manuales y procedimientos',
-      'Generación automatizada de reportes y resúmenes ejecutivos',
-      'Sistemas de apoyo analítico y extracción estructurada de datos'
+      'Extracción y procesamiento estructurado de documentos (PDFs, facturas, recibos)',
+      'Asistentes virtuales entrenados con el conocimiento de tu empresa',
+      'Automatización inteligente de tareas cognitivas y repetitivas',
+      'Integración de modelos LLM y visión computacional vía API',
+      'Generación automatizada de reportes y resúmenes ejecutivos'
     ],
-    deliverables: ['Pipelines de datos limpios', 'Modelos adaptados a tus datos', 'Integración vía API']
+    deliverables: ['Modelos integrados vía API', 'Pipelines validados con tus datos', 'Guía de uso']
   },
   {
-    id: 'automatizacion-procesos',
+    id: 'suitech-iot',
     number: '03',
-    title: 'Automatización de Procesos',
-    summary: 'Conexión entre plataformas, sincronización de bases de datos y flujos de trabajo sin intervención manual.',
-    description: 'Diseñamos pipelines automáticos que conectan tus herramientas existentes, eliminando la duplicación de tareas y acelerando tiempos de respuesta.',
-    iconName: 'Workflow',
-    badge: 'Eficiencia Operativa',
-    features: [
-      'Conexión e integración entre plataformas y APIs de terceros',
-      'Sincronización automatizada de inventarios, pedidos y registros',
-      'Procesamiento por lotes y generación periódica de informes',
-      'Flujos de notificación inmediata por correo, webhook o mensajería',
-      'Eliminación de cuellos de botella en tareas administrativas'
-    ],
-    deliverables: ['Flujos probados y monitoreados', 'Alertas de error automáticas', 'Documentación técnica']
-  },
-  {
-    id: 'iot-sistemas-conectados',
-    number: '04',
-    title: 'IoT y Sistemas Conectados',
-    summary: 'Puente directo entre el mundo físico y la web: sensores, microcontroladores ESP32 y telemetría en tiempo real.',
-    description: 'Adquisición de datos desde sensores físicos, transmisión mediante protocolos seguros (HTTP/MQTT) y visualización instantánea en paneles de monitoreo.',
-    iconName: 'Cpu',
+    title: 'Suitech IoT',
     badge: 'Hardware + Firmware + Web',
+    summary: 'Dispositivos inteligentes, sensores, ESP32, monitoreo remoto, telemetría y conexión entre hardware, software y servicios en la nube.',
+    description: 'Unimos el mundo físico con la web: capturamos lecturas desde sensores en campo, las transmitimos de forma segura y las visualizamos en tiempo real.',
+    iconName: 'Cpu',
     features: [
-      'Instrumentación y sensores (nivel, distancia, temperatura, pulsos)',
-      'Firmware eficiente sobre microcontroladores ESP32 / Arduino',
-      'Envío de telemetría a servidores locales o en la nube',
-      'Monitoreo remoto de estados, alertas y umbrales críticos',
-      'Integración directa: Sensor -> Microcontrolador -> API -> Dashboard'
+      'Instrumentación y sensores (nivel ultrasónico, temperatura, flujo, presión)',
+      'Firmware eficiente y de bajo consumo en ESP32 / Arduino',
+      'Transmisión de telemetría segura vía WiFi/HTTP hacia servidores',
+      'Paneles web reactivos con visualización gráfica en vivo',
+      'Alertas tempranas automáticas ante niveles o umbrales críticos'
     ],
-    deliverables: ['Firmware en C/C++', 'API receptora de telemetría', 'Tablero de visualización web']
+    deliverables: ['Firmware en C/C++', 'API receptora de telemetría', 'Tablero web de control']
   },
   {
-    id: 'productos-digitales',
-    number: '05',
-    title: 'Productos y Plataformas Digitales',
-    summary: 'Creación de herramientas especializadas, componentes reutilizables y aplicaciones diseñadas para escalar.',
-    description: 'Desarrollamos soluciones técnicas modulares con arquitecturas limpias, alta velocidad de respuesta y enfocadas en la experiencia del usuario final.',
-    iconName: 'Layers',
-    badge: 'Desarrollo de Producto',
-    features: [
-      'Herramientas web especializadas para cálculos y análisis',
-      'Componentes reutilizables listos para escalar según demanda',
-      'Sistemas configurables para optimización de recursos y tiempos',
-      'Exportación rápida de reportes a formatos estándar (PDF/Excel)',
-      'Interfaces intuitivas optimizadas para escritorio y móviles'
-    ],
-    deliverables: ['Acceso web inmediato', 'Exportación de reportes', 'Arquitectura modular']
-  },
-  {
-    id: 'formacion-tecnologica',
-    number: '06',
-    title: 'Formación y Divulgación Técnica',
-    summary: 'Transferencia de conocimiento honesta: tutoriales prácticos, código abierto y guías de construcción paso a paso.',
-    description: 'Compartimos aprendizajes reales de ingeniería: cómo conectar un microcontrolador con la nube, cómo estructurar software escalable y cómo aplicar IA de forma viable.',
+    id: 'suitech-academy',
+    number: '04',
+    title: 'Suitech Academy',
+    badge: 'Formación & Comunidad',
+    summary: 'Tutoriales, cursos, guías, artículos, ejemplos de código y proyectos educativos en español.',
+    description: 'Transferencia técnica honesta para desarrolladores, profesionales y emprendedores que buscan aprender a crear software real y conectar hardware con la nube.',
     iconName: 'GraduationCap',
-    badge: 'Construyendo Suitech',
     features: [
-      'Tutoriales prácticos de desarrollo de software desde cero',
-      'Guías paso a paso de IoT con ESP32 y conexión con APIs web',
-      'Visualización de datos de sensores en dashboards modernos',
-      'Automatización práctica de procesos con herramientas de IA',
-      'Arquitecturas limpias y buenas prácticas con Vue 3 y TypeScript'
+      'Tutoriales paso a paso de desarrollo web con Vue 3 y TypeScript',
+      'Guías prácticas de IoT conectando microcontroladores ESP32 con APIs REST',
+      'Casos reales de automatización de procesos e integración con IA',
+      'Repositorios de código abierto documentados para estudiar y reutilizar',
+      'Comunidad técnica activa y videos explicativos en YouTube'
     ],
-    deliverables: ['Guías paso a paso', 'Repositorios con código de ejemplo', 'Videos explicativos']
+    deliverables: ['Guías paso a paso', 'Repositorios con código fuente', 'Videos explicativos']
   }
 ];
 

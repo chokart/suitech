@@ -6,6 +6,8 @@ export interface SolutionItem {
   description: string;
   iconName: string;
   badge: string;
+  isPriority?: boolean;
+  priorityLabel?: string;
   features: string[];
   deliverables: string[];
 }

@@ -7,7 +7,7 @@ import {
   Code2, 
   BrainCircuit, 
   Cpu, 
-  Workflow 
+  GraduationCap 
 } from 'lucide-vue-next';
 
 // ─── Typewriter rotating words ───
@@ -54,35 +54,35 @@ function typeEffect() {
   }
 }
 
-// ─── Bottom Capabilities Bar (Software, IA, IoT, Automatización) ───
+// ─── Bottom Capabilities Bar (4 Líneas Tecnológicas Suitech) ───
 const capabilities = [
   {
     tag: '01',
-    title: 'SOFTWARE',
-    subtitle: 'A medida & aplicaciones web',
+    title: 'SUITECH SOLUTIONS',
+    subtitle: 'Sistemas Web, APIs & Automatización',
     icon: Code2,
-    accent: false,
-  },
-  {
-    tag: '02',
-    title: 'INTELIGENCIA ARTIFICIAL',
-    subtitle: 'Modelos aplicados & datos',
-    icon: BrainCircuit,
     accent: true,
   },
   {
+    tag: '02',
+    title: 'SUITECH AI',
+    subtitle: 'Asistentes & Procesamiento con IA',
+    icon: BrainCircuit,
+    accent: false,
+  },
+  {
     tag: '03',
-    title: 'IOT',
-    subtitle: 'Sensores & telemetría ESP32',
+    title: 'SUITECH IOT',
+    subtitle: 'ESP32, Sensores & Telemetría',
     icon: Cpu,
     accent: false,
   },
   {
     tag: '04',
-    title: 'AUTOMATIZACIÓN',
-    subtitle: 'Integración & flujos digitales',
-    icon: Workflow,
-    accent: true,
+    title: 'SUITECH ACADEMY',
+    subtitle: 'Tutoriales & Formación en Español',
+    icon: GraduationCap,
+    accent: false,
   },
 ];
 
