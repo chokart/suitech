@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue';
-import TektonBackground from './TektonBackground.vue';
+import HeroLabBackground from './HeroLabBackground.vue';
 import { ArrowRight } from 'lucide-vue-next';
 
 // ─── Typewriter rotating words ───
@@ -123,8 +123,8 @@ onUnmounted(() => {
     class="relative flex flex-col justify-end overflow-hidden"
     style="min-height: 100svh;"
   >
-    <!-- Cinematic Particle Background -->
-    <TektonBackground />
+    <!-- Suitech Engineering Lab & Prototyping Background -->
+    <HeroLabBackground />
 
     <!-- Focal glow behind title area -->
     <div
