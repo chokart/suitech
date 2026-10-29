@@ -151,13 +151,13 @@ onUnmounted(() => {
             <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
-          <a
-            href="#proyectos"
+          <router-link
+            to="/proyectos"
             class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full font-semibold text-sm sm:text-base text-white/90 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 hover:border-white/30 transition-all duration-200 backdrop-blur-md"
           >
             <span>Conocer proyectos</span>
             <ChevronRight class="w-4 h-4 text-slate-400" />
-          </a>
+          </router-link>
         </div>
 
       </div>

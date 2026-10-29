@@ -11,6 +11,9 @@ import {
   Sparkles
 } from 'lucide-vue-next';
 import { SOLUTIONS } from '../../data/suitechData';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const emit = defineEmits<{
   (e: 'select-solution', solutionId: string): void;
@@ -30,6 +33,8 @@ const handleConsult = (solutionId: string) => {
   const contactElem = document.getElementById('contacto');
   if (contactElem) {
     contactElem.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    router.push('/#contacto');
   }
 };
 </script>

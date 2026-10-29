@@ -92,22 +92,22 @@ const scrollToTop = () => {
           </h4>
           <ul class="space-y-2.5 text-xs text-slate-400">
             <li>
-              <a href="#inicio" class="hover:text-brand-accent transition-colors">Inicio</a>
+              <router-link to="/" class="hover:text-brand-accent transition-colors">Inicio</router-link>
             </li>
             <li>
-              <a href="#soluciones" class="hover:text-brand-accent transition-colors">Soluciones</a>
+              <router-link to="/#soluciones" class="hover:text-brand-accent transition-colors">Soluciones</router-link>
             </li>
             <li>
-              <a href="#proyectos" class="hover:text-brand-accent transition-colors">Proyectos reales</a>
+              <router-link to="/proyectos" class="hover:text-brand-accent transition-colors">Proyectos reales</router-link>
             </li>
             <li>
-              <a href="#aprendizaje" class="hover:text-brand-accent transition-colors">Construyendo Suitech</a>
+              <router-link to="/aprendizaje" class="hover:text-brand-accent transition-colors">Construyendo Suitech</router-link>
             </li>
             <li>
-              <a href="#nosotros" class="hover:text-brand-accent transition-colors">Principios & Nosotros</a>
+              <router-link to="/#nosotros" class="hover:text-brand-accent transition-colors">Principios & Nosotros</router-link>
             </li>
             <li>
-              <a href="#contacto" class="hover:text-brand-accent transition-colors">Contacto técnico</a>
+              <router-link to="/#contacto" class="hover:text-brand-accent transition-colors">Contacto técnico</router-link>
             </li>
           </ul>
         </div>
@@ -119,9 +119,9 @@ const scrollToTop = () => {
           </h4>
           <ul class="space-y-2.5 text-xs text-slate-400">
             <li v-for="sol in SOLUTIONS" :key="sol.id">
-              <a href="#soluciones" class="hover:text-brand-accent-cyan transition-colors">
+              <router-link to="/#soluciones" class="hover:text-blue-400 transition-colors">
                 {{ sol.title }}
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>
