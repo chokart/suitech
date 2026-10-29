@@ -166,7 +166,7 @@ const getStatusBadge = (status: string) => {
         <!-- Footer -->
         <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
           <div class="text-xs font-mono text-slate-400">
-            Suitech Soluciones Tecnológicas · suitechpe.com
+            Suitech Perú · suitechpe.com
           </div>
           <button
             type="button"

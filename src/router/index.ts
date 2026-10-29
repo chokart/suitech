@@ -32,7 +32,6 @@ const routes: RouteRecordRaw[] = [
             '@type': 'Organization',
             '@id': 'https://suitechpe.com/#organization',
             name: 'Suitech Perú',
-            legalName: 'Suitech Soluciones Tecnológicas',
             url: 'https://suitechpe.com',
             logo: {
               '@type': 'ImageObject',
@@ -44,11 +43,6 @@ const routes: RouteRecordRaw[] = [
               '@type': 'Country',
               name: 'Perú'
             },
-            sameAs: [
-              'https://www.linkedin.com/company/suitechpe',
-              'https://github.com/suitechpe',
-              'https://www.youtube.com/@suitechpe'
-            ],
             description: 'Marca tecnológica peruana especializada en desarrollo de software, inteligencia artificial aplicada, telemetría IoT y formación técnica.'
           },
           {

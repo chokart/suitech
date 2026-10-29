@@ -14,23 +14,23 @@ import {
 const aiCapabilities = [
   {
     icon: FileText,
-    title: 'Extracción Inteligente de Documentos (OCR + LLM)',
-    description: 'Transformamos facturas, guías de remisión, reportes técnicos y contratos PDF en datos estructurados JSON listos para integrarse en su base de datos o ERP.'
+    title: 'Extracción de Información en Documentos (Línea en desarrollo)',
+    description: 'Diseño de pipelines para interpretar documentos técnicos, comprobantes o reportes PDF mediante modelos de lenguaje, estructurando datos en formato JSON.'
   },
   {
     icon: Bot,
-    title: 'Asistentes Técnicos & Bases de Conocimiento',
-    description: 'Implementamos asistentes impulsados por modelos de lenguaje (LLMs) entrenados con la documentación y procedimientos específicos de su organización mediante arquitectura RAG.'
+    title: 'Asistentes de Consulta Técnica (Bajo evaluación técnica)',
+    description: 'Exploración de arquitecturas de recuperación de información (RAG) para asistir en la búsqueda ágil de datos dentro de manuales o procedimientos operativos.'
   },
   {
     icon: Network,
-    title: 'Integración de Modelos de IA en Sistemas Existentes',
-    description: 'Conectamos modelos de última generación (Gemini, Claude, OpenAI o modelos open-source locales) en sus aplicaciones web mediante APIs optimizadas de baja latencia.'
+    title: 'Integración de Modelos de IA vía API',
+    description: 'Conexión de APIs de modelos de lenguaje en plataformas web existentes, evaluando costos, tiempos de inferencia y privacidad de datos.'
   },
   {
     icon: Cpu,
-    title: 'Automatización Cognitiva de Flujos Repetitivos',
-    description: 'Clasificación de correos, generación automática de minutas, alertas tempranas de anomalías operativas y resúmenes ejecutivos sin requerir intervención manual constante.'
+    title: 'Automatización de Tareas Repetitivas',
+    description: 'Desarrollo de scripts y microservicios que simplifican el formateo de reportes y la sincronización de información entre herramientas.'
   }
 ];
 

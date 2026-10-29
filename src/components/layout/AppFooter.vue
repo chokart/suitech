@@ -51,9 +51,10 @@ const scrollToTop = () => {
             {{ BRAND_INFO.shortDescription }}
           </p>
 
-          <!-- Social Links (Configurable) -->
-          <div class="flex items-center gap-3 pt-2">
+          <!-- Social Links (Configurable, solo se muestran si están definidos) -->
+          <div v-if="BRAND_INFO.youtubeUrl || BRAND_INFO.linkedinUrl || BRAND_INFO.githubUrl" class="flex items-center gap-3 pt-2">
             <a
+              v-if="BRAND_INFO.youtubeUrl"
               :href="BRAND_INFO.youtubeUrl"
               target="_blank"
               rel="noopener noreferrer"
@@ -64,6 +65,7 @@ const scrollToTop = () => {
             </a>
 
             <a
+              v-if="BRAND_INFO.linkedinUrl"
               :href="BRAND_INFO.linkedinUrl"
               target="_blank"
               rel="noopener noreferrer"
@@ -74,6 +76,7 @@ const scrollToTop = () => {
             </a>
 
             <a
+              v-if="BRAND_INFO.githubUrl"
               :href="BRAND_INFO.githubUrl"
               target="_blank"
               rel="noopener noreferrer"

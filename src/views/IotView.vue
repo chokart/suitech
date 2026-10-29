@@ -14,31 +14,31 @@ import {
 const iotPillars = [
   {
     icon: Cpu,
-    title: 'Firmware Eficiente sobre ESP32 & Microcontroladores',
-    description: 'Desarrollamos código embebido optimizado en C/C++ utilizando ESP-IDF o FreeRTOS. Modos de suspensión profunda (Deep Sleep) para operación a batería y lectura precisa de sensores industriales.'
+    title: 'Firmware sobre ESP32 & Microcontroladores',
+    description: 'Desarrollamos firmware en C/C++ (Arduino Framework / ESP-IDF) optimizado para la lectura continua de sensores analógicos y digitales, con manejo eficiente de energía y reconexión.'
   },
   {
     icon: Radio,
-    title: 'Telemetría Segura hacia la Nube (WiFi / HTTP / MQTT)',
-    description: 'Protocolos de comunicación encriptados TLS/SSL con autenticación por tokens. Envío resiliente de datos con colas locales de almacenamiento ante pérdidas temporales de conexión.'
+    title: 'Telemetría Directa a la Nube (WiFi / HTTP / REST)',
+    description: 'Transmisión segura de mediciones en formato JSON hacia APIs alojadas en servidores y VPS, asegurando trazabilidad de datos con marcas de tiempo precisas.'
   },
   {
     icon: Gauge,
-    title: 'Instrumentación & Sensores de Campo',
-    description: 'Integración de sensores de nivel ultrasónico/radar, temperatura y humedad, presión hidrostática, caudalímetros de pulsos y señales analógicas industriales 4-20mA / Modbus RTU.'
+    title: 'Sensores de Nivel y Variables Físicas',
+    description: 'Integración práctica de sensores ultrasónicos, de presión y ambientales. Nuestro caso activo monitorea niveles de reservorios y tanques de agua en tiempo real.'
   },
   {
     icon: Activity,
-    title: 'Dashboards Web en Vivo & Alertas Tempranas',
-    description: 'Paneles de control reactivos desarrollados en Vue 3 con visualización gráfica en tiempo real, configuración de umbrales críticos y notificaciones inmediatas por webhook, email o WhatsApp.'
+    title: 'Dashboards Web Reactivos en Tiempo Real',
+    description: 'Paneles de visualización en Vue 3 con gráficos en vivo, umbrales de advertencia y visualización instantánea del estado de los dispositivos conectados.'
   }
 ];
 
 const technicalSpecs = [
-  'Arquitectura de extremo a extremo: Sensor físico -> Microcontrolador -> Backend REST -> Dashboard Web',
-  'Protección de hardware: filtrado de ruido electrónico, fuentes conmutadas protegidas y gabinetes IP65/IP67',
-  'Monitoreo del estado del nodo (Keep-Alive, voltaje de batería, RSSI de señal WiFi)',
-  'Despliegue de APIs receptoras escalables en servidores locales o contenedores Docker en Dokploy'
+  'Flujo completo validado: Sensor físico -> Microcontrolador ESP32 -> API en VPS -> Dashboard Web',
+  'Monitoreo continuo de conectividad y estado de enlace WiFi',
+  'Prototipos funcionales orientados a telemetría de niveles, temperatura y variables de supervisión',
+  'Despliegue de APIs receptoras y paneles de control en servidores VPS con Docker y Dokploy'
 ];
 
 const faqs = [

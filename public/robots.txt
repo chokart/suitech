@@ -9,4 +9,4 @@ Disallow: /cdn-cgi/
 
 # Sitemap XML principal
 Sitemap: https://suitechpe.com/sitemap.xml
-Host: https://suitechpe.com
+Host: suitechpe.com

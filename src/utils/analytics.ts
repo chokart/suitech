@@ -1,6 +1,10 @@
 /**
- * Módulo de Analítica y Medición de Consultas para Suitech Perú
- * Soporta Google Analytics 4 (GA4), registro local de consultas y métricas de navegación SPA.
+ * Módulo de Analítica y Privacidad para Suitech Perú (https://suitechpe.com)
+ * Cumplimiento de privacidad:
+ * - NO envía información de identificación personal (PII: nombres, correos, teléfonos o mensajes) a Google Analytics.
+ * - NO almacena datos personales de visitantes en localStorage.
+ * - Distingue claramente entre envíos de formulario confirmados y clics hacia canales externos.
+ * - Se desactiva de forma segura si no se cuenta con un ID real de GA4.
  */
 
 declare global {
@@ -10,29 +14,19 @@ declare global {
   }
 }
 
-export interface InquiryLogItem {
-  id: string;
-  timestamp: string;
-  name: string;
-  email: string;
-  company?: string;
-  service: string;
-  channel: 'formulario_web' | 'whatsapp' | 'correo';
-  status: 'registrado' | 'enviado';
-}
-
 const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined;
 let isInitialized = false;
 
 /**
- * Inicializa Google Analytics 4 de manera asíncrona sin bloquear el hilo principal
+ * Inicializa Google Analytics 4 de manera asíncrona solo si existe un ID de medición válido
  */
 export function initAnalytics(): void {
   if (typeof window === 'undefined') return;
 
-  if (!GA_ID || GA_ID === 'G-XXXXXXXXXX') {
+  // Si no está configurado o tiene el marcador por defecto, se desactiva sin emitir errores
+  if (!GA_ID || GA_ID === 'G-XXXXXXXXXX' || !/^G-[A-Z0-9]+$/.test(GA_ID)) {
     if (import.meta.env.DEV) {
-      console.log('ℹ️ [Suitech Analytics] GA4 no configurado o en desarrollo. Los eventos se registrarán en consola.');
+      console.log('ℹ️ [Suitech Analytics] GA4 no configurado con ID válido. Medición en modo silencioso.');
     }
     return;
   }
@@ -47,76 +41,81 @@ export function initAnalytics(): void {
 
     window.gtag('js', new Date());
     window.gtag('config', GA_ID, {
-      send_page_view: false, // Controlado manualmente por vue-router para SPAs
+      send_page_view: false, // SPA: las páginas vistas se controlan con vue-router
       anonymize_ip: true,
       cookie_flags: 'SameSite=None;Secure'
     });
 
-    // Inyectar script oficial de Google Tag
     const script = document.createElement('script');
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
     document.head.appendChild(script);
 
     isInitialized = true;
-    console.log(`✓ [Suitech Analytics] GA4 inicializado con ID: ${GA_ID}`);
   } catch (err) {
-    console.error('Error al inicializar Google Analytics:', err);
+    console.warn('No se pudo inicializar el servicio de analítica:', err);
   }
 }
 
 /**
- * Registra una vista de página en cada navegación de vue-router
+ * Registra una vista de página en cada navegación de vue-router (sin parámetros con datos personales)
  */
 export function trackPageView(pagePath: string, pageTitle?: string): void {
   if (typeof window === 'undefined') return;
 
   const title = pageTitle || document.title;
-  const location = window.location.origin + pagePath;
+  // Sanitizar URL: eliminar cualquier query param que pudiera contener datos sensibles
+  const sanitizedPath = pagePath.split('?')[0];
 
-  if (window.gtag && GA_ID) {
+  if (window.gtag && isInitialized && GA_ID) {
     window.gtag('event', 'page_view', {
-      page_path: pagePath,
+      page_path: sanitizedPath,
       page_title: title,
-      page_location: location
+      page_location: window.location.origin + sanitizedPath
     });
   } else if (import.meta.env.DEV) {
-    console.log(`📊 [Analytics PageView] -> ${pagePath} (${title})`);
+    console.log(`📊 [Analytics PageView] -> ${sanitizedPath} (${title})`);
   }
 }
 
 /**
- * Registra un evento de consulta o lead comercial (Evento estándar GA4: generate_lead)
+ * Registra la conversión ÚNICAMENTE cuando un formulario ha sido efectivamente confirmado por el servidor receptor.
+ * IMPORTANTE: No recibe ni almacena nombres, correos ni datos personales.
  */
-export function trackInquiry(data: {
-  name: string;
-  email: string;
-  service: string;
-  company?: string;
-  channel: 'formulario_web' | 'whatsapp' | 'correo';
-}): void {
-  // 1. Envío a Google Analytics 4
-  if (window.gtag && GA_ID) {
+export function trackInquirySuccess(params: { serviceType: string; channel?: string }): void {
+  if (window.gtag && isInitialized && GA_ID) {
     window.gtag('event', 'generate_lead', {
-      event_category: 'Consultas & Leads',
-      event_label: `${data.channel} - ${data.service}`,
-      service_type: data.service,
-      contact_channel: data.channel,
+      event_category: 'Conversión',
+      event_label: `Formulario Web - ${params.serviceType}`,
+      service_type: params.serviceType,
+      contact_channel: params.channel || 'formulario_web',
       value: 1
     });
   } else if (import.meta.env.DEV) {
-    console.log('🎯 [Analytics Conversion: generate_lead]', data);
+    console.log('🎯 [Analytics Conversión Confirmada: generate_lead]', params);
   }
-
-  // 2. Registro local persistente para auditoría de consultas
-  saveLocalInquiry(data);
 }
 
 /**
- * Registra la interacción con un proyecto del portafolio (view_item)
+ * Registra un clic de intención de contacto hacia WhatsApp (distinto de una consulta enviada por formulario)
+ */
+export function trackWhatsAppClick(serviceType?: string): void {
+  if (window.gtag && isInitialized && GA_ID) {
+    window.gtag('event', 'contact_whatsapp_click', {
+      event_category: 'Contacto Externo',
+      event_label: serviceType ? `WhatsApp - ${serviceType}` : 'WhatsApp General',
+      service_type: serviceType || 'general'
+    });
+  } else if (import.meta.env.DEV) {
+    console.log('💬 [Analytics Clic WhatsApp]', serviceType);
+  }
+}
+
+/**
+ * Registra interacción con proyectos del portafolio
  */
 export function trackProjectInteraction(projectName: string, category: string, action: 'modal_open' | 'case_study_click'): void {
-  if (window.gtag && GA_ID) {
+  if (window.gtag && isInitialized && GA_ID) {
     window.gtag('event', 'view_item', {
       event_category: 'Portafolio de Proyectos',
       event_label: `${projectName} (${action})`,
@@ -129,62 +128,16 @@ export function trackProjectInteraction(projectName: string, category: string, a
 }
 
 /**
- * Registra clics salientes a redes sociales (YouTube, LinkedIn, GitHub)
+ * Registra clics salientes sin registrar datos personales
  */
 export function trackOutboundClick(platform: string, url: string): void {
-  if (window.gtag && GA_ID) {
+  if (window.gtag && isInitialized && GA_ID) {
     window.gtag('event', 'click', {
       event_category: 'Enlaces Externos',
-      event_label: `${platform} - ${url}`,
+      event_label: platform,
       outbound: true
     });
   } else if (import.meta.env.DEV) {
     console.log(`🔗 [Analytics Outbound] ${platform} -> ${url}`);
-  }
-}
-
-/**
- * Guarda las consultas en localStorage para garantizar trazabilidad ante desconexiones
- */
-function saveLocalInquiry(data: {
-  name: string;
-  email: string;
-  service: string;
-  company?: string;
-  channel: 'formulario_web' | 'whatsapp' | 'correo';
-}): void {
-  try {
-    const key = 'suitech_consultas_log';
-    const stored = localStorage.getItem(key);
-    const inquiries: InquiryLogItem[] = stored ? JSON.parse(stored) : [];
-
-    const newItem: InquiryLogItem = {
-      id: 'lead_' + Date.now(),
-      timestamp: new Date().toISOString(),
-      name: data.name,
-      email: data.email,
-      company: data.company,
-      service: data.service,
-      channel: data.channel,
-      status: 'registrado'
-    };
-
-    inquiries.unshift(newItem);
-    // Conservar las últimas 50 consultas
-    localStorage.setItem(key, JSON.stringify(inquiries.slice(0, 50)));
-  } catch (e) {
-    console.warn('No se pudo registrar la consulta en almacenamiento local:', e);
-  }
-}
-
-/**
- * Recupera el registro histórico de consultas guardadas localmente
- */
-export function getLocalInquiries(): InquiryLogItem[] {
-  try {
-    const stored = localStorage.getItem('suitech_consultas_log');
-    return stored ? JSON.parse(stored) : [];
-  } catch {
-    return [];
   }
 }

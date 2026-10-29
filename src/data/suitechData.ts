@@ -1,17 +1,22 @@
 import type { SolutionItem, ProjectItem, ValuePillar, WorkStep, IndustryItem, LearningItem } from '../types';
 
+const envWhatsapp = import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined;
+const isRealWhatsapp = envWhatsapp && envWhatsapp !== '51999999999' && !envWhatsapp.includes('999999999');
+
 export const BRAND_INFO = {
   name: 'Suitech',
-  legalName: 'Suitech Soluciones Tecnológicas',
+  shortName: 'Suitech Perú',
+  legalName: 'Suitech Perú',
   domain: 'https://suitechpe.com',
   domainDisplay: 'suitechpe.com',
   tagline: 'Tecnología que crea soluciones y abre posibilidades.',
   shortDescription: 'Ingeniería aplicada a problemas reales: unimos desarrollo de software, inteligencia artificial, automatización y sistemas conectados IoT.',
   contactEmail: 'contacto@suitechpe.com',
-  whatsappUrl: 'https://wa.me/51999999999?text=Hola%20Suitech,%20deseo%20conversar%20sobre%20un%20proyecto%20tecnol%C3%B3gico', // Configurable por el usuario
-  linkedinUrl: 'https://www.linkedin.com/company/suitechpe', // Configurable
-  youtubeUrl: 'https://www.youtube.com/@suitechpe', // Configurable
-  githubUrl: 'https://github.com/suitechpe', // Configurable
+  whatsappNumber: isRealWhatsapp ? envWhatsapp : null,
+  whatsappUrl: isRealWhatsapp ? `https://wa.me/${envWhatsapp}?text=Hola%20Suitech,%20deseo%20conversar%20sobre%20un%20proyecto` : null,
+  linkedinUrl: (import.meta.env.VITE_LINKEDIN_URL as string) || null,
+  youtubeUrl: (import.meta.env.VITE_YOUTUBE_URL as string) || null,
+  githubUrl: 'https://github.com/chokart/suitech',
   location: 'Perú',
 };
 
@@ -38,7 +43,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'Integración y sincronización de sistemas existentes',
       'Digitalización y trazabilidad integral de flujos de trabajo'
     ],
-    deliverables: ['Código fuente documentado', 'Despliegues automatizados', 'Garantía técnica']
+    deliverables: ['Código fuente documentado', 'Despliegues reproducibles con Git', 'Acompañamiento técnico inicial']
   },
   {
     id: 'suitech-ai',
@@ -55,7 +60,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'Integración de modelos LLM y visión computacional vía API',
       'Generación automatizada de reportes y resúmenes ejecutivos'
     ],
-    deliverables: ['Modelos integrados vía API', 'Pipelines validados con tus datos', 'Guía de uso']
+    deliverables: ['Evaluación técnica de viabilidad', 'Integración de modelos vía API', 'Guía de uso y documentación']
   },
   {
     id: 'suitech-iot',
@@ -72,14 +77,14 @@ export const SOLUTIONS: SolutionItem[] = [
       'Paneles web reactivos con visualización gráfica en vivo',
       'Alertas tempranas automáticas ante niveles o umbrales críticos'
     ],
-    deliverables: ['Firmware en C/C++', 'API receptora de telemetría', 'Tablero web de control']
+    deliverables: ['Firmware para ESP32 en C/C++', 'API receptora para servidor/VPS', 'Tablero web de visualización']
   },
   {
     id: 'suitech-academy',
     number: '04',
     title: 'Suitech Academy',
-    badge: 'Formación & Comunidad',
-    summary: 'Tutoriales, cursos, guías, artículos, ejemplos de código y proyectos educativos en español.',
+    badge: 'Formación & Divulgación',
+    summary: 'Tutoriales, guías, artículos, ejemplos de código y proyectos educativos en español.',
     description: 'Transferencia técnica honesta para desarrolladores, profesionales y emprendedores que buscan aprender a crear software real y conectar hardware con la nube.',
     iconName: 'GraduationCap',
     features: [
@@ -87,9 +92,9 @@ export const SOLUTIONS: SolutionItem[] = [
       'Guías prácticas de IoT conectando microcontroladores ESP32 con APIs REST',
       'Casos reales de automatización de procesos e integración con IA',
       'Repositorios de código abierto documentados para estudiar y reutilizar',
-      'Comunidad técnica activa y videos explicativos en YouTube'
+      'Documentación técnica clara y de libre acceso'
     ],
-    deliverables: ['Guías paso a paso', 'Repositorios con código fuente', 'Videos explicativos']
+    deliverables: ['Guías técnicas paso a paso', 'Repositorios con código fuente', 'Documentación de proyectos reales']
   }
 ];
 
@@ -229,9 +234,9 @@ export const PROJECTS: ProjectItem[] = [
       'Cálculo automático de recuperación metalúrgica y ratio de concentración',
       'Dimensionamiento paramétrico de celdas de flotación y espesadores',
       'Exportación normalizada de reportes de guardia a Excel y PDF',
-      'Diseñado específicamente para metalurgistas de planta y laboratorios en Perú'
+      'Diseñado para cálculos metalúrgicos rutinarios y control de procesos'
     ],
-    honestDisclaimer: 'Desarrollado sobre fundamentos clásicos de metalurgia extractiva y validado contra balances de plantas concentradoras en el Perú.',
+    honestDisclaimer: 'SuiteMinerals es una plataforma en desarrollo que reúne herramientas digitales para cálculos y análisis metalúrgicos. Sus funcionalidades se incorporan y verifican progresivamente.',
     visualType: 'industrial',
     dedicatedUrl: '/proyectos/suiteminerals'
   }
@@ -321,8 +326,8 @@ export const LEARNING_POSTS: LearningItem[] = [
     readTime: '8 min de lectura',
     summary: 'Aprende a estructurar el envío de lecturas de sensores mediante peticiones HTTP POST JSON hacia un servidor en la nube sin bloquear el bucle principal.',
     tags: ['ESP32', 'C/C++', 'REST API', 'JSON'],
-    status: 'Artículo técnico',
-    targetPlatform: 'Construyendo Suitech'
+    status: 'En preparación · Próxima publicación',
+    targetPlatform: 'Suitech Academy'
   },
   {
     id: 'visualizar-sensores-web',
@@ -331,8 +336,8 @@ export const LEARNING_POSTS: LearningItem[] = [
     readTime: '10 min de lectura',
     summary: 'Guía paso a paso para crear un dashboard reactivo en Vue 3 con gráficos limpios que muestren el nivel de líquido de un tanque y estados de alerta.',
     tags: ['Vue 3', 'Tailwind CSS', 'WebSockets', 'Dashboard'],
-    status: 'Tutorial paso a paso',
-    targetPlatform: 'Construyendo Suitech'
+    status: 'En preparación · Próxima publicación',
+    targetPlatform: 'Suitech Academy'
   },
   {
     id: 'arquitectura-vue3-typescript',
@@ -341,8 +346,8 @@ export const LEARNING_POSTS: LearningItem[] = [
     readTime: '11 min de lectura',
     summary: 'Patrones prácticos para organizar componentes, tipado estricto en TypeScript, desacoplamiento de lógica y buenas prácticas para paneles de control.',
     tags: ['Vue 3', 'TypeScript', 'Frontend', 'Arquitectura'],
-    status: 'Guía de ingeniería',
-    targetPlatform: 'Construyendo Suitech'
+    status: 'En preparación · Próxima publicación',
+    targetPlatform: 'Suitech Academy'
   },
   {
     id: 'automatizacion-procesos-ia',
@@ -351,7 +356,7 @@ export const LEARNING_POSTS: LearningItem[] = [
     readTime: '7 min de lectura',
     summary: 'Uso práctico de modelos LLM para procesar texto desestructurado de comprobantes y reportes para convertirlos en registros estructurados en base de datos.',
     tags: ['IA', 'Automatización', 'Productividad', 'Python/JS'],
-    status: 'Guía práctica',
-    targetPlatform: 'Construyendo Suitech'
+    status: 'En preparación · Próxima publicación',
+    targetPlatform: 'Suitech Academy'
   }
 ];

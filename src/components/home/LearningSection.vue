@@ -31,6 +31,7 @@ import {
         <!-- YouTube & Social Channel Pill -->
         <div class="flex flex-wrap items-center gap-3">
           <a
+            v-if="BRAND_INFO.youtubeUrl"
             :href="BRAND_INFO.youtubeUrl"
             target="_blank"
             rel="noopener noreferrer"
@@ -40,6 +41,13 @@ import {
             <span>Canal de YouTube Suitech</span>
             <ArrowUpRight class="w-3.5 h-3.5" />
           </a>
+          <div
+            v-else
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-400"
+          >
+            <GraduationCap class="w-4 h-4 text-brand-accent" />
+            <span>Publicación progresiva de tutoriales</span>
+          </div>
         </div>
       </div>
 
@@ -90,15 +98,9 @@ import {
             <span class="text-xs font-mono text-slate-400">
               Serie: {{ post.targetPlatform }}
             </span>
-            <a
-              :href="BRAND_INFO.youtubeUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-accent hover:text-white transition-colors"
-            >
-              <span>Ver contenido</span>
-              <ArrowUpRight class="w-4 h-4" />
-            </a>
+            <span class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-accent/90 border border-brand-accent/20 px-3 py-1 rounded-full bg-white/5">
+              <span>{{ post.status }}</span>
+            </span>
           </div>
 
         </article>

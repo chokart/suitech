@@ -15,30 +15,30 @@ const mineralsFeatures = [
   {
     icon: Calculator,
     title: 'Balances Metalúrgicos de Materia por Dos y Tres Productos',
-    description: 'Cálculo algorítmico riguroso de recuperación metalúrgica, ratios de concentración y contenidos finos a partir de leyes de alimentación, concentrado y relave.'
+    description: 'Cálculo de recuperación metalúrgica, ratios de concentración y balance de componentes a partir de leyes de alimentación, concentrado y relave.'
   },
   {
     icon: FlaskConical,
-    title: 'Modelado y Evaluación de Circuitos de Molienda y Flotación',
-    description: 'Herramientas interactivas para análisis de granulometría, curvas de moliendabilidad, consumo específico de reactivos y parámetros cinéticos de celdas.'
+    title: 'Evaluación y Cinética de Flotación (En desarrollo)',
+    description: 'Herramientas interactivas para análisis de cinéticas de recuperación y parámetros operativos de celdas según modelos clásicos de flotación.'
   },
   {
     icon: FileSpreadsheet,
-    title: 'Exportación Directa de Reportes Operativos en Excel y PDF',
-    description: 'Generación limpia y automatizada de hojas de cálculo normalizadas y reportes de turno listos para entrega a superintendencias de planta y control de procesos.'
+    title: 'Generación de Reportes de Turno (En desarrollo)',
+    description: 'Estructuración de datos y reportes de guardia ordenados para facilitar el seguimiento de balances diarios en operaciones de beneficio mineral.'
   },
   {
     icon: Cpu,
-    title: 'Cálculos de Dimensionamiento de Equipos Metalúrgicos',
-    description: 'Módulos para estimación de capacidad de espesadores, celdas de flotación, molinos de bolas y bombas de pulpa basados en fórmulas estandarizadas de ingeniería.'
+    title: 'Cálculos Paramétricos de Equipos (Módulo en diseño)',
+    description: 'Estimaciones de dimensionamiento básico para espesadores y celdas basadas en fórmulas estandarizadas de ingeniería metalúrgica.'
   }
 ];
 
 const engineeringStandards = [
-  'Algoritmos validados con casos de balance de masa en plantas concentradoras peruanas',
-  'Interfaz web reactiva sin necesidad de instalar macros lentas o complementos de Excel inseguros',
-  'Arquitectura modular desarrollada en Vue 3 y TypeScript con precisión numérica en punto flotante',
-  'Diseñado por ingenieros para metalurgistas, supervisores de planta y estudiantes de ingeniería de minas y metalurgia'
+  'Formulación matemática fundamentada en principios clásicos de balance de masa y conservación de materia',
+  'Interfaz web reactiva sin necesidad de macros locales complejas',
+  'Arquitectura modular desarrollada en Vue 3 y TypeScript con verificación de consistencia numérica',
+  'Diseñado como herramienta digital de apoyo para metalurgistas de planta, laboratorios y estudiantes'
 ];
 
 const faqs = [
@@ -90,7 +90,7 @@ const faqs = [
         </h1>
 
         <p class="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-3xl">
-          Herramienta de ingeniería desarrollada para calcular balances de materia, evaluar recuperaciones de planta y dimensionar circuitos de concentración mineral sin depender de hojas de cálculo desconectadas.
+          SuiteMinerals es una plataforma en desarrollo que reúne herramientas digitales para cálculos y análisis metalúrgicos. Sus funcionalidades se incorporan y verifican progresivamente para brindar agilidad en balances de materia y reportes operativos.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-4 items-center">
