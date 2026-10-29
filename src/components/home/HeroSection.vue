@@ -57,28 +57,24 @@ function typeEffect() {
 // ─── Bottom Capabilities Bar (Software, IA, IoT, Automatización) ───
 const capabilities = [
   {
-    tag: '01',
     title: 'SOFTWARE',
     subtitle: 'A medida & aplicaciones web',
     icon: Code2,
     accent: false,
   },
   {
-    tag: '02',
     title: 'INTELIGENCIA ARTIFICIAL',
     subtitle: 'Modelos aplicados & datos',
     icon: BrainCircuit,
     accent: false,
   },
   {
-    tag: '03',
     title: 'IOT',
     subtitle: 'Sensores & telemetría ESP32',
     icon: Cpu,
     accent: false,
   },
   {
-    tag: '04',
     title: 'AUTOMATIZACIÓN',
     subtitle: 'Integración & flujos digitales',
     icon: Workflow,
@@ -183,9 +179,8 @@ onUnmounted(() => {
               index > 0 ? 'border-l border-white/[0.08]' : '',
             ]"
           >
-            <div class="flex items-center gap-2 mb-1.5">
-              <component :is="item.icon" class="w-4 h-4 text-brand-accent group-hover:text-blue-400 transition-colors" />
-              <span class="font-mono text-[10px] text-slate-500 font-semibold">// {{ item.tag }}</span>
+            <div class="flex items-center gap-2 mb-2">
+              <component :is="item.icon" class="w-5 h-5 text-brand-accent group-hover:text-blue-400 transition-colors" />
             </div>
             
             <div class="font-mono text-sm sm:text-base lg:text-lg font-extrabold tracking-tight">
