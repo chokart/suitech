@@ -92,9 +92,9 @@ const iconMap: Record<string, any> = {
         </div>
         <a
           href="#contacto"
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow hover:shadow-glow-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-brand-accent/40 shadow-md shrink-0"
+          class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow hover:shadow-glow-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-brand-accent/40 shadow-md shrink-0"
         >
-          <span>Contacto</span>
+          <span>Iniciar primera fase</span>
           <ArrowUpRight class="w-3.5 h-3.5" />
         </a>
       </div>
