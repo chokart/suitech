@@ -67,43 +67,31 @@ const handleConsult = (solutionId: string) => {
         <div
           v-for="solution in SOLUTIONS"
           :key="solution.id"
-          :class="[
-            'group relative flex flex-col justify-between rounded-2xl glass-panel p-6 sm:p-8 hover:bg-brand-surface-elevated/90 transition-all duration-300 border hover:border-brand-accent/50 hover:shadow-glow-accent/25',
-            solution.isPriority ? 'border-brand-accent/40 bg-gradient-to-b from-brand-surface-elevated/95 to-brand-surface/90 shadow-[0_0_30px_rgba(0,110,254,0.12)]' : 'border-white/10'
-          ]"
+          class="group relative flex flex-col justify-between rounded-2xl glass-panel p-6 sm:p-8 hover:bg-brand-surface-elevated/90 transition-all duration-300 border border-white/10 hover:border-brand-accent/50 hover:shadow-glow-accent/25"
         >
-          <!-- Top Row: Number, Priority Badge & Icon -->
+          <!-- Top Row: Number & Icon -->
           <div>
             <div class="flex items-center justify-between mb-5">
-              <div class="flex items-center gap-2.5">
-                <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-accent transition-colors">
-                  // {{ solution.number }}
-                </span>
-                
-                <!-- Priority Commercial Badge -->
-                <span 
-                  v-if="solution.isPriority" 
-                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-medium text-emerald-300"
-                >
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                  {{ solution.priorityLabel }}
-                </span>
-              </div>
+              <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-accent transition-colors">
+                // {{ solution.number }}
+              </span>
 
               <div class="w-12 h-12 rounded-xl bg-brand-surface border border-white/10 group-hover:border-brand-accent/40 flex items-center justify-center text-brand-accent-glow group-hover:scale-105 transition-all duration-300 shadow-md">
                 <component :is="iconMap[solution.iconName] || Code2" class="w-6 h-6 text-brand-accent group-hover:text-blue-300" />
               </div>
             </div>
 
-            <!-- Badge -->
-            <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-brand-accent bg-brand-accent/10 px-2.5 py-1 rounded-md border border-brand-accent/20 mb-3">
-              {{ solution.badge }}
-            </span>
-
-            <!-- Title -->
+            <!-- Title First -->
             <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-200 transition-colors">
               {{ solution.title }}
             </h3>
+
+            <!-- Badge Inverted (Below Title) -->
+            <div class="mt-2.5 mb-3.5">
+              <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-brand-accent bg-brand-accent/10 px-2.5 py-1 rounded-md border border-brand-accent/20">
+                {{ solution.badge }}
+              </span>
+            </div>
 
             <!-- Summary -->
             <p class="mt-3 text-sm text-slate-300 leading-relaxed font-normal">

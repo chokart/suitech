@@ -28,8 +28,6 @@ export const SOLUTIONS: SolutionItem[] = [
     number: '01',
     title: 'Suitech Solutions',
     badge: 'Desarrollo Web & Cloud',
-    isPriority: true,
-    priorityLabel: 'Prioridad comercial inicial',
     summary: 'Desarrollo de sistemas web, aplicaciones, APIs, bases de datos, integraciones y automatización para personas y empresas.',
     description: 'Construimos plataformas digitales sólidas y a medida que optimizan la operativa diaria de negocios y profesionales, eliminando procesos manuales propensos a errores.',
     iconName: 'Code2',
