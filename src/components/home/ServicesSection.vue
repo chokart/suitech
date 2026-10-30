@@ -2,37 +2,21 @@
 import { 
   Code2, 
   BrainCircuit, 
-  Workflow, 
   Cpu, 
-  Layers, 
   GraduationCap, 
-  ArrowUpRight,
-  Sparkles
+  ArrowRight
 } from 'lucide-vue-next';
 import { SOLUTIONS } from '../../data/suitechData';
+
+const emit = defineEmits<{
+  (e: 'select-solution', solutionId: string): void;
+}>();
 
 const iconMap: Record<string, any> = {
   Code2,
   BrainCircuit,
-  Workflow,
   Cpu,
-  Layers,
   GraduationCap
-};
-
-const getSolutionRoute = (id: string) => {
-  switch (id) {
-    case 'suitech-solutions':
-      return '/soluciones';
-    case 'suitech-ai':
-      return '/inteligencia-artificial';
-    case 'suitech-iot':
-      return '/iot';
-    case 'suitech-academy':
-      return '/academy';
-    default:
-      return '/soluciones';
-  }
 };
 
 const getStatusBadgeClass = (statusType?: string) => {
@@ -65,18 +49,30 @@ const getStatusDotClass = (statusType?: string) => {
   }
 };
 
-const getButtonLabel = (id: string) => {
+const getPreselectedArea = (id: string): string => {
   switch (id) {
     case 'suitech-solutions':
-      return 'Conocer más sobre soluciones';
+      return 'Desarrollo de software.';
     case 'suitech-ai':
-      return 'Conocer más sobre Suitech AI';
+      return 'Inteligencia artificial.';
     case 'suitech-iot':
-      return 'Conocer más sobre Suitech IoT';
+      return 'IoT y dispositivos.';
     case 'suitech-academy':
-      return 'Conocer más sobre Academy';
+      return 'Otro.';
     default:
-      return 'Conocer más';
+      return 'Desarrollo de software.';
+  }
+};
+
+const handleCardAction = (id: string) => {
+  const targetArea = getPreselectedArea(id);
+  emit('select-solution', targetArea);
+
+  const contactEl = document.getElementById('contacto');
+  if (contactEl) {
+    contactEl.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    window.location.hash = '#contacto';
   }
 };
 </script>
@@ -91,10 +87,6 @@ const getButtonLabel = (id: string) => {
       
       <!-- Section Header -->
       <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-surface border border-brand-accent/30 text-xs font-mono text-brand-accent mb-4">
-          <Sparkles class="w-3.5 h-3.5" />
-          <span>NUESTRAS LÍNEAS DE TRABAJO</span>
-        </div>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
           Tecnología que toma <span class="text-gradient-accent">forma</span>.
         </h2>
@@ -106,26 +98,26 @@ const getButtonLabel = (id: string) => {
         </p>
       </div>
 
-      <!-- Solutions Grid (4 Connected Brand Lines - 2x2 Grid) -->
-      <div class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+      <!-- Solutions Grid (4 Cards - 2x2 Grid) -->
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         
         <div
           v-for="solution in SOLUTIONS"
           :key="solution.id"
-          class="group relative flex flex-col justify-between rounded-2xl glass-panel p-6 sm:p-8 hover:bg-brand-surface-elevated/90 transition-all duration-300 border border-white/10 hover:border-brand-accent/50 hover:shadow-glow-accent/25"
+          class="group relative flex flex-col justify-between rounded-3xl glass-panel p-7 sm:p-9 hover:bg-brand-surface-elevated/90 transition-all duration-300 border border-white/10 hover:border-brand-accent/50 hover:shadow-glow-accent/25"
         >
           <div>
-            <!-- Top Row: Prominent Brand Line Name, Maturity Tag & Icon -->
-            <div class="flex items-start justify-between gap-4 mb-5">
+            <!-- Top Row: Line Name, Distinctive Status Badge & Icon -->
+            <div class="flex items-start justify-between gap-4 mb-6">
               <div class="flex flex-wrap items-center gap-2.5">
-                <!-- Brand Line Name: Gran protagonismo -->
+                <!-- Line Name -->
                 <span class="inline-flex items-center text-xs font-mono font-bold uppercase tracking-wider text-brand-accent bg-brand-accent/10 px-3 py-1.5 rounded-lg border border-brand-accent/30 shadow-sm">
                   {{ solution.lineName || solution.title }}
                 </span>
 
-                <!-- Maturity / Role Badge -->
+                <!-- Status Badge -->
                 <span 
-                  class="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-md border font-medium"
+                  class="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-md border font-medium"
                   :class="getStatusBadgeClass(solution.statusType)"
                 >
                   <span class="w-1.5 h-1.5 rounded-full" :class="getStatusDotClass(solution.statusType)"></span>
@@ -133,7 +125,7 @@ const getButtonLabel = (id: string) => {
                 </span>
               </div>
 
-              <!-- Icon -->
+              <!-- Technical Icon -->
               <div class="w-11 h-11 rounded-xl bg-brand-surface border border-white/10 group-hover:border-brand-accent/40 flex items-center justify-center shrink-0 text-brand-accent-glow group-hover:scale-105 transition-all duration-300 shadow-md">
                 <component :is="iconMap[solution.iconName] || Code2" class="w-5 h-5 text-brand-accent group-hover:text-blue-300" />
               </div>
@@ -144,37 +136,22 @@ const getButtonLabel = (id: string) => {
               {{ solution.heading || solution.badge }}
             </h3>
 
-            <!-- Descripción breve -->
-            <p class="mt-3.5 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+            <!-- Descripción directa -->
+            <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
               {{ solution.summary }}
             </p>
-
-            <!-- Áreas de trabajo -->
-            <div class="mt-6 pt-5 border-t border-white/5">
-              <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2.5">
-                Áreas de trabajo:
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span 
-                  v-for="(area, aIndex) in solution.areas" 
-                  :key="aIndex"
-                  class="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-xs text-slate-200 font-mono hover:border-brand-accent/40 hover:text-white transition-colors"
-                >
-                  {{ area }}
-                </span>
-              </div>
-            </div>
           </div>
 
-          <!-- Bottom Action: Internal Linking -->
-          <div class="mt-8 pt-5 border-t border-white/5">
-            <router-link
-              :to="getSolutionRoute(solution.id)"
-              class="w-full inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-brand-accent hover:text-white text-xs font-semibold uppercase tracking-wider text-slate-200 transition-all duration-200 group/btn"
+          <!-- Bottom Action: Button to Contact Form with Preselection -->
+          <div class="mt-8 pt-6 border-t border-white/5">
+            <a
+              href="#contacto"
+              @click.prevent="handleCardAction(solution.id)"
+              class="w-full inline-flex items-center justify-between px-5 py-3.5 rounded-xl bg-white/[0.04] hover:bg-brand-accent text-slate-200 hover:text-white border border-white/10 hover:border-brand-accent text-xs font-semibold uppercase tracking-wider transition-all duration-200 group/btn shadow-sm"
             >
-              <span>{{ getButtonLabel(solution.id) }}</span>
-              <ArrowUpRight class="w-4 h-4 text-brand-accent group-hover/btn:text-white group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-            </router-link>
+              <span>Hablemos de tu proyecto.</span>
+              <ArrowRight class="w-4 h-4 text-brand-accent group-hover/btn:text-white group-hover/btn:translate-x-1 transition-transform" />
+            </a>
           </div>
 
         </div>

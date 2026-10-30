@@ -38,24 +38,13 @@ export const SOLUTIONS: SolutionItem[] = [
     lineName: 'SUITECH SOLUTIONS',
     heading: 'Desarrollo de software.',
     badge: 'Desarrollo de software.',
-    statusTag: 'Línea principal',
+    statusTag: 'LÍNEA PRINCIPAL',
     statusType: 'primary',
-    summary: 'Desarrollamos sistemas y aplicaciones web para organizar información, facilitar procesos y resolver necesidades de gestión.',
-    description: 'Desarrollamos sistemas y aplicaciones web para organizar información, facilitar procesos y resolver necesidades de gestión.',
+    summary: 'Sistemas y aplicaciones web para organizar información, integrar procesos y resolver necesidades de gestión.',
+    description: 'Sistemas y aplicaciones web para organizar información, integrar procesos y resolver necesidades de gestión.',
     iconName: 'Code2',
-    areas: [
-      'Sistemas web',
-      'Aplicaciones',
-      'Bases de datos',
-      'APIs',
-      'Integración de plataformas'
-    ],
-    features: [
-      'Sistemas web y aplicaciones a medida',
-      'Modelado de bases de datos y arquitectura',
-      'Desarrollo de APIs e integración de plataformas'
-    ],
-    deliverables: ['Código fuente documentado', 'Estructura organizada', 'Acompañamiento técnico']
+    features: [],
+    deliverables: []
   },
   {
     id: 'suitech-ai',
@@ -64,23 +53,13 @@ export const SOLUTIONS: SolutionItem[] = [
     lineName: 'SUITECH AI',
     heading: 'Inteligencia artificial aplicada.',
     badge: 'Inteligencia artificial aplicada.',
-    statusTag: 'Exploración práctica',
+    statusTag: 'EXPLORACIÓN Y DESARROLLO',
     statusType: 'exploration',
-    summary: 'Exploramos aplicaciones de inteligencia artificial para procesar información, desarrollar asistentes y automatizar tareas.',
-    description: 'Exploramos aplicaciones de inteligencia artificial para procesar información, desarrollar asistentes y automatizar tareas.',
+    summary: 'Exploramos aplicaciones de IA para procesar información, desarrollar asistentes y simplificar tareas.',
+    description: 'Exploramos aplicaciones de IA para procesar información, desarrollar asistentes y simplificar tareas.',
     iconName: 'BrainCircuit',
-    areas: [
-      'Procesamiento de documentos',
-      'Asistentes inteligentes',
-      'Integración de modelos',
-      'Automatización mediante IA'
-    ],
-    features: [
-      'Procesamiento y extracción en documentos',
-      'Asistentes orientados a flujos concretos',
-      'Integración de modelos y automatización mediante IA'
-    ],
-    deliverables: ['Evaluación de viabilidad técnica', 'Integración mediante APIs', 'Guía y documentación de uso']
+    features: [],
+    deliverables: []
   },
   {
     id: 'suitech-iot',
@@ -89,23 +68,13 @@ export const SOLUTIONS: SolutionItem[] = [
     lineName: 'SUITECH IoT',
     heading: 'Dispositivos y proyectos conectados.',
     badge: 'Dispositivos y proyectos conectados.',
-    statusTag: 'Proyectos & prototipos',
+    statusTag: 'PROYECTOS Y PROTOTIPOS',
     statusType: 'prototypes',
-    summary: 'Construimos proyectos que conectan sensores, dispositivos electrónicos, servidores y plataformas de monitoreo.',
-    description: 'Construimos proyectos que conectan sensores, dispositivos electrónicos, servidores y plataformas de monitoreo.',
+    summary: 'Construimos proyectos que integran sensores, dispositivos electrónicos y plataformas de monitoreo.',
+    description: 'Construimos proyectos que integran sensores, dispositivos electrónicos y plataformas de monitoreo.',
     iconName: 'Cpu',
-    areas: [
-      'ESP32',
-      'Sensores',
-      'Comunicación entre dispositivos',
-      'Telemetría y monitoreo remoto'
-    ],
-    features: [
-      'Microcontroladores ESP32 y sensores',
-      'Comunicación y envío de datos a servidores',
-      'Telemetría y monitoreo remoto'
-    ],
-    deliverables: ['Firmware documentado para ESP32', 'Recepción de datos en servidor', 'Tablero web de monitoreo']
+    features: [],
+    deliverables: []
   },
   {
     id: 'suitech-academy',
@@ -114,23 +83,13 @@ export const SOLUTIONS: SolutionItem[] = [
     lineName: 'SUITECH ACADEMY',
     heading: 'Conocimiento y aprendizaje.',
     badge: 'Conocimiento y aprendizaje.',
-    statusTag: 'En preparación · Publicación progresiva',
+    statusTag: 'EN PREPARACIÓN',
     statusType: 'upcoming',
-    summary: 'Compartimos conocimientos, tutoriales y experiencias de desarrollo a partir de nuestros proyectos tecnológicos.',
-    description: 'Compartimos conocimientos, tutoriales y experiencias de desarrollo a partir de nuestros proyectos tecnológicos.',
+    summary: 'Compartimos conocimientos y experiencias técnicas a partir de nuestros proyectos.',
+    description: 'Compartimos conocimientos y experiencias técnicas a partir de nuestros proyectos.',
     iconName: 'GraduationCap',
-    areas: [
-      'Desarrollo web',
-      'Programación',
-      'Inteligencia artificial',
-      'Electrónica e IoT'
-    ],
-    features: [
-      'Tutoriales y guías de desarrollo web',
-      'Prácticas de programación e IA aplicada',
-      'Proyectos de electrónica y microcontroladores'
-    ],
-    deliverables: ['Publicaciones técnicas progresivas', 'Ejemplos de código', 'Documentación de libre acceso']
+    features: [],
+    deliverables: []
   }
 ];
 

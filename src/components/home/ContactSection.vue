@@ -30,13 +30,19 @@ const setSolutionType = (typeId: string) => {
   const map: Record<string, string> = {
     'suitech-solutions': 'Desarrollo de software.',
     'software-medida': 'Desarrollo de software.',
+    'Desarrollo de software.': 'Desarrollo de software.',
     'suitech-ai': 'Inteligencia artificial.',
     'ia': 'Inteligencia artificial.',
+    'Inteligencia artificial.': 'Inteligencia artificial.',
     'suitech-iot': 'IoT y dispositivos.',
     'iot': 'IoT y dispositivos.',
+    'IoT y dispositivos.': 'IoT y dispositivos.',
+    'suitech-academy': 'Otro.',
+    'academy': 'Otro.',
     'automatizacion': 'Automatización.',
     'suiteminerals': 'SuiteMinerals.',
-    'otro': 'Otro.'
+    'otro': 'Otro.',
+    'Otro.': 'Otro.'
   };
   form.value.solutionType = map[typeId] || typeId;
 };
