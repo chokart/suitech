@@ -5,8 +5,6 @@ import {
   Mail, 
   MessageSquare,
   MapPin,
-  Youtube, 
-  Linkedin, 
   Github 
 } from 'lucide-vue-next';
 
@@ -22,7 +20,7 @@ const scrollToTop = () => {
       <!-- Top Grid: 4 Columns -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-14 border-b border-white/10">
         
-        <!-- Column 1: Brand & Philosophy (Spans 2 cols on LG) -->
+        <!-- COLUMNA 1 — MARCA (Spans 2 cols on LG) -->
         <div class="lg:col-span-2 space-y-4">
           <div class="flex items-center gap-3.5">
             <div class="w-10 h-10 rounded-full p-0.5 shrink-0">
@@ -45,7 +43,7 @@ const scrollToTop = () => {
             </div>
           </div>
 
-          <p class="text-sm text-slate-300 leading-relaxed max-w-sm pt-1">
+          <p class="text-sm font-medium text-slate-200 leading-relaxed max-w-sm pt-1">
             {{ BRAND_INFO.tagline }}
           </p>
 
@@ -53,153 +51,131 @@ const scrollToTop = () => {
             {{ BRAND_INFO.shortDescription }}
           </p>
 
-          <!-- Social Links (Configurable, solo se muestran si están definidos) -->
-          <div v-if="BRAND_INFO.youtubeUrl || BRAND_INFO.linkedinUrl || BRAND_INFO.githubUrl" class="flex items-center gap-3 pt-2">
+          <!-- Perfil oficial de GitHub -->
+          <div v-if="BRAND_INFO.githubUrl" class="flex items-center gap-3 pt-2">
             <a
-              v-if="BRAND_INFO.youtubeUrl"
-              :href="BRAND_INFO.youtubeUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-9 h-9 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-slate-400 hover:text-red-400 hover:border-red-500/40 transition-colors"
-              aria-label="YouTube Suitech"
-            >
-              <Youtube class="w-4 h-4" />
-            </a>
-
-            <a
-              v-if="BRAND_INFO.linkedinUrl"
-              :href="BRAND_INFO.linkedinUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-9 h-9 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-slate-400 hover:text-brand-accent hover:border-brand-accent/40 transition-colors"
-              aria-label="LinkedIn Suitech"
-            >
-              <Linkedin class="w-4 h-4" />
-            </a>
-
-            <a
-              v-if="BRAND_INFO.githubUrl"
               :href="BRAND_INFO.githubUrl"
               target="_blank"
               rel="noopener noreferrer"
               class="w-9 h-9 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/40 transition-colors"
-              aria-label="GitHub Suitech"
+              aria-label="GitHub oficial de Suitech"
             >
               <Github class="w-4 h-4" />
             </a>
           </div>
         </div>
 
-        <!-- Column 2: Navigation -->
+        <!-- COLUMNA 2 — NAVEGACIÓN -->
         <div>
           <h4 class="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
             Navegación
           </h4>
           <ul class="space-y-2.5 text-xs text-slate-400">
             <li>
-              <router-link to="/" class="hover:text-brand-accent transition-colors">Inicio</router-link>
+              <router-link to="/" class="hover:text-brand-accent transition-colors">
+                Inicio
+              </router-link>
             </li>
             <li>
-              <router-link to="/soluciones" class="hover:text-brand-accent transition-colors">Software a Medida</router-link>
+              <router-link to="/soluciones" class="hover:text-brand-accent transition-colors">
+                Soluciones
+              </router-link>
             </li>
             <li>
-              <router-link to="/inteligencia-artificial" class="hover:text-brand-accent transition-colors">Inteligencia Artificial</router-link>
+              <router-link to="/proyectos" class="hover:text-brand-accent transition-colors">
+                Proyectos
+              </router-link>
             </li>
             <li>
-              <router-link to="/iot" class="hover:text-brand-accent transition-colors">Telemetría IoT & Sensores</router-link>
+              <router-link to="/#nosotros" class="hover:text-brand-accent transition-colors">
+                Nosotros
+              </router-link>
             </li>
             <li>
-              <router-link to="/academy" class="hover:text-brand-accent transition-colors">Suitech Academy (Tutoriales)</router-link>
-            </li>
-            <li>
-              <router-link to="/proyectos" class="hover:text-brand-accent transition-colors">Portafolio de Proyectos</router-link>
-            </li>
-            <li>
-              <router-link to="/contacto" class="hover:text-brand-accent transition-colors">Contacto técnico</router-link>
+              <router-link to="/contacto" class="hover:text-brand-accent transition-colors">
+                Contacto
+              </router-link>
             </li>
           </ul>
         </div>
 
-        <!-- Column 3: Soluciones Principales & Software Industrial -->
+        <!-- COLUMNA 3 — LÍNEAS DE TRABAJO -->
         <div>
           <h4 class="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
-            Líneas & Proyectos
+            Líneas de trabajo
           </h4>
           <ul class="space-y-2.5 text-xs text-slate-400">
             <li>
-              <router-link to="/soluciones" class="hover:text-blue-400 transition-colors">
+              <router-link to="/soluciones" class="hover:text-brand-accent transition-colors">
                 Suitech Solutions
               </router-link>
             </li>
             <li>
-              <router-link to="/inteligencia-artificial" class="hover:text-blue-400 transition-colors">
+              <router-link to="/inteligencia-artificial" class="hover:text-brand-accent transition-colors">
                 Suitech AI
               </router-link>
             </li>
             <li>
-              <router-link to="/iot" class="hover:text-blue-400 transition-colors">
+              <router-link to="/iot" class="hover:text-brand-accent transition-colors">
                 Suitech IoT
               </router-link>
             </li>
             <li>
-              <router-link to="/academy" class="hover:text-blue-400 transition-colors">
+              <router-link to="/academy" class="hover:text-brand-accent transition-colors">
                 Suitech Academy
               </router-link>
             </li>
             <li>
-              <router-link to="/proyectos/suiteminerals" class="hover:text-brand-accent transition-colors font-medium">
-                SuiteMinerals (Metalurgia)
+              <router-link to="/proyectos/suiteminerals" class="hover:text-brand-accent transition-colors">
+                SuiteMinerals
               </router-link>
             </li>
           </ul>
         </div>
 
-        <!-- Column 4: Contacto Oficial & Infraestructura -->
+        <!-- COLUMNA 4 — CONTACTO -->
         <div>
           <h4 class="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
-            Contacto & Despliegue
+            Contacto
           </h4>
-          <div class="space-y-3 text-xs text-slate-400 font-mono">
-            <div class="flex items-start gap-2">
-              <Mail class="w-3.5 h-3.5 text-brand-accent shrink-0 mt-0.5" />
-              <a :href="'mailto:' + BRAND_INFO.contactEmail" class="hover:text-white transition-colors truncate">
-                {{ BRAND_INFO.contactEmail }}
-              </a>
+          <div class="space-y-3.5 text-xs text-slate-400 font-mono">
+            <div class="flex items-start gap-2.5">
+              <Mail class="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
+              <div class="overflow-hidden">
+                <div class="text-[10px] uppercase text-slate-400 font-sans">Correo electrónico</div>
+                <a :href="'mailto:' + BRAND_INFO.contactEmail" class="text-slate-300 hover:text-white transition-colors truncate block mt-0.5">
+                  {{ BRAND_INFO.contactEmail }}
+                </a>
+              </div>
             </div>
 
-            <div v-if="BRAND_INFO.whatsappUrl" class="flex items-start gap-2 pt-1">
-              <MessageSquare class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-              <a :href="BRAND_INFO.whatsappUrl" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">
-                {{ BRAND_INFO.whatsappDisplay }}
-              </a>
+            <div v-if="BRAND_INFO.whatsappUrl" class="flex items-start gap-2.5 pt-1">
+              <MessageSquare class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <div>
+                <div class="text-[10px] uppercase text-slate-400 font-sans">WhatsApp</div>
+                <a :href="BRAND_INFO.whatsappUrl" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-emerald-400 transition-colors block mt-0.5">
+                  {{ BRAND_INFO.whatsappDisplay }}
+                </a>
+              </div>
             </div>
 
-            <div class="flex items-start gap-2 pt-1 text-[11px] text-slate-400">
-              <MapPin class="w-3.5 h-3.5 text-brand-accent shrink-0 mt-0.5" />
-              <span>Arequipa, Perú</span>
-            </div>
-
-            <div class="pt-2 text-[11px] text-slate-400 leading-relaxed font-sans">
-              <span class="block text-slate-300 font-semibold mb-1">Infraestructura:</span>
-              VPS alojado con Dokploy & GitHub Actions.
-            </div>
-
-            <div class="pt-2">
-              <span class="inline-block px-2.5 py-1 rounded bg-white/5 border border-white/10 text-[10px] text-emerald-400">
-                ● Servidores Operativos
-              </span>
+            <div class="flex items-start gap-2.5 pt-1 text-slate-400">
+              <MapPin class="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
+              <div>
+                <span class="text-slate-300 block mt-0.5 font-sans">Arequipa, Perú</span>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Bottom Bar: Copyright & Back to Top -->
+      <!-- FRANJA INFERIOR -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
-        <div class="flex flex-wrap items-center gap-4">
-          <span>&copy; {{ new Date().getFullYear() }} {{ BRAND_INFO.legalName }}. Todos los derechos reservados.</span>
+        <div class="flex flex-wrap items-center gap-3">
+          <span>&copy; 2026 Suitech Perú. Todos los derechos reservados.</span>
           <span class="text-white/20">|</span>
-          <span class="text-brand-accent">{{ BRAND_INFO.domainDisplay }}</span>
+          <span class="text-brand-accent">suitechpe.com</span>
         </div>
 
         <button

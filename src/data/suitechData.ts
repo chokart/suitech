@@ -10,7 +10,7 @@ export const BRAND_INFO = {
   domain: 'https://suitechpe.com',
   domainDisplay: 'suitechpe.com',
   tagline: 'Tecnología que crea soluciones y abre posibilidades.',
-  shortDescription: 'Ingeniería aplicada a problemas reales: unimos desarrollo de software, inteligencia artificial, automatización y sistemas conectados IoT.',
+  shortDescription: 'Desarrollamos software y construimos proyectos que integran tecnología, información e ingeniería para resolver necesidades reales.',
   contactEmail: (import.meta.env.VITE_CONTACT_EMAIL as string) || 'chokart@gmail.com',
   whatsappNumber: isRealWhatsapp ? envWhatsapp : null,
   whatsappDisplay: '+51 961 795 940',
