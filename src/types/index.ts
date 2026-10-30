@@ -55,10 +55,12 @@ export interface WorkStep {
 
 export interface IndustryItem {
   id: string;
+  number?: string;
   title: string;
   description: string;
   applications: string[];
   iconName: string;
+  badge?: string;
 }
 
 export interface LearningItem {

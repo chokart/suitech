@@ -311,46 +311,58 @@ export const WORK_PROCESS: WorkStep[] = [
 
 export const INDUSTRIES: IndustryItem[] = [
   {
-    id: 'empresas-comercios',
-    title: 'Empresas y Comercios',
-    description: 'Negocios y empresas de servicios que requieren digitalizar su operativa diaria, optimizar inventarios y centralizar flujos comerciales.',
-    applications: ['Control de inventarios y stock', 'Caja diaria y conciliación', 'Gestión de servicios y compras', 'Métricas de rentabilidad'],
+    id: 'gestion-empresarial',
+    number: '01',
+    title: 'Gestión empresarial',
+    description: 'Sistemas y aplicaciones para organizar información, gestionar operaciones y facilitar el seguimiento de actividades.',
+    applications: [
+      'Sistemas de gestión',
+      'Aplicaciones web',
+      'Bases de datos',
+      'Paneles de información'
+    ],
     iconName: 'Building2'
   },
   {
-    id: 'startups-emprendedores',
-    title: 'Startups y Emprendedores Tech',
-    description: 'Fundadores y proyectos emergentes que necesitan un socio técnico para construir MVPs, productos digitales y prototipos funcionales.',
-    applications: ['Desarrollo ágil de MVPs', 'Arquitectura frontend moderna', 'Integración de APIs y pagos', 'Pruebas de concepto rápidas'],
-    iconName: 'Sparkles'
-  },
-  {
-    id: 'gestion-productividad',
-    title: 'Gestión y Productividad',
-    description: 'Organizaciones que buscan reemplazar hojas de cálculo dispersas con plataformas web centralizadas, seguras y accesibles.',
-    applications: ['Paneles de control y reportes', 'Digitalización de formularios', 'Gestión de usuarios y accesos', 'Seguimiento de tareas'],
-    iconName: 'Layers'
-  },
-  {
-    id: 'automatizacion-procesos',
-    title: 'Automatización de Procesos',
-    description: 'Reducción de tareas mecánicas y repetitivas mediante software a medida y herramientas de inteligencia artificial.',
-    applications: ['Extracción de datos en reportes', 'Asistentes de procedimientos', 'Generación de informes', 'Integración de APIs'],
+    id: 'ingenieria-procesos',
+    number: '02',
+    title: 'Ingeniería y procesos',
+    description: 'Herramientas digitales orientadas a cálculos, análisis de información y necesidades técnicas de distintos procesos.',
+    badge: 'En desarrollo',
+    applications: [
+      'Cálculos técnicos',
+      'Balances de materia',
+      'Análisis de información',
+      'SuiteMinerals en desarrollo'
+    ],
     iconName: 'Cpu'
   },
   {
-    id: 'telemetria-iot',
-    title: 'Monitoreo & Dispositivos Conectados',
-    description: 'Captura de variables físicas remotas para supervisar niveles, ambientes y estados operativos sin presencia física constante.',
-    applications: ['Sensores de nivel ultrasónico/presión', 'Telemetría ESP32 a la nube', 'Alertas tempranas de umbrales', 'Paneles web de telemetría'],
+    id: 'monitoreo-conectividad',
+    number: '03',
+    title: 'Monitoreo y conectividad',
+    description: 'Proyectos que integran sensores, dispositivos y plataformas digitales para obtener y visualizar información remota.',
+    badge: 'Proyectos & prototipos',
+    applications: [
+      'ESP32 y sensores',
+      'Monitoreo de variables',
+      'Comunicación entre dispositivos',
+      'Telemetría y plataformas web'
+    ],
     iconName: 'Radio'
   },
   {
-    id: 'formacion-creadores',
-    title: 'Profesionales & Creadores Técnicos',
-    description: 'Desarrolladores y entusiastas que buscan aprender a integrar hardware con software y crear sus propios proyectos.',
-    applications: ['Tutoriales de ESP32 con APIs', 'Aprender Vue 3 y desarrollo web', 'Construcción paso a paso', 'Comunidad técnica abierta'],
-    iconName: 'GraduationCap'
+    id: 'informacion-automatizacion',
+    number: '04',
+    title: 'Información y automatización',
+    description: 'Aplicaciones de software e inteligencia artificial para procesar información y simplificar tareas.',
+    applications: [
+      'Procesamiento de documentos',
+      'Aplicaciones de IA',
+      'Automatización de tareas',
+      'Integración de sistemas'
+    ],
+    iconName: 'Sparkles'
   }
 ];
 
