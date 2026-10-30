@@ -15,8 +15,13 @@ import {
   Compass,
   Eye,
   ShieldCheck,
-  ExternalLink
+  ExternalLink,
+  LayoutGrid,
+  List
 } from 'lucide-vue-next';
+
+// View mode: 'grid' (cuadrícula compacta para ver más proyectos por página) o 'detailed' (vista editorial detallada)
+const viewMode = ref<'grid' | 'detailed'>('grid');
 
 // Filters: Todos, Software, IoT, Ingeniería y metalurgia
 const activeFilter = ref<'all' | 'software' | 'iot' | 'ingenieria'>('all');
@@ -110,26 +115,202 @@ const getStatusBadge = (status: string) => {
         </p>
       </div>
 
-      <!-- Category Filter Pills -->
-      <div class="mt-10 flex flex-wrap items-center gap-2.5">
-        <button
-          v-for="filter in filterOptions"
-          :key="filter.id"
-          type="button"
-          @click="activeFilter = filter.id"
-          :class="[
-            'px-5 py-2 rounded-full text-xs font-mono transition-all duration-200 border cursor-pointer',
-            activeFilter === filter.id
-              ? 'bg-brand-accent text-white border-brand-accent font-bold shadow-glow-accent'
-              : 'bg-brand-surface text-slate-300 border-white/10 hover:border-brand-accent/40 hover:text-white'
-          ]"
-        >
-          {{ filter.label }}
-        </button>
+      <!-- Toolbar: Filtros de Categoría y Selector de Vista -->
+      <div class="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-white/5">
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button
+            v-for="filter in filterOptions"
+            :key="filter.id"
+            type="button"
+            @click="activeFilter = filter.id"
+            :class="[
+              'px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-200 border cursor-pointer',
+              activeFilter === filter.id
+                ? 'bg-brand-accent text-white border-brand-accent font-bold shadow-glow-accent'
+                : 'bg-brand-surface text-slate-300 border-white/10 hover:border-brand-accent/40 hover:text-white'
+            ]"
+          >
+            {{ filter.label }}
+          </button>
+        </div>
+
+        <!-- View Mode Switcher -->
+        <div class="inline-flex items-center p-1 rounded-xl bg-brand-surface border border-white/10 self-start sm:self-auto shrink-0">
+          <button
+            type="button"
+            @click="viewMode = 'grid'"
+            :class="[
+              'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer',
+              viewMode === 'grid'
+                ? 'bg-brand-accent text-white font-bold shadow-sm'
+                : 'text-slate-400 hover:text-white'
+            ]"
+            title="Vista en cuadrícula (ver más proyectos a la vez)"
+          >
+            <LayoutGrid class="w-3.5 h-3.5" />
+            <span>Cuadrícula</span>
+          </button>
+          <button
+            type="button"
+            @click="viewMode = 'detailed'"
+            :class="[
+              'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer',
+              viewMode === 'detailed'
+                ? 'bg-brand-accent text-white font-bold shadow-sm'
+                : 'text-slate-400 hover:text-white'
+            ]"
+            title="Vista detallada y ampliada"
+          >
+            <List class="w-3.5 h-3.5" />
+            <span>Detallada</span>
+          </button>
+        </div>
       </div>
 
-      <!-- Editorial Projects List (Alternating blocks with visual rhythm) -->
-      <div class="mt-16 space-y-24 sm:space-y-32">
+      <!-- VISTA EN CUADRÍCULA (DEFAULT: Más proyectos por página) -->
+      <div v-if="viewMode === 'grid'" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <article
+          v-for="project in filteredProjects"
+          :key="project.id"
+          class="rounded-2xl glass-panel p-5 sm:p-6 border border-white/10 hover:border-brand-accent/40 hover:bg-brand-surface-elevated/70 transition-all duration-300 flex flex-col justify-between group"
+          :class="{ 'ring-1 ring-brand-accent/30 shadow-glow-accent/10': project.id === 'gestion-operaciones-mineras' }"
+        >
+          <div>
+            <!-- Header bar: Category & Status -->
+            <div class="flex items-center justify-between gap-3 mb-3.5">
+              <div class="flex items-center gap-2 truncate">
+                <span 
+                  v-if="project.id === 'gestion-operaciones-mineras'"
+                  class="px-2 py-0.5 rounded bg-brand-accent/15 text-brand-accent border border-brand-accent/30 text-[10px] font-mono font-bold uppercase tracking-wider shrink-0 flex items-center gap-1"
+                >
+                  <Sparkles class="w-3 h-3" />
+                  Destacado
+                </span>
+                <span class="text-[11px] font-mono text-brand-accent uppercase tracking-wider truncate">
+                  {{ project.category }}
+                </span>
+              </div>
+              <span 
+                :class="[
+                  'text-[11px] font-mono px-2.5 py-0.5 rounded-full border flex items-center gap-1.5 font-medium shrink-0',
+                  getStatusBadge(project.status).classes
+                ]"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-current animate-pulse"></span>
+                {{ getStatusBadge(project.status).text }}
+              </span>
+            </div>
+
+            <!-- Image preview with hover effect & Lightbox click -->
+            <div 
+              class="relative rounded-xl overflow-hidden mb-2.5 group/img cursor-pointer bg-slate-900/80 border border-white/10 aspect-[16/10]"
+              @click="openLightbox(project.images, 0, project.name)"
+            >
+              <img
+                v-if="project.images && project.images[0]"
+                :src="project.images[0].src"
+                :alt="project.images[0].caption"
+                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity flex items-end p-3 justify-between">
+                <span class="text-xs font-mono text-white flex items-center gap-1.5 bg-brand-dark/90 px-2.5 py-1 rounded-md border border-white/15">
+                  <Eye class="w-3.5 h-3.5 text-brand-accent" />
+                  <span>Ampliar capturas</span>
+                </span>
+                <span v-if="project.images" class="text-xs font-mono text-slate-300">
+                  {{ project.images.length }} capturas
+                </span>
+              </div>
+              <!-- Badge always visible bottom-right -->
+              <div v-if="project.images" class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-sm border border-white/10 text-[10px] font-mono text-slate-300 flex items-center gap-1">
+                <Eye class="w-3 h-3 text-brand-accent" />
+                <span>{{ project.images.length }} capturas</span>
+              </div>
+            </div>
+
+            <!-- Mini Thumbnails Row -->
+            <div v-if="project.images && project.images.length > 1" class="grid grid-cols-3 gap-2 mb-4">
+              <button
+                v-for="(img, idx) in project.images.slice(1, 4)"
+                :key="img.src"
+                type="button"
+                @click="openLightbox(project.images, idx + 1, project.name)"
+                class="aspect-[16/10] rounded-lg overflow-hidden border border-white/10 hover:border-brand-accent/60 cursor-pointer transition-all hover:scale-[1.03] relative bg-slate-900/60 p-0"
+              >
+                <img :src="img.src" :alt="img.caption" class="w-full h-full object-cover object-top" loading="lazy" />
+              </button>
+            </div>
+
+            <!-- Title & Description -->
+            <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-brand-accent transition-colors leading-snug">
+              {{ project.name }}
+            </h3>
+            <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+              {{ project.description }}
+            </p>
+
+            <!-- Key Features (Compact List) -->
+            <div class="mt-3.5 pt-3 border-t border-white/5 space-y-1.5">
+              <div 
+                v-for="(feature, fIndex) in project.keyFeatures.slice(0, 4)" 
+                :key="fIndex"
+                class="flex items-start gap-2 text-xs text-slate-300"
+              >
+                <Check class="w-3.5 h-3.5 text-brand-accent shrink-0 mt-0.5" />
+                <span class="truncate">{{ feature }}</span>
+              </div>
+            </div>
+
+            <!-- Technologies -->
+            <div class="mt-3.5 flex flex-wrap gap-1.5">
+              <span 
+                v-for="tech in project.technologies" 
+                :key="tech"
+                class="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/10 text-[10px] font-mono text-slate-300"
+              >
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div class="mt-5 pt-4 border-t border-white/10 flex items-center gap-2.5">
+            <button
+              type="button"
+              @click="openLightbox(project.images, 0, project.name)"
+              class="flex-1 py-2 px-3 rounded-xl bg-white/[0.04] hover:bg-brand-accent hover:text-white border border-white/10 text-xs font-mono font-medium text-slate-300 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+            >
+              <Eye class="w-3.5 h-3.5 text-brand-accent" />
+              <span>Ver capturas ({{ project.images?.length || 0 }})</span>
+            </button>
+
+            <a
+              v-if="project.dedicatedUrl"
+              :href="project.dedicatedUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 py-2 px-3 rounded-xl bg-brand-accent/20 hover:bg-brand-accent text-white border border-brand-accent/40 text-xs font-mono font-medium transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+            >
+              <span>Ver proyecto</span>
+              <ExternalLink class="w-3.5 h-3.5" />
+            </a>
+
+            <router-link
+              v-else
+              to="/#contacto"
+              class="flex-1 py-2 px-3 rounded-xl bg-brand-accent/15 hover:bg-brand-accent text-brand-accent hover:text-white border border-brand-accent/30 text-xs font-mono font-medium transition-all flex items-center justify-center gap-1.5"
+            >
+              <span>Hablemos</span>
+              <ArrowRight class="w-3.5 h-3.5" />
+            </router-link>
+          </div>
+        </article>
+      </div>
+
+      <!-- VISTA DETALLADA (Lista editorial ampliada) -->
+      <div v-else class="mt-10 space-y-12 sm:space-y-16">
         
         <article
           v-for="project in filteredProjects"
