@@ -137,35 +137,35 @@ export const SOLUTIONS: SolutionItem[] = [
 export const VALUE_PILLARS: ValuePillar[] = [
   {
     number: '01',
-    title: 'Soluciones integrales',
-    subtitle: 'Hardware, software y datos sin barreras',
-    description: 'Conectamos dispositivos físicos, APIs, modelos analíticos e interfaces de usuario en un solo ecosistema cuando el problema lo requiere.',
+    title: 'Tecnología conectada.',
+    subtitle: 'SOFTWARE, HARDWARE E INFORMACIÓN.',
+    description: 'No vemos la tecnología como piezas aisladas. Buscamos integrar herramientas, sistemas y dispositivos cuando hacerlo aporta valor a una solución.',
     iconName: 'Network',
-    quote: 'La solución no termina en la pantalla ni en el microcontrolador: abarca el flujo completo.'
+    quote: '«La tecnología funciona mejor cuando sus partes tienen un propósito común».'
   },
   {
     number: '02',
-    title: 'Enfoque práctico',
-    subtitle: 'Resolver necesidades reales antes que modas',
-    description: 'Priorizamos resolver cuellos de botella comprobables con la tecnología más simple, robusta y económica de mantener.',
+    title: 'Resolver antes que complicar.',
+    subtitle: 'SOLUCIONES CON PROPÓSITO.',
+    description: 'Partimos de comprender el problema. Elegimos las herramientas y tecnologías según lo que realmente se necesita, evitando complejidad innecesaria.',
     iconName: 'Target',
-    quote: 'Tecnología con propósito: cada línea de código debe justificar su valor en la operación.'
+    quote: '«No se trata de utilizar más tecnología, sino de utilizarla mejor».'
   },
   {
     number: '03',
-    title: 'Ingeniería aplicada',
-    subtitle: 'Experiencia técnica directa + ingeniería de software',
-    description: 'Combinamos experiencia técnica directa en resolución de problemas complejos con ingeniería de software moderna para entender el fondo de cada necesidad.',
+    title: 'Ingeniería con criterio.',
+    subtitle: 'CONOCIMIENTO TÉCNICO Y DESARROLLO.',
+    description: 'Combinamos conocimientos de ingeniería y desarrollo de software para comprender las necesidades, analizar alternativas y construir soluciones coherentes con cada contexto.',
     iconName: 'Wrench',
-    quote: 'Entendemos las necesidades operativas desde adentro, no solo desde un editor de código.'
+    quote: '«Entender el problema es tan importante como saber desarrollar la solución».'
   },
   {
     number: '04',
-    title: 'Aprendizaje continuo',
-    subtitle: 'Honestidad técnica y mejora constante',
-    description: 'Documentamos, experimentamos y refinamos nuestras soluciones con total transparencia, enseñando y compartiendo lo que construimos.',
+    title: 'Aprender construyendo.',
+    subtitle: 'EXPERIMENTACIÓN Y MEJORA CONTINUA.',
+    description: 'Desarrollamos, probamos, documentamos y aprendemos de cada proyecto. Creemos que las buenas soluciones se construyen mediante la práctica y la mejora constante.',
     iconName: 'BookOpenCheck',
-    quote: 'Construir en público, medir resultados reales y mejorar de forma iterativa.'
+    quote: '«Cada proyecto es una oportunidad para aprender y mejorar».'
   }
 ];
 

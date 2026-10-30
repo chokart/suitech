@@ -5,8 +5,7 @@ import {
   Target, 
   Wrench, 
   BookOpenCheck, 
-  ShieldCheck,
-  CheckCircle2
+  ShieldCheck
 } from 'lucide-vue-next';
 
 const iconMap: Record<string, any> = {
@@ -22,23 +21,18 @@ const iconMap: Record<string, any> = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-white/10">
-        <div class="max-w-2xl">
+      <div class="pb-12 border-b border-white/10">
+        <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-surface border border-brand-accent/30 text-xs font-mono text-brand-accent mb-4">
             <ShieldCheck class="w-3.5 h-3.5" />
-            <span>PRINCIPIOS DE INGENIERÍA</span>
+            <span>PRINCIPIOS DE SUITECH</span>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Por qué <span class="text-gradient-accent">Suitech</span>.
           </h2>
-          <p class="mt-4 text-base text-slate-300">
-            Principios rigurosos que guían cada línea de código y cada integración física, sin promesas vacías ni tecnologías innecesarias.
+          <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            Creemos en una tecnología bien pensada, construida con criterio y orientada a resolver necesidades reales.
           </p>
-        </div>
-
-        <div class="flex items-center gap-2 text-xs font-mono text-slate-400 bg-brand-dark/60 px-4 py-2.5 rounded-xl border border-white/10">
-          <CheckCircle2 class="w-4 h-4 text-brand-accent" />
-          <span>Honestidad técnica comprobada</span>
         </div>
       </div>
 
@@ -75,7 +69,7 @@ const iconMap: Record<string, any> = {
 
           <!-- Technical Quote -->
           <div class="mt-8 pt-6 border-t border-white/5 font-mono text-xs text-slate-400 italic">
-            “{{ pillar.quote }}”
+            {{ pillar.quote }}
           </div>
         </div>
 
