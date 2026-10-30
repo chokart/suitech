@@ -516,13 +516,15 @@ const getStatusBadge = (status: string) => {
                     <span>Ver capturas (3 imágenes)</span>
                   </button>
 
-                  <router-link
-                    to="/proyectos/suiteminerals"
+                  <a
+                    href="https://suiteminerals.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="flex-1 py-2.5 px-4 rounded-xl bg-brand-accent/20 hover:bg-brand-accent text-white border border-brand-accent/40 text-xs font-mono font-medium transition-all flex items-center justify-center gap-2"
                   >
                     <span>Ver proyecto SuiteMinerals</span>
                     <ExternalLink class="w-3.5 h-3.5" />
-                  </router-link>
+                  </a>
                 </div>
               </div>
 

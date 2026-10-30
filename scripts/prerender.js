@@ -346,64 +346,9 @@ const routesMeta = [
             <li><strong>Sistema de gestión y monitoreo de operaciones mineras:</strong> Monitoreo de equipos, movimientos de cancha, rol de personal y producción. (Desarrollado)</li>
             <li><strong>Sistema de gestión empresarial:</strong> Control de inventarios, ventas, caja diaria y reportes administrativos. (Desarrollado)</li>
             <li><strong>Monitoreo remoto de nivel de agua:</strong> Integración de microcontrolador ESP32-S3, sensor ultrasónico y plataforma web. (Prototipo)</li>
-            <li><strong><a href="/proyectos/suiteminerals/" style="color: #006EFE; text-decoration: none;">SuiteMinerals:</a></strong> Plataforma en desarrollo orientada a balances de materia y cálculos metalúrgicos. (En desarrollo)</li>
+            <li><strong><a href="https://suiteminerals.com" target="_blank" rel="noopener noreferrer" style="color: #006EFE; text-decoration: none;">SuiteMinerals:</a></strong> Plataforma en desarrollo orientada a balances de materia y cálculos metalúrgicos.</li>
           </ul>
         </section>
-      </main>
-    `
-  },
-  {
-    path: '/proyectos/suiteminerals/',
-    title: 'SuiteMinerals | Software de Balances Metalúrgicos y Cálculos en Perú',
-    description: 'SuiteMinerals es una plataforma en desarrollo que reúne herramientas digitales para cálculos y análisis metalúrgicos. Balances de materia y reportes operativos.',
-    canonical: 'https://suitechpe.com/proyectos/suiteminerals/',
-    keywords: 'herramientas de cálculo metalúrgico, software para procesos metalúrgicos, balances metalúrgicos con software, balance de dos productos, balance metalúrgico Perú, SuiteMinerals',
-    ogType: 'website',
-    schema: {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'SoftwareApplication',
-          name: 'SuiteMinerals',
-          applicationCategory: 'EngineeringSoftware',
-          operatingSystem: 'Web Browser',
-          description: 'Plataforma en desarrollo que reúne herramientas digitales para cálculos y análisis metalúrgicos en plantas y laboratorios en el Perú.',
-          url: 'https://suitechpe.com/proyectos/suiteminerals/',
-          author: {
-            '@type': 'Organization',
-            name: 'Suitech Perú',
-            url: 'https://suitechpe.com'
-          }
-        },
-        {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://suitechpe.com/' },
-            { '@type': 'ListItem', position: 2, name: 'Proyectos', item: 'https://suitechpe.com/proyectos/' },
-            { '@type': 'ListItem', position: 3, name: 'SuiteMinerals', item: 'https://suitechpe.com/proyectos/suiteminerals/' }
-          ]
-        }
-      ]
-    },
-    htmlContent: `
-      <main style="max-width: 1200px; margin: 0 auto; padding: 4rem 1rem; color: #e2e8f0; font-family: system-ui, sans-serif;">
-        <h1 style="font-size: 2.5rem; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 1.5rem;">
-          SuiteMinerals: Software de balances metalúrgicos y cálculos de procesos en Perú
-        </h1>
-        <p style="font-size: 1.2rem; color: #94a3b8; max-width: 800px; line-height: 1.6; margin-bottom: 2.5rem;">
-          SuiteMinerals es una plataforma en desarrollo que reúne herramientas digitales para cálculos y análisis metalúrgicos. Sus funcionalidades se incorporan y verifican progresivamente.
-        </p>
-        <section style="margin-top: 2rem;">
-          <h2 style="font-size: 1.75rem; color: #fff; margin-bottom: 1rem;">Módulos en Desarrollo</h2>
-          <ul style="color: #94a3b8; line-height: 1.8; font-size: 1.1rem;">
-            <li>Balances metalúrgicos de materia por dos y tres productos (leyes de alimentación, concentrado y relave).</li>
-            <li>Evaluación de cinéticas de flotación y curvas de recuperación.</li>
-            <li>Generación y exportación de reportes de turno estandarizados.</li>
-          </ul>
-        </section>
-        <div style="margin-top: 3rem;">
-          <a href="/contacto/" style="display: inline-block; padding: 0.75rem 2rem; background: #006EFE; color: #fff; text-decoration: none; border-radius: 9999px; font-weight: bold;">Consultar por SuiteMinerals</a>
-        </div>
       </main>
     `
   },

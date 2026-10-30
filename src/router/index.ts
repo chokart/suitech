@@ -5,7 +5,6 @@ import AiView from '../views/AiView.vue';
 import IotView from '../views/IotView.vue';
 import LearningView from '../views/LearningView.vue';
 import ProjectsView from '../views/ProjectsView.vue';
-import SuiteMineralsView from '../views/SuiteMineralsView.vue';
 import ContactView from '../views/ContactView.vue';
 import { updateSeoMeta, type RouteSeoMeta } from '../utils/seo';
 import { trackPageView } from '../utils/analytics';
@@ -300,56 +299,10 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/proyectos/suiteminerals',
-    name: 'suiteminerals',
-    component: SuiteMineralsView,
-    meta: {
-      title: 'SuiteMinerals | Software de Balances Metalúrgicos y Cálculos de Procesos en Perú',
-      description: 'Herramienta de software para cálculo de balances metalúrgicos de materia, evaluación de recuperaciones y dimensionamiento de circuitos de plantas concentradoras en Perú.',
-      canonical: 'https://suitechpe.com/proyectos/suiteminerals/',
-      keywords: 'software para procesos metalúrgicos, balances metalúrgicos con software, herramientas de cálculo metalúrgico, balances de materia minería Perú',
-      ogType: 'article',
-      structuredData: {
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'SoftwareApplication',
-            name: 'SuiteMinerals',
-            applicationCategory: 'BusinessApplication',
-            operatingSystem: 'Web, Windows, Linux, macOS',
-            description: 'Plataforma de software para cálculo de balances metalúrgicos por dos y tres productos, recuperación metalúrgica y dimensionamiento de equipos de beneficio mineral.',
-            url: 'https://suitechpe.com/proyectos/suiteminerals/',
-            publisher: {
-              '@type': 'Organization',
-              name: 'Suitech Perú',
-              url: 'https://suitechpe.com'
-            }
-          },
-          {
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Inicio',
-                item: 'https://suitechpe.com/'
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Proyectos',
-                item: 'https://suitechpe.com/proyectos/'
-              },
-              {
-                '@type': 'ListItem',
-                position: 3,
-                name: 'SuiteMinerals',
-                item: 'https://suitechpe.com/proyectos/suiteminerals/'
-              }
-            ]
-          }
-        ]
-      }
-    } as RouteSeoMeta
+    redirect: () => {
+      window.location.href = 'https://suiteminerals.com';
+      return '/proyectos';
+    }
   },
   {
     path: '/contacto',

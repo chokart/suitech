@@ -126,9 +126,9 @@ const scrollToTop = () => {
               </router-link>
             </li>
             <li>
-              <router-link to="/proyectos/suiteminerals" class="hover:text-brand-accent transition-colors">
+              <a href="https://suiteminerals.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors">
                 SuiteMinerals
-              </router-link>
+              </a>
             </li>
           </ul>
         </div>

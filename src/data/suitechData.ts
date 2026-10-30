@@ -247,7 +247,7 @@ export const PROJECTS: ProjectItem[] = [
     ],
     honestDisclaimer: 'SuiteMinerals es un producto propio en desarrollo. Sus módulos y funcionalidades se implementan y verifican de forma progresiva.',
     visualType: 'industrial',
-    dedicatedUrl: '/proyectos/suiteminerals',
+    dedicatedUrl: 'https://suiteminerals.com',
     images: [
       { src: '/images/projects/suiteminerals/inicio.webp', caption: 'Interfaz principal de SuiteMinerals', isPrimary: true },
       { src: '/images/projects/suiteminerals/balance-materia.webp', caption: 'Módulo de balance de materia' },
