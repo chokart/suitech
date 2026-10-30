@@ -31,7 +31,7 @@ const iconMap: Record<string, any> = {
           Cómo <span class="text-gradient-accent">trabajamos</span>.
         </h2>
         <p class="mt-4 text-base sm:text-lg text-slate-300">
-          Un proceso iterativo de ingeniería dividido en cuatro fases claras, asegurando entregas verificables y sin sorpresas presupuestarias.
+          Abordamos cada proyecto en cuatro etapas: comprendemos la necesidad, planteamos una solución, la desarrollamos y evaluamos su funcionamiento.
         </p>
       </div>
 
@@ -54,9 +54,9 @@ const iconMap: Record<string, any> = {
               </div>
             </div>
 
-            <!-- Title -->
-            <h3 class="text-xl font-bold text-white mb-2">
-              {{ step.title }}
+            <!-- Title: FASE 0X — Nombre -->
+            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 tracking-tight">
+              <span class="text-brand-accent font-mono text-base">FASE {{ step.step }}</span> — {{ step.title }}
             </h3>
 
             <!-- Action Description -->
@@ -79,22 +79,27 @@ const iconMap: Record<string, any> = {
 
       </div>
 
-      <!-- Process Bottom Guarantee -->
-      <div class="mt-12 p-6 rounded-2xl bg-brand-surface/60 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <!-- Methodology adaptability note -->
+      <p class="mt-6 text-xs text-slate-400 text-center font-normal">
+        Esta metodología es una forma de organizar el trabajo, adaptable a las características de cada proyecto. No implica que todos los proyectos tengan exactamente los mismos entregables.
+      </p>
+
+      <!-- Franja inferior: Desarrollo organizado y adaptable -->
+      <div class="mt-10 p-6 rounded-2xl bg-brand-surface/60 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
             <CheckCircle2 class="w-5 h-5" />
           </div>
           <div>
-            <div class="text-sm font-semibold text-white">Desarrollo modular y sin ataduras propietarias</div>
-            <div class="text-xs text-slate-400">Código fuente documentado, despliegues reproducibles con Git y Dokploy.</div>
+            <div class="text-sm font-semibold text-white">Desarrollo organizado y adaptable.</div>
+            <div class="text-xs text-slate-400">Trabajamos con herramientas de desarrollo y control de versiones para mantener el código organizado y facilitar su evolución.</div>
           </div>
         </div>
         <a
           href="#contacto"
           class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow hover:shadow-glow-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-brand-accent/40 shadow-md shrink-0"
         >
-          <span>Iniciar primera fase</span>
+          <span>INICIAR UN PROYECTO</span>
           <ArrowUpRight class="w-3.5 h-3.5" />
         </a>
       </div>

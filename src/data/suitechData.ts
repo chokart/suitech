@@ -249,29 +249,29 @@ export const WORK_PROCESS: WorkStep[] = [
   {
     step: '01',
     title: 'Entender',
-    action: 'Identificar el problema real, los objetivos técnicos y los límites del entorno.',
-    deliverable: 'Levantamiento de requerimientos, alcance bien delimitado y viabilidad técnica.',
+    action: 'Identificamos la necesidad, los objetivos del proyecto y las condiciones técnicas en las que se desarrollará.',
+    deliverable: 'Requerimientos iniciales, alcance del proyecto y viabilidad técnica.',
     iconName: 'SearchCheck'
   },
   {
     step: '02',
     title: 'Diseñar',
-    action: 'Definir la arquitectura de software, hardware y datos más simple y mantenible.',
-    deliverable: 'Esquema de componentes, wireframes funcionales y plan de hitos.',
+    action: 'Definimos cómo funcionará la solución, seleccionamos las tecnologías y organizamos sus componentes.',
+    deliverable: 'Propuesta técnica, estructura de componentes y planificación del desarrollo.',
     iconName: 'Compass'
   },
   {
     step: '03',
     title: 'Desarrollar',
-    action: 'Construir el código, programar microcontroladores e integrar APIs y modelos.',
-    deliverable: 'Prototipo interactivo, pruebas de conectividad y código documentado.',
+    action: 'Construimos la solución mediante programación, integración de componentes y configuración de las tecnologías necesarias.',
+    deliverable: 'Versión funcional o prototipo, según el alcance del proyecto.',
     iconName: 'Code'
   },
   {
     step: '04',
-    title: 'Validar y Mejorar',
-    action: 'Probar en condiciones reales, medir resultados y planificar mejoras continuas.',
-    deliverable: 'Sistema funcional, entrega transparente y ruta de evolución probada.',
+    title: 'Probar y mejorar',
+    action: 'Revisamos el funcionamiento, identificamos ajustes necesarios y realizamos mejoras de acuerdo con los objetivos definidos.',
+    deliverable: 'Pruebas realizadas, ajustes documentados y siguientes pasos del proyecto.',
     iconName: 'CheckCircle2'
   }
 ];
