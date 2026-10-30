@@ -266,19 +266,19 @@ const routesMeta = [
   },
   {
     path: '/academy/',
-    title: 'Tutoriales de Programación, ESP32 y Desarrollo Web en Español | Suitech Academy',
-    description: 'Guías prácticas y tutoriales de desarrollo web con Vue 3, proyectos IoT con ESP32 y automatización con IA en español. Aprendizaje técnico honesto.',
+    title: 'Suitech Academy · Espacio de Aprendizaje en Preparación | Suitech Perú',
+    description: 'Suitech Academy es un espacio en preparación donde compartiremos tutoriales, experiencias y proyectos de desarrollo de software, electrónica, IoT e inteligencia artificial.',
     canonical: 'https://suitechpe.com/academy/',
-    keywords: 'tutoriales de programación en español, proyectos con ESP32, desarrollo web con Vue y TypeScript, telemetría para principiantes, automatización con IA',
+    keywords: 'Suitech Academy, aprendizaje tecnológico Perú, tutoriales de programación en preparación, IoT electrónica software',
     ogType: 'website',
     schema: {
       '@context': 'https://schema.org',
       '@graph': [
         {
           '@type': 'WebPage',
-          name: 'Suitech Academy · Formación y Divulgación Tecnológica',
+          name: 'Suitech Academy · Espacio de Aprendizaje en Preparación',
           url: 'https://suitechpe.com/academy/',
-          description: 'Espacio de divulgación y artículos técnicos de ingeniería de software, hardware con ESP32 y desarrollo web.'
+          description: 'Espacio de aprendizaje en preparación donde compartiremos conocimientos y experiencias de desarrollo.'
         },
         {
           '@type': 'BreadcrumbList',
@@ -291,21 +291,19 @@ const routesMeta = [
     },
     htmlContent: `
       <main style="max-width: 1200px; margin: 0 auto; padding: 4rem 1rem; color: #e2e8f0; font-family: system-ui, sans-serif;">
-        <h1 style="font-size: 2.5rem; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 1.5rem;">
-          Tutoriales de programación, IoT con ESP32 y aplicaciones de IA
+        <span style="font-family: monospace; font-size: 0.85rem; color: #006EFE; text-transform: uppercase; letter-spacing: 0.1em;">SUITECH ACADEMY · EN CONSTRUCCIÓN</span>
+        <h1 style="font-size: 2.5rem; font-weight: 800; color: #ffffff; line-height: 1.2; margin-top: 1rem; margin-bottom: 1rem;">
+          Estamos preparando algo nuevo.
         </h1>
-        <p style="font-size: 1.2rem; color: #94a3b8; max-width: 800px; line-height: 1.6; margin-bottom: 2.5rem;">
-          Divulgación técnica honesta en español: compartimos guías paso a paso de desarrollo web con Vue 3 y TypeScript, proyectos de telemetría con ESP32 y automatización de procesos.
+        <p style="font-size: 1.25rem; color: #38bdf8; font-weight: 600; margin-bottom: 1rem;">
+          Aprender también es construir.
         </p>
-        <section style="margin-top: 2rem;">
-          <h2 style="font-size: 1.75rem; color: #fff; margin-bottom: 1rem;">Próximas Publicaciones</h2>
-          <ul style="color: #94a3b8; line-height: 1.8; font-size: 1.1rem;">
-            <li>Cómo conectar un microcontrolador ESP32 con una API web REST.</li>
-            <li>Cómo visualizar datos de sensores en una interfaz web moderna en tiempo real.</li>
-            <li>Cómo estructurar aplicaciones web escalables con Vue 3 y TypeScript.</li>
-            <li>Cómo automatizar la extracción de datos de documentos con Inteligencia Artificial.</li>
-          </ul>
-        </section>
+        <p style="font-size: 1.1rem; color: #94a3b8; max-width: 800px; line-height: 1.6; margin-bottom: 2rem;">
+          Estamos preparando un espacio para compartir conocimientos, experiencias y proyectos relacionados con desarrollo de software, inteligencia artificial, electrónica e IoT.
+        </p>
+        <p style="color: #cbd5e1; line-height: 1.6; margin-bottom: 2rem;">
+          Queremos compartir contenido práctico basado en lo que desarrollamos y aprendemos en Suitech. Estamos preparando los primeros contenidos.
+        </p>
       </main>
     `
   },

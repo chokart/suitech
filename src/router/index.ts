@@ -222,10 +222,10 @@ const routes: RouteRecordRaw[] = [
     component: LearningView,
     alias: ['/aprendizaje', '/blog'],
     meta: {
-      title: 'Tutoriales de Programación, IoT con ESP32 & IA en Español | Suitech Academy',
-      description: 'Aprende ingeniería de software real: tutoriales paso a paso de Vue 3, TypeScript, microcontroladores ESP32 con APIs REST y automatización práctica con IA.',
+      title: 'Suitech Academy · Espacio de Aprendizaje en Preparación | Suitech Perú',
+      description: 'Suitech Academy es un espacio en preparación donde compartiremos tutoriales, experiencias y proyectos de desarrollo de software, electrónica, IoT e inteligencia artificial.',
       canonical: 'https://suitechpe.com/academy/',
-      keywords: 'tutoriales de programación en español, proyectos con ESP32, desarrollo web con Vue y Spring, inteligencia artificial aplicada a proyectos',
+      keywords: 'Suitech Academy, aprendizaje tecnológico Perú, tutoriales de programación en preparación, IoT electrónica software',
       ogType: 'website',
       structuredData: {
         '@context': 'https://schema.org',
@@ -234,7 +234,7 @@ const routes: RouteRecordRaw[] = [
             '@type': 'EducationalOrganization',
             name: 'Suitech Academy',
             url: 'https://suitechpe.com/academy/',
-            description: 'Comunidad y recursos técnicos abiertos para aprender a crear software moderno, conectar hardware y aplicar inteligencia artificial.',
+            description: 'Espacio de aprendizaje en preparación donde compartiremos conocimientos y experiencias de desarrollo.',
             inLanguage: 'es-PE'
           },
           {

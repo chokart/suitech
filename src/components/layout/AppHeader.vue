@@ -11,7 +11,7 @@ const navLinks = [
   { name: 'Inicio', path: '/' },
   { name: 'Soluciones', path: '/#soluciones' },
   { name: 'Proyectos', path: '/proyectos' },
-  { name: 'Aprendizaje', path: '/aprendizaje' },
+  { name: 'Academy', path: '/academy', badge: 'En construcción' },
   { name: 'Nosotros', path: '/#nosotros' }
 ];
 
@@ -87,13 +87,19 @@ onUnmounted(() => {
             :key="link.name"
             :to="link.path"
             :class="[
-              'px-3.5 py-1.5 text-xs lg:text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent',
+              'px-3.5 py-1.5 text-xs lg:text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent inline-flex items-center gap-1.5',
               isLinkActive(link.path)
                 ? 'text-white bg-brand-accent/20 border border-brand-accent/50 font-semibold shadow-sm'
                 : 'text-slate-300 hover:text-white hover:bg-white/5'
             ]"
           >
-            {{ link.name }}
+            <span>{{ link.name }}</span>
+            <span 
+              v-if="link.badge" 
+              class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30"
+            >
+              {{ link.badge }}
+            </span>
           </router-link>
         </nav>
 
@@ -143,13 +149,19 @@ onUnmounted(() => {
             :to="link.path"
             @click="closeMobileMenu"
             :class="[
-              'px-4 py-2.5 text-sm font-medium rounded-xl transition-colors',
+              'px-4 py-2.5 text-sm font-medium rounded-xl transition-colors flex items-center justify-between',
               isLinkActive(link.path)
                 ? 'text-brand-accent bg-brand-accent/10 font-bold'
                 : 'text-slate-200 hover:text-brand-accent hover:bg-white/5'
             ]"
           >
-            {{ link.name }}
+            <span>{{ link.name }}</span>
+            <span 
+              v-if="link.badge" 
+              class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30"
+            >
+              {{ link.badge }}
+            </span>
           </router-link>
           <div class="pt-3 border-t border-white/10 mt-2">
             <router-link

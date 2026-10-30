@@ -1,48 +1,46 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { LEARNING_POSTS, BRAND_INFO } from '../data/suitechData';
 import { 
   GraduationCap, 
-  Youtube, 
-  Clock, 
-  ArrowUpRight, 
   ArrowLeft,
+  ArrowRight,
   Code2,
   Cpu,
-  Sparkles
+  Sparkles,
+  BookOpen,
+  Hammer
 } from 'lucide-vue-next';
 
-const activeCategory = ref<string>('all');
-
-const categories = [
-  { id: 'all', label: 'Todos los contenidos' },
-  { id: 'iot', label: 'IoT & Firmware' },
-  { id: 'frontend', label: 'Frontend & Arquitectura' },
-  { id: 'ia', label: 'Inteligencia Artificial' },
+const areas = [
+  {
+    title: 'Tutoriales y guías técnicas.',
+    description: 'Documentación estructurada y explicaciones paso a paso.',
+    icon: BookOpen
+  },
+  {
+    title: 'Desarrollo de software.',
+    description: 'Sistemas web, aplicaciones, arquitecturas y buenas prácticas.',
+    icon: Code2
+  },
+  {
+    title: 'Electrónica e IoT.',
+    description: 'Microcontroladores ESP32, sensores y conexión con la nube.',
+    icon: Cpu
+  },
+  {
+    title: 'Inteligencia artificial aplicada.',
+    description: 'Procesamiento de información, asistentes e integración práctica.',
+    icon: Sparkles
+  }
 ];
-
-const filteredPosts = computed(() => {
-  if (activeCategory.value === 'all') return LEARNING_POSTS;
-  if (activeCategory.value === 'iot') {
-    return LEARNING_POSTS.filter(p => p.category.includes('IoT') || p.category.includes('Firmware'));
-  }
-  if (activeCategory.value === 'frontend') {
-    return LEARNING_POSTS.filter(p => p.category.includes('Frontend') || p.category.includes('Arquitectura'));
-  }
-  if (activeCategory.value === 'ia') {
-    return LEARNING_POSTS.filter(p => p.category.includes('IA'));
-  }
-  return LEARNING_POSTS;
-});
 </script>
 
 <template>
-  <div class="learning-page min-h-screen pt-28 sm:pt-36 pb-24 relative overflow-hidden">
-    <!-- Ambient glows -->
-    <div class="absolute top-24 right-1/4 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-[170px] pointer-events-none"></div>
-    <div class="absolute top-1/2 left-10 w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
+  <div class="learning-page min-h-screen pt-28 sm:pt-36 pb-24 relative overflow-hidden bg-brand-dark flex flex-col justify-between">
+    <!-- Ambient tech glows -->
+    <div class="absolute top-20 left-1/3 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[170px] pointer-events-none"></div>
+    <div class="absolute bottom-20 right-10 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[150px] pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
       
       <!-- Back Navigation Breadcrumb -->
       <div class="mb-8">
@@ -55,166 +53,86 @@ const filteredPosts = computed(() => {
         </router-link>
       </div>
 
-      <!-- Page Header with YouTube Channel Banner -->
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-12 border-b border-white/10">
-        <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-surface border border-brand-accent/30 text-xs font-mono text-brand-accent mb-4">
-            <GraduationCap class="w-3.5 h-3.5" />
-            <span>SUITECH ACADEMY · FORMACIÓN Y DIVULGACIÓN TÉCNICA EN ESPAÑOL</span>
+      <!-- Main Editorial Card / Central Construction Showcase -->
+      <div class="rounded-3xl glass-panel p-8 sm:p-12 lg:p-14 border border-white/10 shadow-2xl relative overflow-hidden">
+        
+        <!-- Top Status & Tag Row -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 sm:pb-8 border-b border-white/10 mb-8">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-surface border border-brand-accent/30 text-xs font-mono text-brand-accent">
+            <GraduationCap class="w-4 h-4" />
+            <span>SUITECH ACADEMY</span>
           </div>
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            Tutoriales de <span class="text-gradient-accent">programación, IoT con ESP32</span> y aplicaciones de IA.
+
+          <!-- Construction Status Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono font-semibold">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <span>EN CONSTRUCCIÓN</span>
+          </div>
+        </div>
+
+        <!-- Headline & Statements -->
+        <div class="space-y-4">
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Estamos preparando <span class="text-gradient-accent">algo nuevo</span>.
           </h1>
-          <p class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-            Aprender construyendo y compartir con honestidad. Publicamos guías prácticas de desarrollo web con Vue 3 y TypeScript, proyectos de telemetría con microcontroladores ESP32, automatización de procesos e ingeniería de software en español.
+
+          <p class="text-xl sm:text-2xl font-semibold text-brand-accent-glow pt-1">
+            Aprender también es construir.
+          </p>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal pt-2">
+            Estamos preparando un espacio para compartir conocimientos, experiencias y proyectos relacionados con desarrollo de software, inteligencia artificial, electrónica e IoT.
+          </p>
+
+          <p class="text-sm sm:text-base text-slate-400 leading-relaxed font-normal">
+            Queremos compartir contenido práctico basado en lo que desarrollamos y aprendemos en Suitech.
           </p>
         </div>
 
-        <!-- Academy Information Card -->
-        <div class="shrink-0 p-6 rounded-3xl glass-panel-elevated border border-brand-accent/20 max-w-md w-full">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent">
-              <GraduationCap class="w-5 h-5" />
-            </div>
-            <div>
-              <div class="text-sm font-bold text-white">Espacio de Divulgación Práctica</div>
-              <div class="text-[11px] font-mono text-slate-400">Contenido técnico en español</div>
-            </div>
+        <!-- Areas that will be addressed -->
+        <div class="mt-10 pt-8 border-t border-white/10">
+          <div class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+            <Hammer class="w-3.5 h-3.5 text-brand-accent" />
+            <span>Áreas que abordaremos:</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Documentamos la construcción de proyectos reales: conexión de hardware ESP32, desarrollo de paneles reactivos y automatizaciones con IA.
-          </p>
-          <div class="mt-4 pt-3 border-t border-white/10">
-            <a
-              v-if="BRAND_INFO.youtubeUrl"
-              :href="BRAND_INFO.youtubeUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold text-white bg-red-600 hover:bg-red-500 transition-all shadow-md"
-            >
-              <Youtube class="w-4 h-4" />
-              <span>Ir al canal de YouTube</span>
-              <ArrowUpRight class="w-3.5 h-3.5" />
-            </a>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div
-              v-else
-              class="text-center py-1.5 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-400"
+              v-for="area in areas"
+              :key="area.title"
+              class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-brand-accent/30 transition-all flex items-start gap-3.5"
             >
-              Guías en desarrollo · Publicación progresiva
+              <div class="w-9 h-9 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-brand-accent shrink-0 mt-0.5">
+                <component :is="area.icon" class="w-4 h-4" />
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-white">
+                  {{ area.title }}
+                </h3>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  {{ area.description }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Categories Filter -->
-      <div class="mt-12 flex flex-wrap gap-2.5">
-        <button
-          v-for="cat in categories"
-          :key="cat.id"
-          type="button"
-          @click="activeCategory = cat.id"
-          :class="[
-            'px-5 py-2 rounded-full text-xs font-mono transition-all duration-200 border',
-            activeCategory === cat.id
-              ? 'bg-brand-accent text-white border-brand-accent font-bold shadow-glow-accent'
-              : 'bg-brand-surface text-slate-300 border-white/10 hover:border-brand-accent/40 hover:text-white'
-          ]"
-        >
-          {{ cat.label }}
-        </button>
-      </div>
-
-      <!-- Articles & Tutorials Grid -->
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <article
-          v-for="post in filteredPosts"
-          :key="post.id"
-          class="rounded-3xl glass-panel p-8 flex flex-col justify-between border border-white/10 hover:border-brand-accent/40 transition-all duration-300 hover:shadow-glow-accent/10 group"
-        >
-          <div>
-            <!-- Header Meta -->
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
-              <span class="text-brand-accent font-semibold flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                {{ post.category }}
-              </span>
-              <span class="flex items-center gap-1.5 text-slate-400">
-                <Clock class="w-3.5 h-3.5" />
-                {{ post.readTime }}
-              </span>
-            </div>
-
-            <!-- Title -->
-            <h2 class="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-accent transition-colors leading-snug">
-              {{ post.title }}
-            </h2>
-
-            <!-- Summary -->
-            <p class="mt-4 text-sm text-slate-300 leading-relaxed font-normal">
-              {{ post.summary }}
-            </p>
-
-            <!-- Tags -->
-            <div class="mt-6 flex flex-wrap gap-2">
-              <span
-                v-for="tag in post.tags"
-                :key="tag"
-                class="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/5 text-[11px] font-mono text-slate-300"
-              >
-                #{{ tag }}
-              </span>
-            </div>
+        <!-- Complementary Notice Box -->
+        <div class="mt-10 p-4 sm:p-5 rounded-2xl bg-brand-surface/70 border border-brand-accent/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3 text-xs font-mono text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-brand-accent shrink-0"></span>
+            <span>Estamos preparando los primeros contenidos.</span>
           </div>
 
-          <!-- Bottom Action -->
-          <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
-            <span class="text-xs font-mono text-slate-400">
-              Serie: {{ post.targetPlatform }}
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 text-[11px] font-mono text-brand-accent/90 border border-brand-accent/20">
-              <span>{{ post.status }}</span>
-            </span>
-          </div>
-        </article>
-      </div>
-
-      <!-- Philosophy of Open Engineering Box -->
-      <div class="mt-16 p-8 sm:p-10 rounded-3xl bg-brand-surface/40 border border-white/10 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-brand-accent shrink-0">
-            <Code2 class="w-5 h-5" />
-          </div>
-          <div>
-            <h4 class="text-base font-bold text-white">Código Real</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Ejemplos funcionales probados en producción, sin fragmentos de código ficticios.
-            </p>
-          </div>
+          <router-link
+            to="/proyectos"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-medium text-white bg-white/5 hover:bg-brand-accent border border-white/10 hover:border-brand-accent transition-colors"
+          >
+            <span>Ver proyectos en desarrollo</span>
+            <ArrowRight class="w-3.5 h-3.5" />
+          </router-link>
         </div>
 
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-blue-400 shrink-0">
-            <Cpu class="w-5 h-5" />
-          </div>
-          <div>
-            <h4 class="text-base font-bold text-white">Hardware + Software</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Enseñamos cómo cruzar la barrera entre sensores físicos y aplicaciones en la nube.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-emerald-400 shrink-0">
-            <Sparkles class="w-5 h-5" />
-          </div>
-          <div>
-            <h4 class="text-base font-bold text-white">Comunidad Abierta</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Compartimos lo que construimos para fomentar el desarrollo tecnológico local.
-            </p>
-          </div>
-        </div>
       </div>
 
     </div>

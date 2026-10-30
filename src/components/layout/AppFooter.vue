@@ -121,8 +121,11 @@ const scrollToTop = () => {
               </router-link>
             </li>
             <li>
-              <router-link to="/academy" class="hover:text-brand-accent transition-colors">
-                Suitech Academy
+              <router-link to="/academy" class="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
+                <span>Suitech Academy</span>
+                <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/25">
+                  En construcción
+                </span>
               </router-link>
             </li>
             <li>
