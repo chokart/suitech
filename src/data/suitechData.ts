@@ -34,70 +34,103 @@ export const SOLUTIONS: SolutionItem[] = [
   {
     id: 'suitech-solutions',
     number: '01',
-    title: 'Suitech Solutions',
-    badge: 'Desarrollo Web & Cloud',
-    summary: 'Desarrollo de sistemas web, aplicaciones, APIs, bases de datos, integraciones y automatización para personas y empresas.',
-    description: 'Construimos plataformas digitales sólidas y a medida que optimizan la operativa diaria de negocios y profesionales, eliminando procesos manuales propensos a errores.',
+    title: 'SUITECH SOLUTIONS',
+    lineName: 'SUITECH SOLUTIONS',
+    heading: 'Desarrollo de software.',
+    badge: 'Desarrollo de software.',
+    statusTag: 'Línea principal',
+    statusType: 'primary',
+    summary: 'Desarrollamos sistemas y aplicaciones web para organizar información, facilitar procesos y resolver necesidades de gestión.',
+    description: 'Desarrollamos sistemas y aplicaciones web para organizar información, facilitar procesos y resolver necesidades de gestión.',
     iconName: 'Code2',
-    features: [
-      'Aplicaciones web interactivas y paneles de control modernos',
-      'Desarrollo y consumo de APIs seguras, rápidas y escalables',
-      'Diseño y modelado de bases de datos relacionales y cloud',
-      'Integración y sincronización de sistemas existentes',
-      'Digitalización y trazabilidad integral de flujos de trabajo'
+    areas: [
+      'Sistemas web',
+      'Aplicaciones',
+      'Bases de datos',
+      'APIs',
+      'Integración de plataformas'
     ],
-    deliverables: ['Código fuente documentado', 'Despliegues reproducibles con Git', 'Acompañamiento técnico inicial']
+    features: [
+      'Sistemas web y aplicaciones a medida',
+      'Modelado de bases de datos y arquitectura',
+      'Desarrollo de APIs e integración de plataformas'
+    ],
+    deliverables: ['Código fuente documentado', 'Estructura organizada', 'Acompañamiento técnico']
   },
   {
     id: 'suitech-ai',
     number: '02',
-    title: 'Suitech AI',
-    badge: 'Inteligencia Artificial Práctica',
-    summary: 'Aplicaciones prácticas de IA, asistentes, procesamiento de documentos, automatización inteligente e integración de modelos en sistemas existentes.',
-    description: 'Enfocamos la inteligencia artificial como una herramienta pragmática para resolver cuellos de botella: extracción de datos de comprobantes, asistentes técnicos y pipelines automatizados.',
+    title: 'SUITECH AI',
+    lineName: 'SUITECH AI',
+    heading: 'Inteligencia artificial aplicada.',
+    badge: 'Inteligencia artificial aplicada.',
+    statusTag: 'Exploración práctica',
+    statusType: 'exploration',
+    summary: 'Exploramos aplicaciones de inteligencia artificial para procesar información, desarrollar asistentes y automatizar tareas.',
+    description: 'Exploramos aplicaciones de inteligencia artificial para procesar información, desarrollar asistentes y automatizar tareas.',
     iconName: 'BrainCircuit',
-    features: [
-      'Extracción y procesamiento estructurado de documentos (PDFs, facturas, recibos)',
-      'Asistentes virtuales entrenados con el conocimiento de tu empresa',
-      'Automatización inteligente de tareas cognitivas y repetitivas',
-      'Integración de modelos LLM y visión computacional vía API',
-      'Generación automatizada de reportes y resúmenes ejecutivos'
+    areas: [
+      'Procesamiento de documentos',
+      'Asistentes inteligentes',
+      'Integración de modelos',
+      'Automatización mediante IA'
     ],
-    deliverables: ['Evaluación técnica de viabilidad', 'Integración de modelos vía API', 'Guía de uso y documentación']
+    features: [
+      'Procesamiento y extracción en documentos',
+      'Asistentes orientados a flujos concretos',
+      'Integración de modelos y automatización mediante IA'
+    ],
+    deliverables: ['Evaluación de viabilidad técnica', 'Integración mediante APIs', 'Guía y documentación de uso']
   },
   {
     id: 'suitech-iot',
     number: '03',
-    title: 'Suitech IoT',
-    badge: 'Dispositivos Inteligentes & IoT',
-    summary: 'Dispositivos inteligentes, sensores, ESP32, monitoreo remoto, telemetría y conexión entre hardware, software y servicios en la nube.',
-    description: 'Unimos el mundo físico con la web: capturamos lecturas desde sensores en campo, las transmitimos de forma segura y las visualizamos en tiempo real.',
+    title: 'SUITECH IoT',
+    lineName: 'SUITECH IoT',
+    heading: 'Dispositivos y proyectos conectados.',
+    badge: 'Dispositivos y proyectos conectados.',
+    statusTag: 'Proyectos & prototipos',
+    statusType: 'prototypes',
+    summary: 'Construimos proyectos que conectan sensores, dispositivos electrónicos, servidores y plataformas de monitoreo.',
+    description: 'Construimos proyectos que conectan sensores, dispositivos electrónicos, servidores y plataformas de monitoreo.',
     iconName: 'Cpu',
-    features: [
-      'Instrumentación y sensores (nivel ultrasónico, temperatura, flujo, presión)',
-      'Firmware eficiente y de bajo consumo en ESP32 / Arduino',
-      'Transmisión de telemetría segura vía WiFi/HTTP hacia servidores',
-      'Paneles web reactivos con visualización gráfica en vivo',
-      'Alertas tempranas automáticas ante niveles o umbrales críticos'
+    areas: [
+      'ESP32',
+      'Sensores',
+      'Comunicación entre dispositivos',
+      'Telemetría y monitoreo remoto'
     ],
-    deliverables: ['Firmware para ESP32 en C/C++', 'API receptora para servidor/VPS', 'Tablero web de visualización']
+    features: [
+      'Microcontroladores ESP32 y sensores',
+      'Comunicación y envío de datos a servidores',
+      'Telemetría y monitoreo remoto'
+    ],
+    deliverables: ['Firmware documentado para ESP32', 'Recepción de datos en servidor', 'Tablero web de monitoreo']
   },
   {
     id: 'suitech-academy',
     number: '04',
-    title: 'Suitech Academy',
-    badge: 'Formación & Divulgación',
-    summary: 'Tutoriales, guías, artículos, ejemplos de código y proyectos educativos en español.',
-    description: 'Transferencia técnica honesta para desarrolladores, profesionales y emprendedores que buscan aprender a crear software real y conectar hardware con la nube.',
+    title: 'SUITECH ACADEMY',
+    lineName: 'SUITECH ACADEMY',
+    heading: 'Conocimiento y aprendizaje.',
+    badge: 'Conocimiento y aprendizaje.',
+    statusTag: 'En preparación · Publicación progresiva',
+    statusType: 'upcoming',
+    summary: 'Compartimos conocimientos, tutoriales y experiencias de desarrollo a partir de nuestros proyectos tecnológicos.',
+    description: 'Compartimos conocimientos, tutoriales y experiencias de desarrollo a partir de nuestros proyectos tecnológicos.',
     iconName: 'GraduationCap',
-    features: [
-      'Tutoriales paso a paso de desarrollo web con Vue 3 y TypeScript',
-      'Guías prácticas de IoT conectando microcontroladores ESP32 con APIs REST',
-      'Casos reales de automatización de procesos e integración con IA',
-      'Repositorios de código abierto documentados para estudiar y reutilizar',
-      'Documentación técnica clara y de libre acceso'
+    areas: [
+      'Desarrollo web',
+      'Programación',
+      'Inteligencia artificial',
+      'Electrónica e IoT'
     ],
-    deliverables: ['Guías técnicas paso a paso', 'Repositorios con código fuente', 'Documentación de proyectos reales']
+    features: [
+      'Tutoriales y guías de desarrollo web',
+      'Prácticas de programación e IA aplicada',
+      'Proyectos de electrónica y microcontroladores'
+    ],
+    deliverables: ['Publicaciones técnicas progresivas', 'Ejemplos de código', 'Documentación de libre acceso']
   }
 ];
 
