@@ -4,7 +4,6 @@ import HeroSection from '../components/home/HeroSection.vue';
 import ServicesSection from '../components/home/ServicesSection.vue';
 import WhySuitechSection from '../components/home/WhySuitechSection.vue';
 import ProcessSection from '../components/home/ProcessSection.vue';
-import IndustriesSection from '../components/home/IndustriesSection.vue';
 import ContactSection from '../components/home/ContactSection.vue';
 
 const contactSectionRef = ref<InstanceType<typeof ContactSection> | null>(null);
@@ -29,9 +28,6 @@ const handleSolutionSelection = (solutionId: string) => {
 
     <!-- Principios de Ingeniería -->
     <WhySuitechSection />
-
-    <!-- Campos de Aplicación -->
-    <IndustriesSection />
 
     <!-- Canal Directo / Contacto -->
     <ContactSection ref="contactSectionRef" />
