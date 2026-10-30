@@ -91,7 +91,7 @@ const faqs = [
 
         <div class="mt-8 flex flex-wrap gap-4 items-center">
           <router-link
-            to="/contacto"
+            to="/#contacto"
             class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow hover:shadow-glow-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-brand-accent/40 shadow-lg"
           >
             <span>Evaluar caso de uso con IA</span>
@@ -206,7 +206,7 @@ const faqs = [
         </p>
         <div class="mt-6 flex justify-center">
           <router-link
-            to="/contacto"
+            to="/#contacto"
             class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow hover:shadow-glow-accent transition-all duration-200"
           >
             <span>Consultar sobre Suitech AI</span>

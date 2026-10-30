@@ -354,45 +354,14 @@ const routesMeta = [
   },
   {
     path: '/contacto/',
-    title: 'Contacto Técnico Directo | Suitech Perú',
-    description: 'Conversemos directamente sobre su proyecto de software, inteligencia artificial, IoT o SuiteMinerals. Evaluación técnica honesta y sin compromiso.',
-    canonical: 'https://suitechpe.com/contacto/',
-    keywords: 'contacto Suitech Perú, cotizar software a medida en Perú, consultoría tecnológica, soporte proyectos IoT',
+    title: 'Contacto | Suitech Perú',
+    description: 'Hablemos de tu proyecto. Conversemos y exploremos cómo hacerlo realidad con Suitech Perú.',
+    canonical: 'https://suitechpe.com/#contacto',
+    keywords: 'contacto Suitech Perú, cotizar software Perú',
     ogType: 'website',
-    schema: {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'ContactPage',
-          name: 'Contacto Técnico Directo Suitech Perú',
-          url: 'https://suitechpe.com/contacto/',
-          description: 'Canal de comunicación directa con el equipo técnico de Suitech Perú.'
-        },
-        {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://suitechpe.com/' },
-            { '@type': 'ListItem', position: 2, name: 'Contacto', item: 'https://suitechpe.com/contacto/' }
-          ]
-        }
-      ]
-    },
     htmlContent: `
-      <main style="max-width: 1200px; margin: 0 auto; padding: 4rem 1rem; color: #e2e8f0; font-family: system-ui, sans-serif;">
-        <h1 style="font-size: 2.5rem; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 1.5rem;">
-          Contacto Técnico Directo con Suitech Perú
-        </h1>
-        <p style="font-size: 1.2rem; color: #94a3b8; max-width: 800px; line-height: 1.6; margin-bottom: 2.5rem;">
-          Conversemos sobre tu proyecto tecnológico con evaluación técnica directa y sin intermediarios comerciales.
-        </p>
-        <section style="margin-top: 2rem;">
-          <h2 style="font-size: 1.5rem; color: #fff; margin-bottom: 1rem;">Canal Oficial de Correo</h2>
-          <p style="color: #94a3b8; font-size: 1.1rem;">
-            Escríbenos directamente a: <a href="mailto:chokart@gmail.com" style="color: #006EFE; text-decoration: none; font-weight: bold;">chokart@gmail.com</a>
-          </p>
-          <p style="color: #64748b; font-size: 0.95rem; margin-top: 0.5rem;">Respuesta y revisión técnica en menos de 24 horas hábiles.</p>
-        </section>
-      </main>
+      <script>window.location.replace('/#contacto');</script>
+      <meta http-equiv="refresh" content="0;url=/#contacto" />
     `
   }
 ];

@@ -603,7 +603,7 @@ const getStatusBadge = (status: string) => {
           </p>
         </div>
         <router-link
-          to="/contacto"
+          to="/#contacto"
           class="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-accent to-brand-accent-glow hover:shadow-glow-accent transition-all"
         >
           <span>Hablemos de tu proyecto.</span>

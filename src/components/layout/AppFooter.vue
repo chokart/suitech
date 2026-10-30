@@ -92,7 +92,7 @@ const scrollToTop = () => {
               </router-link>
             </li>
             <li>
-              <router-link to="/contacto" class="hover:text-brand-accent transition-colors">
+              <router-link to="/#contacto" class="hover:text-brand-accent transition-colors">
                 Contacto
               </router-link>
             </li>

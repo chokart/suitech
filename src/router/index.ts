@@ -5,7 +5,6 @@ import AiView from '../views/AiView.vue';
 import IotView from '../views/IotView.vue';
 import LearningView from '../views/LearningView.vue';
 import ProjectsView from '../views/ProjectsView.vue';
-import ContactView from '../views/ContactView.vue';
 import { updateSeoMeta, type RouteSeoMeta } from '../utils/seo';
 import { trackPageView } from '../utils/analytics';
 
@@ -306,43 +305,7 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/contacto',
-    name: 'contacto',
-    component: ContactView,
-    meta: {
-      title: 'Contacto Técnico y Asesoría Tecnológica | Suitech Perú',
-      description: 'Comuníquese directamente con el equipo de ingeniería de Suitech Perú. Cotice desarrollo de software a medida, proyectos de inteligencia artificial o telemetría IoT.',
-      canonical: 'https://suitechpe.com/contacto/',
-      keywords: 'contacto Suitech Perú, cotizar software Perú, asesoría tecnológica ingeniería',
-      ogType: 'website',
-      structuredData: {
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'ContactPage',
-            name: 'Contacto Técnico Suitech Perú',
-            url: 'https://suitechpe.com/contacto/',
-            description: 'Canal directo de contacto técnico para empresas y profesionales en Perú.'
-          },
-          {
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Inicio',
-                item: 'https://suitechpe.com/'
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Contacto',
-                item: 'https://suitechpe.com/contacto/'
-              }
-            ]
-          }
-        ]
-      }
-    } as RouteSeoMeta
+    redirect: '/#contacto'
   },
   {
     path: '/:pathMatch(.*)*',
