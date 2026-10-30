@@ -158,14 +158,16 @@ const sendViaWhatsapp = () => {
               </div>
               <div>
                 <div class="text-[11px] font-mono uppercase text-slate-400">WHATSAPP</div>
-                <button 
-                  type="button" 
-                  @click="sendViaWhatsapp"
-                  class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 transition-colors"
+                <a 
+                  :href="BRAND_INFO.whatsappUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  @click.prevent="sendViaWhatsapp"
+                  class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
-                  <span>+51 961 795 940 · Escribir</span>
+                  <span>Conversar por WhatsApp</span>
                   <ExternalLink class="w-3.5 h-3.5" />
-                </button>
+                </a>
               </div>
             </div>
           </div>

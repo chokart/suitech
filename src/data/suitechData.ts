@@ -13,7 +13,7 @@ export const BRAND_INFO = {
   shortDescription: 'Desarrollamos software y construimos proyectos que integran tecnología, información e ingeniería para resolver necesidades reales.',
   contactEmail: (import.meta.env.VITE_CONTACT_EMAIL as string) || 'chokart@gmail.com',
   whatsappNumber: isRealWhatsapp ? envWhatsapp : null,
-  whatsappDisplay: '+51 961 795 940',
+  whatsappDisplay: 'Conversar por WhatsApp',
   whatsappUrl: isRealWhatsapp ? `https://wa.me/${envWhatsapp}?text=Hola%20Suitech,%20deseo%20conversar%20sobre%20un%20proyecto%20tecnol%C3%B3gico` : null,
   linkedinUrl: (import.meta.env.VITE_LINKEDIN_URL as string) || null,
   youtubeUrl: (import.meta.env.VITE_YOUTUBE_URL as string) || null,
