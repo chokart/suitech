@@ -7,11 +7,16 @@ const route = useRoute();
 const isScrolled = ref(false);
 const isMobileMenuOpen = ref(false);
 
-const navLinks = [
+interface NavItem {
+  name: string;
+  path: string;
+  badge?: string;
+}
+
+const navLinks: NavItem[] = [
   { name: 'Inicio', path: '/' },
-  { name: 'Soluciones', path: '/#soluciones' },
   { name: 'Proyectos', path: '/proyectos' },
-  { name: 'Academy', path: '/academy', badge: 'En construcción' },
+  { name: 'Academy', path: '/academy' },
   { name: 'Nosotros', path: '/#nosotros' }
 ];
 
