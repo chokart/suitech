@@ -17,7 +17,13 @@ export interface SolutionItem {
   deliverables: string[];
 }
 
-export type ProjectStatus = 'prototipo' | 'desarrollo' | 'operativo';
+export type ProjectStatus = 'desarrollado' | 'prototipo' | 'desarrollo' | 'operativo';
+
+export interface ProjectImage {
+  src: string;
+  caption: string;
+  isPrimary?: boolean;
+}
 
 export interface ProjectItem {
   id: string;
@@ -26,14 +32,18 @@ export interface ProjectItem {
   category: string;
   status: ProjectStatus;
   statusLabel: string;
+  description?: string;
   problem: string;
   solution: string;
   technologies: string[];
-  architectureSummary: string;
+  architectureSummary?: string;
   keyFeatures: string[];
   honestDisclaimer?: string;
-  visualType: 'iot' | 'business' | 'ai-automation' | 'analytics' | 'industrial';
+  complementaryText?: string;
+  visualType?: 'iot' | 'business' | 'ai-automation' | 'analytics' | 'industrial' | 'mining';
   dedicatedUrl?: string;
+  filterCategory?: 'software' | 'iot' | 'ingenieria';
+  images?: ProjectImage[];
 }
 
 export interface ValuePillar {

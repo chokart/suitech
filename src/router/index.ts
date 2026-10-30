@@ -263,19 +263,19 @@ const routes: RouteRecordRaw[] = [
     name: 'proyectos',
     component: ProjectsView,
     meta: {
-      title: 'Proyectos y Portafolio de Ingeniería de Software & IoT | Suitech Perú',
-      description: 'Portafolio técnico de Suitech Perú: sistemas de gestión empresarial, monitoreo de nivel de agua con ESP32, extracción con IA y software industrial.',
+      title: 'Proyectos que estamos construyendo · Portafolio de Tecnología | Suitech Perú',
+      description: 'Portafolio de proyectos de Suitech Perú: sistema de gestión y monitoreo de operaciones mineras, software de gestión empresarial, monitoreo IoT con ESP32 y SuiteMinerals.',
       canonical: 'https://suitechpe.com/proyectos/',
-      keywords: 'proyectos de software Perú, portafolio IoT ESP32, casos de automatización con inteligencia artificial',
+      keywords: 'proyectos software minería Perú, sistema gestión operaciones mineras, monitoreo nivel agua ESP32, software empresarial Perú, SuiteMinerals',
       ogType: 'website',
       structuredData: {
         '@context': 'https://schema.org',
         '@graph': [
           {
             '@type': 'CollectionPage',
-            name: 'Proyectos y Portafolio Técnico de Suitech',
+            name: 'Proyectos que estamos construyendo · Suitech Perú',
             url: 'https://suitechpe.com/proyectos/',
-            description: 'Casos reales de ingeniería aplicada a problemas operacionales en Perú.'
+            description: 'Selección de proyectos de desarrollo de software, monitoreo IoT e ingeniería aplicada.'
           },
           {
             '@type': 'BreadcrumbList',

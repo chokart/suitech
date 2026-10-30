@@ -171,110 +171,129 @@ export const VALUE_PILLARS: ValuePillar[] = [
 
 export const PROJECTS: ProjectItem[] = [
   {
-    id: 'sistema-gestion-empresarial',
-    name: 'Sistema de Gestión Empresarial',
-    shortName: 'Gestión Comercial & Stock',
-    category: 'Software Empresarial · Productividad',
-    status: 'operativo',
-    statusLabel: 'Operativo en entorno real',
-    problem: 'Pérdida de control financiero y desorden de existencias en negocios que gestionan compras, ventas, insumos y gastos en libretas o notas sueltas.',
-    solution: 'Aplicación administrativa práctica para registrar flujos diarios de caja, cobros por servicios, control estricto de inventario, consumo de insumos y métricas de rentabilidad neta.',
-    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Vite', 'LocalStorage / Cloud DB'],
-    architectureSummary: 'Aplicación web ligera con gestión de estado centralizada, cálculo automático de márgenes operativos y reportes imprimibles/exportables.',
+    id: 'gestion-operaciones-mineras',
+    name: 'Sistema de gestión y monitoreo de operaciones mineras.',
+    shortName: 'Gestión Minera',
+    category: 'SOFTWARE · GESTIÓN OPERATIVA · MINERÍA',
+    filterCategory: 'software',
+    status: 'desarrollado',
+    statusLabel: 'Desarrollado',
+    description: 'Sistema web desarrollado para facilitar el seguimiento y la gestión de actividades operativas en el entorno minero. Integra información relacionada con equipos, movimientos de cancha, personal y producción en una plataforma digital.',
+    problem: 'Dispersión de registros diarios en faenas mineras respecto a horas de maquinaria, transferencias de material en cancha, turnos de personal y conciliación de volumen de producción.',
+    solution: 'Plataforma web integrada que unifica en tiempo real el registro de equipos, movimientos de cancha, cuadrillas operativas y avance de producción con trazabilidad inmediata.',
+    complementaryText: 'Un desarrollo que integra software y conocimiento del entorno minero para organizar información y facilitar el seguimiento de las operaciones.',
+    technologies: ['Vue 3', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
+    architectureSummary: 'Arquitectura web con base de datos relacional para registro operativo, panel reactivo de turnos y reportes operacionales exportables.',
     keyFeatures: [
-      'Registro rápido de ingresos y egresos por categorías',
-      'Inventario de insumos con aviso automático de stock mínimo',
-      'Control de tiempos de servicio y uso de recursos',
-      'Cierre de caja diario con conciliación automática',
-      'Resumen visual de rentabilidad y gastos del período'
+      'Monitoreo de equipos.',
+      'Registro de movimientos de cancha.',
+      'Gestión de rol de personal.',
+      'Visualización y seguimiento de producción.'
     ],
-    honestDisclaimer: 'Solución probada y en uso en operaciones comerciales reales, adaptada para ser replicable en negocios con necesidades análogas.',
-    visualType: 'business'
+    honestDisclaimer: 'Sistema desarrollado por iniciativa propia con autorización comercial. Se resguarda la estricta confidencialidad de datos operativos reales y de terceros.',
+    visualType: 'mining',
+    images: [
+      { src: '/images/projects/mineria/panel-operaciones.webp', caption: 'Panel principal de operaciones', isPrimary: true },
+      { src: '/images/projects/mineria/equipos.webp', caption: 'Monitoreo de equipos' },
+      { src: '/images/projects/mineria/movimientos-cancha.webp', caption: 'Movimientos de cancha' },
+      { src: '/images/projects/mineria/produccion.webp', caption: 'Producción y rol de personal' }
+    ]
+  },
+  {
+    id: 'sistema-gestion-empresarial',
+    name: 'Sistema de gestión empresarial.',
+    shortName: 'Gestión Empresarial',
+    category: 'SOFTWARE · GESTIÓN EMPRESARIAL',
+    filterCategory: 'software',
+    status: 'desarrollado',
+    statusLabel: 'Desarrollado',
+    description: 'Aplicación web orientada a la gestión de operaciones, ventas, inventarios y registros administrativos. Busca centralizar información y facilitar las actividades de gestión del negocio.',
+    problem: 'Pérdida de control en inventarios, ventas no sincronizadas y dificultad para conciliar caja diaria en negocios que operan con registros manuales.',
+    solution: 'Aplicación web administrativa para registrar transacciones de venta, gestionar inventario de productos e insumos, control de caja y emisión de reportes administrativos.',
+    complementaryText: 'Desarrollo práctico enfocado en ordenar la información operativa del negocio sin añadir pasos innecesarios.',
+    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Vite', 'Cloud DB'],
+    architectureSummary: 'Aplicación web ligera con gestión de estado centralizada, registro de ventas, control de existencias y reportes administrativos.',
+    keyFeatures: [
+      'Gestión de productos.',
+      'Control de inventarios.',
+      'Registro de ventas.',
+      'Control de caja.',
+      'Gestión de gastos.',
+      'Reportes administrativos.'
+    ],
+    honestDisclaimer: 'Aplicación funcional orientada a la gestión administrativa diaria de negocios y comercios.',
+    visualType: 'business',
+    images: [
+      { src: '/images/projects/gestion/dashboard.webp', caption: 'Dashboard principal', isPrimary: true },
+      { src: '/images/projects/gestion/productos.webp', caption: 'Módulo de productos' },
+      { src: '/images/projects/gestion/reportes.webp', caption: 'Reportes y gestión' }
+    ]
   },
   {
     id: 'iot-nivel-agua',
-    name: 'Monitoreo Inteligente de Nivel de Reservorios',
-    shortName: 'Telemetría IoT de Nivel',
-    category: 'IoT · Hardware & Telemetría',
+    name: 'Monitoreo remoto de nivel de agua.',
+    shortName: 'Monitoreo de Nivel IoT',
+    category: 'IoT · HARDWARE · MONITOREO REMOTO',
+    filterCategory: 'iot',
     status: 'prototipo',
-    statusLabel: 'Prototipo funcional demostrativo',
-    problem: 'Riesgo de desabastecimiento o rebalse en reservorios y tanques debido a revisiones manuales discontinuas, falta de alertas tempranas y ausencia de telemetría a distancia en puntos remotos.',
-    solution: 'Sistema IoT compuesto por un microcontrolador ESP32 acoplado a un sensor ultrasónico/de presión, firmware que transmite lecturas vía WiFi/HTTP hacia un servidor, y un panel web en tiempo real que alerta niveles críticos.',
-    technologies: ['ESP32', 'C/C++ (Arduino/ESP-IDF)', 'Sensores Ultrasónicos', 'REST API', 'Vue 3 Dashboard'],
-    architectureSummary: 'Sensor -> Conversión ADC/Serial -> Microcontrolador ESP32 -> Envío JSON seguro vía HTTP -> API Backend -> Panel Web Reactivo con gráficos de nivel.',
-    keyFeatures: [
-      'Lectura continua de nivel de líquido en porcentaje y volumen estimado',
-      'Transmisión de telemetría con manejo de reconexión y bajo consumo',
-      'Panel web con visualización gráfica del reservorio en tiempo real',
-      'Alertas visuales de nivel bajo, nivel óptimo y sobrellenado',
-      'Módulo pensado como base para proyectos de telemetría y supervisión remota'
+    statusLabel: 'Prototipo',
+    description: 'Proyecto que integra un microcontrolador ESP32, sensor ultrasónico, conectividad inalámbrica y una plataforma web para visualizar información del nivel de agua de un tanque.',
+    problem: 'Supervisión manual riesgosa y discontinua en tanques de agua, con ausencia de lecturas continuas o alertas a distancia.',
+    solution: 'Sistema que conecta una medición física ultrasónica con un microcontrolador ESP32 y un servidor en la nube para visualizar lecturas a través de una plataforma web.',
+    complementaryText: 'El objetivo es conectar un sistema de medición física con una plataforma digital que permita consultar la información de manera remota.',
+    technologies: [
+      'ESP32-S3',
+      'Sensor ultrasónico JSN-SR04T',
+      'Conectividad Wi-Fi',
+      'Comunicación con servidor VPS',
+      'Plataforma web de monitoreo'
     ],
-    honestDisclaimer: 'Prototipo activo de demostración e investigación técnica. Empleado en divulgación y como base experimental de hardware conectado.',
-    visualType: 'iot'
-  },
-  {
-    id: 'automatizacion-ia-documentos',
-    name: 'Plataforma de Extracción y Automatización con IA',
-    shortName: 'Automatización con IA',
-    category: 'Inteligencia Artificial · Automatización',
-    status: 'desarrollo',
-    statusLabel: 'En desarrollo · Validación técnica',
-    problem: 'Pérdida de horas de trabajo en digitación manual de comprobantes, facturas, recibos y reportes operativos sin formato unificado.',
-    solution: 'Pipeline asistido por IA que recibe documentos en PDF o imágenes, procesa y extrae campos estructurados automáticamente (RUC, montos, fechas, ítems) y los integra con la base de datos.',
-    technologies: ['Python', 'LLM Vision APIs', 'Vue 3', 'REST API', 'PostgreSQL / SQLite'],
-    architectureSummary: 'Carga de archivos -> Preprocesamiento de imagen -> Prompt estructurado con esquema JSON estricto -> Ingesta automática en API -> Dashboard de validación humana.',
+    architectureSummary: 'Sensor JSN-SR04T -> Microcontrolador ESP32-S3 -> Transmisión JSON HTTP vía Wi-Fi -> Servidor VPS -> Plataforma web de monitoreo.',
     keyFeatures: [
-      'Extracción automática de datos estructurados desde PDFs e imágenes',
-      'Validación de esquemas y reglas de negocio en tiempo real',
-      'Panel de confirmación visual para discrepancias detectadas',
-      'Exportación directa a sistemas contables y hojas de cálculo',
-      'Reducción drástica del tiempo de ingreso de información'
+      'ESP32-S3.',
+      'Sensor ultrasónico JSN-SR04T.',
+      'Conectividad Wi-Fi.',
+      'Comunicación con servidor VPS.',
+      'Plataforma web de monitoreo.'
     ],
-    honestDisclaimer: 'Proyecto en etapa de refinamiento de modelos y prompts para garantizar tasas de precisión elevadas antes de su lanzamiento general.',
-    visualType: 'ai-automation'
-  },
-  {
-    id: 'dashboard-metricas-operativas',
-    name: 'Panel Centralizado de Analítica y Métricas',
-    shortName: 'Dashboard de Analítica',
-    category: 'Software Web · Analítica',
-    status: 'desarrollo',
-    statusLabel: 'En validación técnica',
-    problem: 'Falta de visibilidad unificada de KPIs, estado de servicios, usuarios activos y métricas de desempeño, obligando a revisar múltiples herramientas dispersas.',
-    solution: 'Dashboard web reactivo de alta velocidad que consolida métricas clave, gráficos interactivos, alertas de umbrales y roles de acceso en un solo entorno limpio y moderno.',
-    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Chart.js / SVG', 'REST API'],
-    architectureSummary: 'Arquitectura SPA reactiva desacoplada del backend, con actualización periódica de métricas, diseño responsive e interfaz modo oscuro de alta legibilidad.',
-    keyFeatures: [
-      'Visualización de métricas en tiempo real con indicadores de tendencia',
-      'Filtrado interactivo por rangos de fecha y categorías operativas',
-      'Generación de reportes ejecutivos en PDF con un clic',
-      'Diseño 100% responsive optimizado para móviles y pantallas grandes',
-      'Componentes modulares adaptables a distintos tipos de negocio'
-    ],
-    honestDisclaimer: 'Desarrollado como base de producto digital para clientes que requieren una capa visual moderna sobre sus datos existentes.',
-    visualType: 'analytics'
+    honestDisclaimer: 'Prototipo funcional demostrativo de hardware y software conectado, desarrollado para validar la transmisión de variables físicas a la web.',
+    visualType: 'iot',
+    images: [
+      { src: '/images/projects/iot/prototipo.webp', caption: 'Prototipo electrónico ESP32', isPrimary: true },
+      { src: '/images/projects/iot/sensor-tanque.webp', caption: 'Sensor instalado en el tanque' },
+      { src: '/images/projects/iot/monitoreo-web.webp', caption: 'Panel web de monitoreo' }
+    ]
   },
   {
     id: 'suiteminerals',
-    name: 'SuiteMinerals · Software de Balances Metalúrgicos',
-    shortName: 'SuiteMinerals (Metalurgia)',
-    category: 'Software Industrial · Metalurgia & Procesos',
+    name: 'SuiteMinerals.',
+    shortName: 'SuiteMinerals',
+    category: 'INGENIERÍA · METALURGIA · SOFTWARE',
+    filterCategory: 'ingenieria',
     status: 'desarrollo',
-    statusLabel: 'En desarrollo · Validación técnica',
-    problem: 'Hojas de cálculo complejas y desarticuladas en plantas concentradoras para calcular balances de materia, recuperación metalúrgica y dimensionamiento de circuitos.',
-    solution: 'Plataforma web de ingeniería de procesos para el cálculo riguroso de balances de materia por dos y tres productos, cinéticas de flotación y reportes normalizados de turno.',
-    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Algoritmos Numéricos', 'Exportación PDF/Excel'],
-    architectureSummary: 'Motor de cálculo metalúrgico reactivo en el navegador con verificación de consistencia de leyes, algoritmos de mínimos cuadrados y generación instantánea de balances.',
+    statusLabel: 'En desarrollo',
+    description: 'SuiteMinerals es una plataforma tecnológica en desarrollo orientada a incorporar herramientas de cálculo, balances de materia y análisis de información relacionada con procesos metalúrgicos.',
+    problem: 'Hojas de cálculo dispersas y propensas a errores para el cálculo rutinario de balances de materia y evaluación metalúrgica de plantas de procesamiento mineral.',
+    solution: 'Plataforma web de ingeniería que integra herramientas de cálculo numérico, balances de dos y tres productos y estructuración de información técnica de procesos.',
+    complementaryText: 'Un producto propio que busca conectar conocimientos de ingeniería metalúrgica con herramientas digitales para facilitar cálculos y análisis técnicos.',
+    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Algoritmos Numéricos', 'Exportación de Datos'],
+    architectureSummary: 'Motor de cálculo paramétrico metalúrgico implementado en web para balance de materia, estimación de recuperaciones y reportes estructurados.',
     keyFeatures: [
-      'Balance de materia de dos y tres productos con leyes de cabeza, concentrado y relave',
-      'Cálculo automático de recuperación metalúrgica y ratio de concentración',
-      'Dimensionamiento paramétrico de celdas de flotación y espesadores',
-      'Exportación normalizada de reportes de guardia a Excel y PDF',
-      'Diseñado para cálculos metalúrgicos rutinarios y control de procesos'
+      'Cálculos metalúrgicos.',
+      'Balances de materia.',
+      'Organización de información técnica.',
+      'Análisis de datos de procesos.',
+      'Visualización de resultados.',
+      'Incorporación progresiva de módulos especializados.'
     ],
-    honestDisclaimer: 'SuiteMinerals es una plataforma en desarrollo que reúne herramientas digitales para cálculos y análisis metalúrgicos. Sus funcionalidades se incorporan y verifican progresivamente.',
+    honestDisclaimer: 'SuiteMinerals es un producto propio en desarrollo. Sus módulos y funcionalidades se implementan y verifican de forma progresiva.',
     visualType: 'industrial',
-    dedicatedUrl: '/proyectos/suiteminerals'
+    dedicatedUrl: '/proyectos/suiteminerals',
+    images: [
+      { src: '/images/projects/suiteminerals/inicio.webp', caption: 'Interfaz principal de SuiteMinerals', isPrimary: true },
+      { src: '/images/projects/suiteminerals/balance-materia.webp', caption: 'Módulo de balance de materia' },
+      { src: '/images/projects/suiteminerals/analisis.webp', caption: 'Módulo de cálculos o análisis' }
+    ]
   }
 ];
 

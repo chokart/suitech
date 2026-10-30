@@ -311,19 +311,19 @@ const routesMeta = [
   },
   {
     path: '/proyectos/',
-    title: 'Portafolio de Proyectos Tecnológicos y Software | Suitech Perú',
-    description: 'Explora nuestros proyectos en desarrollo y operativos: sistemas de gestión, monitoreo de nivel con ESP32, herramientas con IA y software para metalurgia SuiteMinerals.',
+    title: 'Proyectos que estamos construyendo · Portafolio de Tecnología | Suitech Perú',
+    description: 'Portafolio de proyectos de Suitech Perú: sistema de gestión y monitoreo de operaciones mineras, software de gestión empresarial, monitoreo IoT con ESP32 y SuiteMinerals.',
     canonical: 'https://suitechpe.com/proyectos/',
-    keywords: 'proyectos tecnológicos Perú, software a medida, prototipo ESP32 nivel, SuiteMinerals, software balances metalúrgicos',
+    keywords: 'proyectos software minería Perú, sistema gestión operaciones mineras, monitoreo nivel agua ESP32, software empresarial Perú, SuiteMinerals',
     ogType: 'website',
     schema: {
       '@context': 'https://schema.org',
       '@graph': [
         {
           '@type': 'CollectionPage',
-          name: 'Portafolio de Proyectos Tecnológicos Suitech',
+          name: 'Proyectos que estamos construyendo · Suitech Perú',
           url: 'https://suitechpe.com/proyectos/',
-          description: 'Sistemas web operativos, prototipos de telemetría IoT y software industrial en desarrollo.'
+          description: 'Selección de proyectos de desarrollo de software, monitoreo IoT e ingeniería aplicada.'
         },
         {
           '@type': 'BreadcrumbList',
@@ -337,17 +337,18 @@ const routesMeta = [
     htmlContent: `
       <main style="max-width: 1200px; margin: 0 auto; padding: 4rem 1rem; color: #e2e8f0; font-family: system-ui, sans-serif;">
         <h1 style="font-size: 2.5rem; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 1.5rem;">
-          Portafolio de proyectos y desarrollos técnicos
+          Proyectos que estamos construyendo.
         </h1>
         <p style="font-size: 1.2rem; color: #94a3b8; max-width: 800px; line-height: 1.6; margin-bottom: 2.5rem;">
-          Demostramos capacidades a través de código y prototipos funcionales: sistemas de gestión comercial, telemetría IoT y herramientas de ingeniería aplicada.
+          Una selección de desarrollos donde aplicamos software, ingeniería y tecnologías conectadas para resolver necesidades concretas.
         </p>
         <section style="margin-top: 2rem;">
-          <h2 style="font-size: 1.75rem; color: #fff; margin-bottom: 1rem;">Proyectos Destacados</h2>
+          <h2 style="font-size: 1.75rem; color: #fff; margin-bottom: 1rem;">Proyectos en el Portafolio</h2>
           <ul style="color: #94a3b8; line-height: 1.8; font-size: 1.1rem;">
-            <li><strong>Sistema de Gestión Empresarial:</strong> Control de ingresos, egresos, stock y cierre de caja.</li>
-            <li><strong>Telemetría IoT de Nivel:</strong> Microcontrolador ESP32 con sensor ultrasónico y panel web en vivo.</li>
-            <li><strong><a href="/proyectos/suiteminerals/" style="color: #006EFE; text-decoration: none;">SuiteMinerals:</a></strong> Plataforma en desarrollo para balances de materia y cálculos metalúrgicos.</li>
+            <li><strong>Sistema de gestión y monitoreo de operaciones mineras:</strong> Monitoreo de equipos, movimientos de cancha, rol de personal y producción. (Desarrollado)</li>
+            <li><strong>Sistema de gestión empresarial:</strong> Control de inventarios, ventas, caja diaria y reportes administrativos. (Desarrollado)</li>
+            <li><strong>Monitoreo remoto de nivel de agua:</strong> Integración de microcontrolador ESP32-S3, sensor ultrasónico y plataforma web. (Prototipo)</li>
+            <li><strong><a href="/proyectos/suiteminerals/" style="color: #006EFE; text-decoration: none;">SuiteMinerals:</a></strong> Plataforma en desarrollo orientada a balances de materia y cálculos metalúrgicos. (En desarrollo)</li>
           </ul>
         </section>
       </main>
